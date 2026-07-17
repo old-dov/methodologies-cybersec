@@ -15,6 +15,5 @@ Techniques d'audit et d'exploitation sur les applications web.
 ### 🛡️ SIEM & SOC
 Architecture, déploiement et gestion d'infrastructure de supervision.
 
-- [SIEM Wazuh – Architecture Freelance](siem-soc/siem-wazuh.md)
 - [Agent Wazuh – Déploiement multi-OS](siem-soc/agent-wazuh.md)
 - [Analyse de Risques Cyber](siem-soc/analyse-risques.md)

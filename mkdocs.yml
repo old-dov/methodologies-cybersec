@@ -2,14 +2,25 @@ site_name: Wiki Méthodologies Cybersécurité
 site_description: Base de connaissances personnelle – Audit, Pentest & Architecture Sécurité
 site_author: Muzee
 docs_dir: docs
+exclude_docs: |
+  siem-soc/siem-wazuh.md
 
 theme:
   name: material
   language: fr
   palette:
-    scheme: slate
-    primary: deep purple
-    accent: cyan
+    - scheme: default
+      primary: indigo
+      accent: cyan
+      toggle:
+        icon: material/weather-night
+        name: Passer en mode sombre
+    - scheme: slate
+      primary: indigo
+      accent: cyan
+      toggle:
+        icon: material/weather-sunny
+        name: Passer en mode clair
   features:
     - navigation.tabs
     - navigation.sections
@@ -45,6 +56,5 @@ nav:
     - Bypass Upload Fichiers: web/upload-bypass.md
     - Fuzzing avec ffuf: web/ffuf.md
   - SIEM & SOC:
-    - SIEM Wazuh – Architecture Freelance: siem-soc/siem-wazuh.md
     - Agent Wazuh – Multi-OS: siem-soc/agent-wazuh.md
     - Analyse de Risques Cyber: siem-soc/analyse-risques.md
