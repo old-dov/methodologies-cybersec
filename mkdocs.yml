@@ -59,3 +59,14 @@ nav:
   - SIEM & SOC:
     - Agent Wazuh – Multi-OS: siem-soc/agent-wazuh.md
     - Analyse de Risques Cyber: siem-soc/analyse-risques.md
+  - Bibliothèque:
+    - Infrastructure Logs Wazuh: bibliotheque/wazuh-logs-infrastructure.md
+    - Flux de Travail Metasploit: bibliotheque/metasploit-workflow.md
+    - NIST CSF 2.0 - 6 Fonctions Vitales: bibliotheque/nist-csf-2-fonctions-vitales.md
+    - Réseau Windows - AD DNS DHCP: bibliotheque/reseau-windows-ad-dns-dhcp.md
+    - Vulnérabilités de Configuration AD: bibliotheque/ad-vulnerabilites-configuration.md
+    - Procédures Forensiques Multi-Vecteurs: bibliotheque/forensique-acquisition-analyse-multivecteurs.md
+    - Réponse Compromission d'Identifiants: bibliotheque/reponse-compromission-identifiants-phishing.md
+    - Investigation Mémoire et Pilotes: bibliotheque/investigation-memoire-audit-pilotes.md
+    - Détection d'Intrusion et Processus Critiques: bibliotheque/investigation-intrusion-processus-critiques.md
+    - Architecture et Automatisation GPO: bibliotheque/gpo-architecture-automatisation.md
