@@ -52,6 +52,7 @@ nav:
   - Accueil: index.md
   - Sécurité Web:
     - Audit IDOR: web/idor.md
+    - Lab Decima / Samaritan OS: web/decima-samaritan-idor.md
     - Contournement CSRF: web/csrf.md
     - Bypass Upload Fichiers: web/upload-bypass.md
     - Fuzzing avec ffuf: web/ffuf.md
