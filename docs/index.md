@@ -4,6 +4,7 @@ Base de connaissances personnelle regroupant les méthodologies d'audit, de test
 
 ## Dernières mises à jour
 
+- 2026-07-17 : Ajout du protocole d'audit sur l'escalade de privilèges via les services Windows.
 - 2026-07-17 : Ajout de la méthodologie Lab Decima / Samaritan OS (IDOR & Contrôle d'accès).
 - 2026-07-17 : Publication de 10 nouvelles fiches dans la bibliothèque.
 
@@ -36,4 +37,5 @@ Fiches opérationnelles et référentiels techniques transverses.
 - [Manuel de Procédures Opérationnelles - Réponse aux Compromissions d'Identifiants (Phishing)](bibliotheque/reponse-compromission-identifiants-phishing.md)
 - [Protocole d'Investigation Numérique - Analyse de la Mémoire et Audit des Pilotes](bibliotheque/investigation-memoire-audit-pilotes.md)
 - [Protocole d'Investigation Numérique - Détection d'Intrusion et Surveillance des Processus Critiques](bibliotheque/investigation-intrusion-processus-critiques.md)
+- [Protocole d'Audit - Identification et Prévention de l'Escalade de Privilèges via les Services Windows](bibliotheque/escalade-privileges-services-windows.md)
 - [Référentiel Technique - Architecture et Automatisation des Group Policy Objects (GPO)](bibliotheque/gpo-architecture-automatisation.md)
