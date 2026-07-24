@@ -52,7 +52,8 @@ nav:
   - Accueil: index.md
   - Sécurité Web:
     - Audit IDOR: web/idor.md
-    - Lab Decima / Samaritan OS: web/decima-samaritan-idor.md
+    - Lab Decima / Samaritan OS (Contrôle d'accès): web/decima-samaritan-controle-acces.md
+    - Pentest API IBC-News (Grey Box): web/ibc-news-api.md
     - Contournement CSRF: web/csrf.md
     - Bypass Upload Fichiers: web/upload-bypass.md
     - Fuzzing avec ffuf: web/ffuf.md
@@ -71,3 +72,7 @@ nav:
     - Détection d'Intrusion et Processus Critiques: bibliotheque/investigation-intrusion-processus-critiques.md
     - Escalade de Privilèges via les Services Windows: bibliotheque/escalade-privileges-services-windows.md
     - Architecture et Automatisation GPO: bibliotheque/gpo-architecture-automatisation.md
+  - Rapports:
+    - AWSGoat Pentest: rapport-awsgoat-pentest.md
+    - IAM Vulnerable LocalStack: rapport-iam-vulnerable-localstack.md
+    - AWSGoat Module 2 – Déploiement LocalStack: rapport-awsgoat-module2-deploiement-localstack.md

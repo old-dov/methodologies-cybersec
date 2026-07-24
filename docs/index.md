@@ -4,9 +4,19 @@ Base de connaissances personnelle regroupant les méthodologies d'audit, de test
 
 ## Dernières mises à jour
 
+- 2026-07-24 : Nouveau rapport publié - [AWSGoat Module 2 – Déploiement LocalStack](rapport-awsgoat-module2-deploiement-localstack.md).
+- 2026-07-23 : Nouveau rapport publié - [IAM Vulnerable LocalStack](rapport-iam-vulnerable-localstack.md).
+- 2026-07-22 : Nouveau rapport publié - [AWSGoat Pentest](rapport-awsgoat-pentest.md).
+- 2026-07-20 : Ajout de la méthodologie Pentest Grey Box API REST IBC-News.
 - 2026-07-17 : Ajout du protocole d'audit sur l'escalade de privilèges via les services Windows.
-- 2026-07-17 : Ajout de la méthodologie Lab Decima / Samaritan OS (IDOR & Contrôle d'accès).
+- 2026-07-17 : Ajout de la méthodologie Lab Decima / Samaritan OS (Contrôle d'accès multi-vecteurs).
 - 2026-07-17 : Publication de 10 nouvelles fiches dans la bibliothèque.
+
+## Rapports
+
+- [AWSGoat Pentest](rapport-awsgoat-pentest.md)
+- [IAM Vulnerable LocalStack](rapport-iam-vulnerable-localstack.md)
+- [AWSGoat Module 2 – Déploiement LocalStack](rapport-awsgoat-module2-deploiement-localstack.md)
 
 ## Catégories
 
@@ -14,7 +24,8 @@ Base de connaissances personnelle regroupant les méthodologies d'audit, de test
 Techniques d'audit et d'exploitation sur les applications web.
 
 - [Audit IDOR](web/idor.md)
-- [Lab Decima / Samaritan OS (IDOR & Contrôle d'accès)](web/decima-samaritan-idor.md)
+- [Lab Decima / Samaritan OS (Contrôle d'accès)](web/decima-samaritan-controle-acces.md)
+- [Pentest API IBC-News (Grey Box)](web/ibc-news-api.md)
 - [Contournement CSRF](web/csrf.md)
 - [Bypass Upload de Fichiers](web/upload-bypass.md)
 - [Fuzzing avec ffuf](web/ffuf.md)
