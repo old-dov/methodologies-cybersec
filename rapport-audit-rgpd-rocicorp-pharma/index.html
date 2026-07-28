@@ -1,0 +1,2267 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Base de connaissances personnelle – Audit, Pentest & Architecture Sécurité">
+      
+      
+        <meta name="author" content="Muzee">
+      
+      
+      
+        <link rel="prev" href="../rapport-conformite-rgpd-aipd-genomepath/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Audit RGPD Rocicorp Pharma - Wiki Méthodologies Cybersécurité</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#rapport-daudit-rgpd-rocicorp-pharma-project-panacea" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href=".." title="Wiki Méthodologies Cybersécurité" class="md-header__button md-logo" aria-label="Wiki Méthodologies Cybersécurité" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Wiki Méthodologies Cybersécurité
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Audit RGPD Rocicorp Pharma
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan"  aria-label="Passer en mode sombre"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Passer en mode sombre" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="cyan"  aria-label="Passer en mode clair"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Passer en mode clair" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Accueil
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../web/idor/" class="md-tabs__link">
+          
+  
+  
+  Sécurité Web
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../siem-soc/agent-wazuh/" class="md-tabs__link">
+          
+  
+  
+  SIEM & SOC
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../bibliotheque/wazuh-logs-infrastructure/" class="md-tabs__link">
+          
+  
+  
+  Bibliothèque
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../rapport-awsgoat-pentest/" class="md-tabs__link">
+          
+  
+  
+  Rapports
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Wiki Méthodologies Cybersécurité" class="md-nav__button md-logo" aria-label="Wiki Méthodologies Cybersécurité" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Wiki Méthodologies Cybersécurité
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Accueil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sécurité Web
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Sécurité Web
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../web/idor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Audit IDOR
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../web/decima-samaritan-controle-acces/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab Decima / Samaritan OS (Contrôle d'accès)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../web/ibc-news-api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pentest API IBC-News (Grey Box)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../web/csrf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contournement CSRF
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../web/upload-bypass/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bypass Upload Fichiers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../web/ffuf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fuzzing avec ffuf
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SIEM & SOC
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    SIEM & SOC
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../siem-soc/agent-wazuh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent Wazuh – Multi-OS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../siem-soc/analyse-risques/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analyse de Risques Cyber
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bibliothèque
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Bibliothèque
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bibliotheque/wazuh-logs-infrastructure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Infrastructure Logs Wazuh
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bibliotheque/metasploit-workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Flux de Travail Metasploit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bibliotheque/nist-csf-2-fonctions-vitales/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NIST CSF 2.0 - 6 Fonctions Vitales
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bibliotheque/reseau-windows-ad-dns-dhcp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Réseau Windows - AD DNS DHCP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bibliotheque/ad-vulnerabilites-configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vulnérabilités de Configuration AD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bibliotheque/forensique-acquisition-analyse-multivecteurs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Procédures Forensiques Multi-Vecteurs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bibliotheque/reponse-compromission-identifiants-phishing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Réponse Compromission d'Identifiants
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bibliotheque/investigation-memoire-audit-pilotes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Investigation Mémoire et Pilotes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bibliotheque/investigation-intrusion-processus-critiques/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Détection d'Intrusion et Processus Critiques
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bibliotheque/escalade-privileges-services-windows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Escalade de Privilèges via les Services Windows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bibliotheque/gpo-architecture-automatisation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture et Automatisation GPO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rapports
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Rapports
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rapport-awsgoat-pentest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AWSGoat Pentest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rapport-iam-vulnerable-localstack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IAM Vulnerable LocalStack
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rapport-awsgoat-module2-deploiement-localstack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AWSGoat Module 2 – Déploiement LocalStack
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rapport-conformite-rgpd-aipd-genomepath/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Conformité RGPD & AIPD (GenomePath)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Audit RGPD Rocicorp Pharma
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Audit RGPD Rocicorp Pharma
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-synthese-executive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Synthèse exécutive
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-cadre-reglementaire-mobilise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Cadre réglementaire mobilisé
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-target-1-leaky-portal-privacy-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Target 1 — Leaky Portal (privacy-api)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Target 1 — Leaky Portal (privacy-api)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-compliance-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Compliance Status
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-legal-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Legal Context
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-technical-evidence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Technical Evidence
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-remediation-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 Remediation Details
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-target-2-algorithmic-cruelty-ai-engine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Target 2 — Algorithmic Cruelty (ai-engine)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Target 2 — Algorithmic Cruelty (ai-engine)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-compliance-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Compliance Status
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-legal-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Legal Context
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-technical-evidence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 Technical Evidence
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-remediation-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 Remediation Details
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-target-3-illusion-of-erasure-db-postgres-kms-vault" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Target 3 — Illusion of Erasure (db-postgres / kms-vault)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Target 3 — Illusion of Erasure (db-postgres / kms-vault)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-compliance-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Compliance Status
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-legal-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Legal Context
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-technical-evidence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Technical Evidence
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-remediation-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 Remediation Details
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-target-4-silent-watcher-siem-logger" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Target 4 — Silent Watcher (siem-logger)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Target 4 — Silent Watcher (siem-logger)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-compliance-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 Compliance Status
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-legal-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 Legal Context
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-technical-evidence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 Technical Evidence
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-remediation-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4 Remediation Details
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-synthese-executive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Synthèse exécutive
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-cadre-reglementaire-mobilise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Cadre réglementaire mobilisé
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-target-1-leaky-portal-privacy-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Target 1 — Leaky Portal (privacy-api)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Target 1 — Leaky Portal (privacy-api)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-compliance-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Compliance Status
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-legal-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Legal Context
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-technical-evidence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Technical Evidence
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-remediation-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 Remediation Details
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-target-2-algorithmic-cruelty-ai-engine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Target 2 — Algorithmic Cruelty (ai-engine)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Target 2 — Algorithmic Cruelty (ai-engine)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-compliance-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Compliance Status
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-legal-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Legal Context
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-technical-evidence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 Technical Evidence
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-remediation-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 Remediation Details
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-target-3-illusion-of-erasure-db-postgres-kms-vault" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Target 3 — Illusion of Erasure (db-postgres / kms-vault)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Target 3 — Illusion of Erasure (db-postgres / kms-vault)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-compliance-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Compliance Status
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-legal-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Legal Context
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-technical-evidence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Technical Evidence
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-remediation-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 Remediation Details
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-target-4-silent-watcher-siem-logger" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Target 4 — Silent Watcher (siem-logger)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Target 4 — Silent Watcher (siem-logger)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-compliance-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 Compliance Status
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-legal-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 Legal Context
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-technical-evidence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 Technical Evidence
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-remediation-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4 Remediation Details
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="rapport-daudit-rgpd-rocicorp-pharma-project-panacea">Rapport d'Audit RGPD — Rocicorp Pharma (Project Panacea)<a class="headerlink" href="#rapport-daudit-rgpd-rocicorp-pharma-project-panacea" title="Permanent link">&para;</a></h1>
+<p><strong>Analyste :</strong> Jean
+<strong>Date :</strong> 28 juillet 2026
+<strong>Mandat :</strong> Audit technique White Box — Autorité de contrôle (simulation Jedha Cyber Lead)
+<strong>Cible :</strong> Environnement de réplique production Rocicorp Pharma (jedha-cli, lab <code>rocicorp-pharma</code>)</p>
+<hr />
+<h2 id="1-synthese-executive">1. Synthèse exécutive<a class="headerlink" href="#1-synthese-executive" title="Permanent link">&para;</a></h2>
+<p>L'audit a couvert quatre microservices de la plateforme "Project Panacea" et a permis de confirmer quatre violations actives du RGPD, chacune corrigée in situ par patch du code source Python :</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Target</th>
+<th>Violation</th>
+<th>Article RGPD</th>
+<th>Statut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>privacy-api</td>
+<td>IDOR sur export DSAR</td>
+<td>Art. 5(1)(f), Art. 32</td>
+<td>Corrigé</td>
+</tr>
+<tr>
+<td>2</td>
+<td>ai-engine</td>
+<td>Décision automatisée sans recours</td>
+<td>Art. 22</td>
+<td>Corrigé</td>
+</tr>
+<tr>
+<td>3</td>
+<td>db-postgres / kms-vault</td>
+<td>Effacement impossible sur backup WORM</td>
+<td>Art. 17</td>
+<td>Corrigé (crypto-shredding)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>siem-logger</td>
+<td>Absence de détection de brèche</td>
+<td>Art. 33</td>
+<td>Corrigé</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2-cadre-reglementaire-mobilise">2. Cadre réglementaire mobilisé<a class="headerlink" href="#2-cadre-reglementaire-mobilise" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Amende administrative maximale (négligence grave)</strong> : 4 % du chiffre d'affaires mondial annuel (Art. 83§5), ou 20 M€ si supérieur.</li>
+<li><strong>Notification de violation à l'autorité de contrôle sous 72h</strong> : Article 33.</li>
+<li><strong>Transfert de données hors UE sans décision d'adéquation (post-Schrems II)</strong> : Clauses Contractuelles Types (CCT / SCC).</li>
+<li><strong>Pseudonymisation et chiffrement des systèmes</strong> : Article 32.</li>
+<li><strong>Droit d'opt-out sur la vente/partage de données (Californie)</strong> : CPRA.</li>
+</ul>
+<hr />
+<h2 id="3-target-1-leaky-portal-privacy-api">3. Target 1 — Leaky Portal (privacy-api)<a class="headerlink" href="#3-target-1-leaky-portal-privacy-api" title="Permanent link">&para;</a></h2>
+<h3 id="31-compliance-status">3.1 Compliance Status<a class="headerlink" href="#31-compliance-status" title="Permanent link">&para;</a></h3>
+<p>L'endpoint <code>/api/dsar/export</code> acceptait un paramètre <code>patient_id</code> fourni librement par le client, sans vérification de correspondance avec l'utilisateur authentifié. Faille de type IDOR (Insecure Direct Object Reference / CWE-639).</p>
+<h3 id="32-legal-context">3.2 Legal Context<a class="headerlink" href="#32-legal-context" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Article 5(1)(f)</strong> — intégrité et confidentialité des données.</li>
+<li><strong>Article 32</strong> — sécurité du traitement, contrôle d'accès défaillant.</li>
+<li>Données exposées : identité, email, IBAN, notes médicales chiffrées.</li>
+</ul>
+<h3 id="33-technical-evidence">3.3 Technical Evidence<a class="headerlink" href="#33-technical-evidence" title="Permanent link">&para;</a></h3>
+<p><strong>Baseline légitime (patient_id=1001, utilisateur Alice Smith) :</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>GET /api/dsar/export?patient_id=1001
+</code></pre></div></p>
+<p><strong>Exploitation (accès non autorisé aux données de Bob Jones) :</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>GET /api/dsar/export?patient_id=1002
+</code></pre></div></p>
+<p>Résultat : retour intégral du dossier de Bob Jones (patient_id=1002) en étant authentifié en tant qu'Alice — confirmation de l'IDOR.</p>
+<h3 id="34-remediation-details">3.4 Remediation Details<a class="headerlink" href="#34-remediation-details" title="Permanent link">&para;</a></h3>
+<p>Fichier corrigé : <code>/app/main.py</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">CURRENT_AUTHENTICATED_PATIENT_ID</span> <span class="o">=</span> <span class="s2">&quot;1001&quot;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/api/dsar/export&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="k">def</span><span class="w"> </span><span class="nf">export_patient_data</span><span class="p">(</span><span class="n">patient_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="k">if</span> <span class="n">patient_id</span> <span class="o">!=</span> <span class="n">CURRENT_AUTHENTICATED_PATIENT_ID</span><span class="p">:</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">403</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s2">&quot;Forbidden: you can only access your own data.&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    <span class="n">conn</span> <span class="o">=</span> <span class="n">get_db_connection</span><span class="p">()</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">conn</span><span class="p">:</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s2">&quot;Internal Server Error: DB unreachable&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>    <span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">(</span><span class="n">cursor_factory</span><span class="o">=</span><span class="n">RealDictCursor</span><span class="p">)</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT patient_id, full_name, email, iban, encrypted_medical_notes FROM patients_pii WHERE patient_id = </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">patient_id</span><span class="p">,))</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>    <span class="n">patient_data</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>    <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>    <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>    <span class="k">if</span> <span class="n">patient_data</span><span class="p">:</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>        <span class="k">return</span> <span class="p">{</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>            <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>            <span class="s2">&quot;legal_basis&quot;</span><span class="p">:</span> <span class="s2">&quot;GDPR Article 20 - Right to Data Portability&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>            <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="n">patient_data</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>        <span class="p">}</span>
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>    <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">404</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s2">&quot;Patient record not found.&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>Commandes d'application (SSH sur privacy-api, port 22) :</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>cp /app/main.py /app/main.py.bak
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>grep -n &#39;^}$&#39; /app/main.py
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>sed -i &#39;21a\
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    if patient_id != CURRENT_AUTHENTICATED_PATIENT_ID:\
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>        raise HTTPException(status_code=403, detail=&quot;Forbidden: you can only access your own data.&quot;)&#39; /app/main.py
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>kill 1
+</code></pre></div></p>
+<p><strong>Vérification post-patch :</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>GET /api/dsar/export?patient_id=1001
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>GET /api/dsar/export?patient_id=1002
+</code></pre></div>
+→ <code>patient_id=1001</code> : 200 (accès légitime maintenu)
+→ <code>patient_id=1002</code> : 403 Forbidden (faille corrigée)</p>
+<hr />
+<h2 id="4-target-2-algorithmic-cruelty-ai-engine">4. Target 2 — Algorithmic Cruelty (ai-engine)<a class="headerlink" href="#4-target-2-algorithmic-cruelty-ai-engine" title="Permanent link">&para;</a></h2>
+<h3 id="41-compliance-status">4.1 Compliance Status<a class="headerlink" href="#41-compliance-status" title="Permanent link">&para;</a></h3>
+<p>L'endpoint <code>/api/trial/evaluate</code> rejetait automatiquement les candidats selon des critères hardcodés (<code>age &gt; 65</code> ou <code>"Diabetes Type 2"</code> dans l'historique médical), sans intervention humaine ni possibilité de recours.</p>
+<h3 id="42-legal-context">4.2 Legal Context<a class="headerlink" href="#42-legal-context" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Article 22</strong> — droit de ne pas faire l'objet d'une décision exclusivement automatisée produisant des effets significatifs, sans droit d'obtenir une intervention humaine, d'exprimer son point de vue et de contester la décision.</li>
+<li>Discrimination potentielle de groupes vulnérables (âge, condition médicale).</li>
+</ul>
+<h3 id="43-technical-evidence">4.3 Technical Evidence<a class="headerlink" href="#43-technical-evidence" title="Permanent link">&para;</a></h3>
+<p><strong>Test déclenchant le rejet automatique :</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>POST /api/trial/evaluate
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>{&quot;age&quot;: 78, &quot;blood_type&quot;: &quot;O+&quot;, &quot;medical_history&quot;: [&quot;hypertension&quot;]}
+</code></pre></div>
+Résultat avant patch : <code>status: REJECTED</code>, <code>human_review_possible: false</code>, message "No appeal is possible."</p>
+<h3 id="44-remediation-details">4.4 Remediation Details<a class="headerlink" href="#44-remediation-details" title="Permanent link">&para;</a></h3>
+<p>Fichier corrigé : <code>/app/main.py</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/api/trial/evaluate&quot;</span><span class="p">)</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">evaluate_patient</span><span class="p">(</span><span class="n">profile</span><span class="p">:</span> <span class="n">PatientProfile</span><span class="p">):</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    <span class="k">if</span> <span class="n">profile</span><span class="o">.</span><span class="n">age</span> <span class="o">&gt;</span> <span class="mi">65</span> <span class="ow">or</span> <span class="s2">&quot;Diabetes Type 2&quot;</span> <span class="ow">in</span> <span class="n">profile</span><span class="o">.</span><span class="n">medical_history</span><span class="p">:</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[AI FLAG] Patient profile flagged for human review. age=</span><span class="si">{</span><span class="n">profile</span><span class="o">.</span><span class="n">age</span><span class="si">}</span><span class="s2">, medical_history=</span><span class="si">{</span><span class="n">profile</span><span class="o">.</span><span class="n">medical_history</span><span class="si">}</span><span class="s2">, criteria_triggered=age&gt;65 or Diabetes Type 2&quot;</span><span class="p">)</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>        <span class="k">return</span> <span class="p">{</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>            <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;PENDING_REVIEW&quot;</span><span class="p">,</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>            <span class="s2">&quot;reason&quot;</span><span class="p">:</span> <span class="s2">&quot;Automated AI profiling flagged this case for mandatory human review&quot;</span><span class="p">,</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>            <span class="s2">&quot;human_review_possible&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>            <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Your profile requires manual review by a doctor before a final decision is made.&quot;</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>        <span class="p">}</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>    <span class="k">return</span> <span class="p">{</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>        <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;APPROVED&quot;</span><span class="p">,</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>        <span class="s2">&quot;human_review_possible&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>        <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;You are eligible for the clinical trial.&quot;</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>    <span class="p">}</span>
+</code></pre></div>
+<p><strong>Commandes d'application (SSH sur ai-engine, port 22) :</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>cp /app/main.py /app/main.py.bak
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>grep -n &quot;Generates a JSON export&quot; /app/main.py
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>sed -i &#39;22,29d&#39; /app/main.py
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>sed -i &#39;21a\
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>    if profile.age &gt; 65 or &quot;Diabetes Type 2&quot; in profile.medical_history:\
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>        print(f&quot;[AI FLAG] Patient profile flagged for human review. age={profile.age}, medical_history={profile.medical_history}, criteria_triggered=age&gt;65 or Diabetes Type 2&quot;)\
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>        return {\
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>            &quot;status&quot;: &quot;PENDING_REVIEW&quot;,\
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>            &quot;reason&quot;: &quot;Automated AI profiling flagged this case for mandatory human review&quot;,\
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>            &quot;human_review_possible&quot;: True,\
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>            &quot;message&quot;: &quot;Your profile requires manual review by a doctor before a final decision is made.&quot;\
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>        }&#39; /app/main.py
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>kill 1
+</code></pre></div></p>
+<p><strong>Vérification post-patch :</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>POST /api/trial/evaluate
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>{&quot;age&quot;: 78, &quot;blood_type&quot;: &quot;O+&quot;, &quot;medical_history&quot;: [&quot;hypertension&quot;]}
+</code></pre></div>
+→ <code>status: PENDING_REVIEW</code>, <code>human_review_possible: true</code>, escalade vers révision humaine confirmée.</p>
+<hr />
+<h2 id="5-target-3-illusion-of-erasure-db-postgres-kms-vault">5. Target 3 — Illusion of Erasure (db-postgres / kms-vault)<a class="headerlink" href="#5-target-3-illusion-of-erasure-db-postgres-kms-vault" title="Permanent link">&para;</a></h2>
+<h3 id="51-compliance-status">5.1 Compliance Status<a class="headerlink" href="#51-compliance-status" title="Permanent link">&para;</a></h3>
+<p>Les notes médicales des patients sont stockées chiffrées en base PostgreSQL et répliquées sur des backups WORM (immuables). Chaque patient dispose d'une clé de chiffrement individuelle gérée par le KMS. Aucun mécanisme de crypto-shredding n'était exercé au moment de l'audit.</p>
+<h3 id="52-legal-context">5.2 Legal Context<a class="headerlink" href="#52-legal-context" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Article 17</strong> — droit à l'effacement.</li>
+<li>Le crypto-shredding constitue l'équivalent légal reconnu de l'effacement lorsque la suppression physique des données est techniquement impossible (backups WORM).</li>
+</ul>
+<h3 id="53-technical-evidence">5.3 Technical Evidence<a class="headerlink" href="#53-technical-evidence" title="Permanent link">&para;</a></h3>
+<p><strong>Extraction des notes chiffrées (base <code>privacy_lab</code>) :</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>python3 -c &quot;
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>import psycopg2
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>conn = psycopg2.connect(host=&#39;10.0.15.13&#39;, port=&#39;5432&#39;, dbname=&#39;privacy_lab&#39;, user=&#39;admin&#39;, password=&#39;labpassword&#39;)
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>cur = conn.cursor()
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>cur.execute(&#39;SELECT patient_id, full_name, encrypted_medical_notes FROM patients_pii&#39;)
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>for row in cur.fetchall():
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>    print(row)
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>cur.close()
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>conn.close()
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>&quot;
+</code></pre></div></p>
+<p><strong>Vérification de la clé active avant destruction (patient Bob Jones, patient_id=1002) :</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>GET /api/kms/keys/1002
+</code></pre></div>
+Résultat : clé active <code>key_kL9m2Q_rocicorp_secure</code>.</p>
+<p><strong>Destruction de la clé (crypto-shredding) :</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>DELETE /api/kms/keys/1002
+</code></pre></div></p>
+<h3 id="54-remediation-details">5.4 Remediation Details<a class="headerlink" href="#54-remediation-details" title="Permanent link">&para;</a></h3>
+<p>Aucune modification de code requise — le mécanisme de crypto-shredding est nativement implémenté côté KMS. La remédiation consiste en l'exécution effective de la procédure sur demande d'effacement (Article 17).</p>
+<p><strong>Vérification post-destruction :</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>GET /api/kms/keys/1002
+</code></pre></div>
+Résultat : 404, "The data is crypto-shredded and permanently unreadable."</p>
+<p>Conséquence : les <code>encrypted_medical_notes</code> du patient dans PostgreSQL et dans les backups WORM restent physiquement présentes mais sont désormais définitivement irrécupérables — effacement effectif au sens légal sans altération des backups immuables.</p>
+<hr />
+<h2 id="6-target-4-silent-watcher-siem-logger">6. Target 4 — Silent Watcher (siem-logger)<a class="headerlink" href="#6-target-4-silent-watcher-siem-logger" title="Permanent link">&para;</a></h2>
+<h3 id="61-compliance-status">6.1 Compliance Status<a class="headerlink" href="#61-compliance-status" title="Permanent link">&para;</a></h3>
+<p>Le SIEM collectait passivement les logs sans aucune logique de détection d'anomalie. L'attaque IDOR réalisée au Target 1 (accès en rafale à plusieurs dossiers patients depuis une même IP) ne déclenchait aucune alerte.</p>
+<h3 id="62-legal-context">6.2 Legal Context<a class="headerlink" href="#62-legal-context" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Article 33</strong> — obligation de notification à l'autorité de contrôle sous 72h en cas de violation de données. Cette obligation suppose une capacité de détection effective, absente ici.</li>
+</ul>
+<h3 id="63-technical-evidence">6.3 Technical Evidence<a class="headerlink" href="#63-technical-evidence" title="Permanent link">&para;</a></h3>
+<p><strong>Simulation du pattern d'exfiltration (4 exports DSAR, même IP, fenêtre de 15s) :</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>POST /api/logs/ingest
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>{&quot;timestamp&quot;: 1753700000, &quot;ip_address&quot;: &quot;203.0.113.42&quot;, &quot;service&quot;: &quot;privacy-api&quot;, &quot;action&quot;: &quot;dsar_export&quot;, &quot;status&quot;: &quot;success&quot;, &quot;details&quot;: &quot;patient_id=1001&quot;}
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>POST /api/logs/ingest
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>{&quot;timestamp&quot;: 1753700005, &quot;ip_address&quot;: &quot;203.0.113.42&quot;, &quot;service&quot;: &quot;privacy-api&quot;, &quot;action&quot;: &quot;dsar_export&quot;, &quot;status&quot;: &quot;success&quot;, &quot;details&quot;: &quot;patient_id=1002&quot;}
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>POST /api/logs/ingest
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>{&quot;timestamp&quot;: 1753700010, &quot;ip_address&quot;: &quot;203.0.113.42&quot;, &quot;service&quot;: &quot;privacy-api&quot;, &quot;action&quot;: &quot;dsar_export&quot;, &quot;status&quot;: &quot;success&quot;, &quot;details&quot;: &quot;patient_id=1003&quot;}
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>POST /api/logs/ingest
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>{&quot;timestamp&quot;: 1753700015, &quot;ip_address&quot;: &quot;203.0.113.42&quot;, &quot;service&quot;: &quot;privacy-api&quot;, &quot;action&quot;: &quot;dsar_export&quot;, &quot;status&quot;: &quot;success&quot;, &quot;details&quot;: &quot;patient_id=1004&quot;}
+</code></pre></div></p>
+<p><strong>Analyse avant patch :</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>GET /api/logs/analyze
+</code></pre></div>
+Résultat : <code>alert_level: GREEN</code>, "No breach detected" — absence totale de détection malgré le pattern d'exfiltration.</p>
+<h3 id="64-remediation-details">6.4 Remediation Details<a class="headerlink" href="#64-remediation-details" title="Permanent link">&para;</a></h3>
+<p>Fichier corrigé : <code>/app/main.py</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/api/logs/analyze&quot;</span><span class="p">)</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">analyze_logs_for_breach</span><span class="p">():</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>    <span class="n">THRESHOLD</span> <span class="o">=</span> <span class="mi">3</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>    <span class="n">WINDOW_SECONDS</span> <span class="o">=</span> <span class="mi">60</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>    <span class="n">ip_timestamps</span> <span class="o">=</span> <span class="p">{}</span>
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>    <span class="k">for</span> <span class="n">log</span> <span class="ow">in</span> <span class="n">SECURITY_LOGS</span><span class="p">:</span>
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>        <span class="k">if</span> <span class="n">log</span><span class="p">[</span><span class="s2">&quot;action&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;dsar_export&quot;</span><span class="p">:</span>
+<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>            <span class="n">ip_timestamps</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">log</span><span class="p">[</span><span class="s2">&quot;ip_address&quot;</span><span class="p">],</span> <span class="p">[])</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">log</span><span class="p">[</span><span class="s2">&quot;timestamp&quot;</span><span class="p">])</span>
+<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>
+<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>    <span class="k">for</span> <span class="n">ip</span><span class="p">,</span> <span class="n">timestamps</span> <span class="ow">in</span> <span class="n">ip_timestamps</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a>        <span class="n">timestamps</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">timestamps</span><span class="p">)):</span>
+<a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a>            <span class="n">window</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">timestamps</span> <span class="k">if</span> <span class="n">t</span> <span class="o">&gt;=</span> <span class="n">timestamps</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">and</span> <span class="n">t</span> <span class="o">&lt;=</span> <span class="n">timestamps</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">WINDOW_SECONDS</span><span class="p">]</span>
+<a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a>            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">window</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">THRESHOLD</span><span class="p">:</span>
+<a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a>                <span class="k">return</span> <span class="p">{</span>
+<a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a>                    <span class="s2">&quot;alert_level&quot;</span><span class="p">:</span> <span class="s2">&quot;CRITICAL&quot;</span><span class="p">,</span>
+<a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a>                    <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Article 33 Triggered: 72h CNIL Notification Required!&quot;</span><span class="p">,</span>
+<a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a>                    <span class="s2">&quot;source_ip&quot;</span><span class="p">:</span> <span class="n">ip</span><span class="p">,</span>
+<a id="__codelineno-15-20" name="__codelineno-15-20" href="#__codelineno-15-20"></a>                    <span class="s2">&quot;event_count&quot;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">window</span><span class="p">),</span>
+<a id="__codelineno-15-21" name="__codelineno-15-21" href="#__codelineno-15-21"></a>                    <span class="s2">&quot;detail&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Data exfiltration pattern detected: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">window</span><span class="p">)</span><span class="si">}</span><span class="s2"> DSAR exports from </span><span class="si">{</span><span class="n">ip</span><span class="si">}</span><span class="s2"> within </span><span class="si">{</span><span class="n">WINDOW_SECONDS</span><span class="si">}</span><span class="s2">s&quot;</span>
+<a id="__codelineno-15-22" name="__codelineno-15-22" href="#__codelineno-15-22"></a>                <span class="p">}</span>
+<a id="__codelineno-15-23" name="__codelineno-15-23" href="#__codelineno-15-23"></a>
+<a id="__codelineno-15-24" name="__codelineno-15-24" href="#__codelineno-15-24"></a>    <span class="k">return</span> <span class="p">{</span>
+<a id="__codelineno-15-25" name="__codelineno-15-25" href="#__codelineno-15-25"></a>        <span class="s2">&quot;alert_level&quot;</span><span class="p">:</span> <span class="s2">&quot;GREEN&quot;</span><span class="p">,</span>
+<a id="__codelineno-15-26" name="__codelineno-15-26" href="#__codelineno-15-26"></a>        <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;All systems operational. No breach detected.&quot;</span>
+<a id="__codelineno-15-27" name="__codelineno-15-27" href="#__codelineno-15-27"></a>    <span class="p">}</span>
+</code></pre></div>
+<p><strong>Commandes d'application (SSH sur siem-logger, port 22) :</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>cp /app/main.py /app/main.py.bak
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>find / -name &quot;main.py&quot; 2&gt;/dev/null
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>cat /app/main.py
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>cat &gt; /app/main.py &lt;&lt; &#39;EOF&#39;
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>[contenu complet du fichier patché]
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>EOF
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>kill 1
+</code></pre></div></p>
+<p><strong>Vérification post-patch (réingestion des 4 logs puis analyse) :</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>POST /api/logs/ingest [x4, mêmes payloads que ci-dessus]
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>GET /api/logs/analyze
+</code></pre></div>
+Résultat : <code>alert_level: CRITICAL</code>, <code>source_ip: 203.0.113.42</code>, <code>event_count: 4</code>, déclenchement explicite de l'obligation de notification 72h.</p>
+<hr />
+<h2 id="7-conclusion">7. Conclusion<a class="headerlink" href="#7-conclusion" title="Permanent link">&para;</a></h2>
+<p>Les quatre violations identifiées couvrent l'ensemble du cycle de vie de la donnée patient chez Rocicorp Pharma : accès (Target 1), traitement décisionnel (Target 2), effacement (Target 3), et détection/notification (Target 4). Chaque correctif a été appliqué directement sur le code source et validé par un test de non-régression (accès légitime toujours fonctionnel) et un test de confirmation (faille effectivement bloquée ou détectée).</p>
+<p><strong>Recommandations complémentaires non couvertes par cet audit :</strong>
+- Remplacement de l'identité hardcodée (<code>CURRENT_AUTHENTICATED_PATIENT_ID</code>) par une authentification JWT/session réelle en production.
+- Persistance des logs SIEM (actuellement en mémoire, perdus au redémarrage du service).
+- Automatisation de la notification CNIL sous 72h suite à une alerte CRITICAL (actuellement seule la détection est implémentée).</p>
+<hr />
+<p><em>Rapport rédigé par Jean — bibliothèque méthodologique HIVE.</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Retour en haut de la page
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.highlight", "search.suggest", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
