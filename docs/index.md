@@ -4,6 +4,9 @@ Base de connaissances personnelle regroupant les méthodologies d'audit, de test
 
 ## Dernières mises à jour
 
+- 2026-07-29 : Nouveau rapport publie - [Audit de Conformite RGPD (DocWagon Connect)](rapport-methodologique-audit-conformite-rgpd.md).
+- 2026-07-28 : Nouveau rapport publié - [Conformité RGPD & AIPD (GenomePath)](rapport-conformite-rgpd-aipd-genomepath.md).
+- 2026-07-28 : Nouveau rapport publié - [Audit RGPD Rocicorp Pharma](rapport-audit-rgpd-rocicorp-pharma.md).
 - 2026-07-24 : Nouveau rapport publié - [AWSGoat Module 2 – Déploiement LocalStack](rapport-awsgoat-module2-deploiement-localstack.md).
 - 2026-07-23 : Nouveau rapport publié - [IAM Vulnerable LocalStack](rapport-iam-vulnerable-localstack.md).
 - 2026-07-22 : Nouveau rapport publié - [AWSGoat Pentest](rapport-awsgoat-pentest.md).
@@ -14,9 +17,12 @@ Base de connaissances personnelle regroupant les méthodologies d'audit, de test
 
 ## Rapports
 
+- [Audit de Conformite RGPD (DocWagon Connect)](rapport-methodologique-audit-conformite-rgpd.md)
 - [AWSGoat Pentest](rapport-awsgoat-pentest.md)
 - [IAM Vulnerable LocalStack](rapport-iam-vulnerable-localstack.md)
 - [AWSGoat Module 2 – Déploiement LocalStack](rapport-awsgoat-module2-deploiement-localstack.md)
+- [Conformité RGPD & AIPD (GenomePath)](rapport-conformite-rgpd-aipd-genomepath.md)
+- [Audit RGPD Rocicorp Pharma](rapport-audit-rgpd-rocicorp-pharma.md)
 
 ## Catégories
 

@@ -73,6 +73,9 @@ nav:
     - Escalade de Privilèges via les Services Windows: bibliotheque/escalade-privileges-services-windows.md
     - Architecture et Automatisation GPO: bibliotheque/gpo-architecture-automatisation.md
   - Rapports:
+    - Audit de Conformite RGPD (DocWagon Connect): rapport-methodologique-audit-conformite-rgpd.md
     - AWSGoat Pentest: rapport-awsgoat-pentest.md
     - IAM Vulnerable LocalStack: rapport-iam-vulnerable-localstack.md
     - AWSGoat Module 2 – Déploiement LocalStack: rapport-awsgoat-module2-deploiement-localstack.md
+    - Conformité RGPD & AIPD (GenomePath): rapport-conformite-rgpd-aipd-genomepath.md
+    - Audit RGPD Rocicorp Pharma: rapport-audit-rgpd-rocicorp-pharma.md
