@@ -13,28 +13,28 @@
       
       
       
-        <link rel="prev" href="../escalade-privileges-services-windows/">
+        <link rel="prev" href="../bibliotheque/gpo-architecture-automatisation/">
       
       
-        <link rel="next" href="../../rapport-methodologique-audit-irp-gestion-crise/">
+        <link rel="next" href="../rapport-methodologique-audit-conformite-rgpd/">
       
       
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>Architecture et Automatisation GPO - Wiki Méthodologies Cybersécurité</title>
+        <title>Audit IRP & Gestion de Crise Cybersécurité - Wiki Méthodologies Cybersécurité</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -53,7 +53,7 @@
       
     
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#referentiel-technique-architecture-et-automatisation-des-group-policy-objects-gpo" class="md-skip">
+        <a href="#rapport-methodologique-de-session-audit-irp-gestion-de-crise-cybersecurite" class="md-skip">
           Aller au contenu
         </a>
       
@@ -92,7 +92,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="En-tête">
-    <a href="../.." title="Wiki Méthodologies Cybersécurité" class="md-header__button md-logo" aria-label="Wiki Méthodologies Cybersécurité" data-md-component="logo">
+    <a href=".." title="Wiki Méthodologies Cybersécurité" class="md-header__button md-logo" aria-label="Wiki Méthodologies Cybersécurité" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Architecture et Automatisation GPO
+              Audit IRP & Gestion de Crise Cybersécurité
             
           </span>
         </div>
@@ -213,7 +213,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href=".." class="md-tabs__link">
         
   
   
@@ -234,7 +234,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../web/idor/" class="md-tabs__link">
+        <a href="../web/idor/" class="md-tabs__link">
           
   
   
@@ -254,11 +254,31 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../siem-soc/agent-wazuh/" class="md-tabs__link">
+        <a href="../siem-soc/agent-wazuh/" class="md-tabs__link">
           
   
   
   SIEM & SOC
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../bibliotheque/wazuh-logs-infrastructure/" class="md-tabs__link">
+          
+  
+  
+  Bibliothèque
 
         </a>
       </li>
@@ -276,27 +296,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../wazuh-logs-infrastructure/" class="md-tabs__link">
-          
-  
-  
-  Bibliothèque
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../rapport-methodologique-audit-irp-gestion-crise/" class="md-tabs__link">
+        <a href="./" class="md-tabs__link">
           
   
   
@@ -330,7 +330,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Wiki Méthodologies Cybersécurité" class="md-nav__button md-logo" aria-label="Wiki Méthodologies Cybersécurité" data-md-component="logo">
+    <a href=".." title="Wiki Méthodologies Cybersécurité" class="md-nav__button md-logo" aria-label="Wiki Méthodologies Cybersécurité" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -348,7 +348,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href=".." class="md-nav__link">
         
   
   
@@ -427,7 +427,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../web/idor/" class="md-nav__link">
+      <a href="../web/idor/" class="md-nav__link">
         
   
   
@@ -455,7 +455,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../web/decima-samaritan-controle-acces/" class="md-nav__link">
+      <a href="../web/decima-samaritan-controle-acces/" class="md-nav__link">
         
   
   
@@ -483,7 +483,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../web/ibc-news-api/" class="md-nav__link">
+      <a href="../web/ibc-news-api/" class="md-nav__link">
         
   
   
@@ -511,7 +511,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../web/csrf/" class="md-nav__link">
+      <a href="../web/csrf/" class="md-nav__link">
         
   
   
@@ -539,7 +539,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../web/upload-bypass/" class="md-nav__link">
+      <a href="../web/upload-bypass/" class="md-nav__link">
         
   
   
@@ -567,7 +567,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../web/ffuf/" class="md-nav__link">
+      <a href="../web/ffuf/" class="md-nav__link">
         
   
   
@@ -654,7 +654,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../siem-soc/agent-wazuh/" class="md-nav__link">
+      <a href="../siem-soc/agent-wazuh/" class="md-nav__link">
         
   
   
@@ -682,7 +682,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../siem-soc/analyse-risques/" class="md-nav__link">
+      <a href="../siem-soc/analyse-risques/" class="md-nav__link">
         
   
   
@@ -690,6 +690,373 @@
     
   
     Analyse de Risques Cyber
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bibliothèque
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Bibliothèque
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bibliotheque/wazuh-logs-infrastructure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Infrastructure Logs Wazuh
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bibliotheque/metasploit-workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Flux de Travail Metasploit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bibliotheque/nist-csf-2-fonctions-vitales/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NIST CSF 2.0 - 6 Fonctions Vitales
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bibliotheque/reseau-windows-ad-dns-dhcp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Réseau Windows - AD DNS DHCP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bibliotheque/ad-vulnerabilites-configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vulnérabilités de Configuration AD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bibliotheque/forensique-acquisition-analyse-multivecteurs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Procédures Forensiques Multi-Vecteurs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bibliotheque/reponse-compromission-identifiants-phishing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Réponse Compromission d'Identifiants
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bibliotheque/investigation-memoire-audit-pilotes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Investigation Mémoire et Pilotes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bibliotheque/investigation-intrusion-processus-critiques/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Détection d'Intrusion et Processus Critiques
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bibliotheque/escalade-privileges-services-windows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Escalade de Privilèges via les Services Windows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bibliotheque/gpo-architecture-automatisation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture et Automatisation GPO
   
 
     
@@ -735,17 +1102,17 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   
   <span class="md-ellipsis">
     
   
-    Bibliothèque
+    Rapports
   
 
     
@@ -756,296 +1123,16 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_4">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
   
-    Bibliothèque
+    Rapports
   
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../wazuh-logs-infrastructure/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Infrastructure Logs Wazuh
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../metasploit-workflow/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Flux de Travail Metasploit
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../nist-csf-2-fonctions-vitales/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    NIST CSF 2.0 - 6 Fonctions Vitales
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../reseau-windows-ad-dns-dhcp/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Réseau Windows - AD DNS DHCP
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ad-vulnerabilites-configuration/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Vulnérabilités de Configuration AD
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../forensique-acquisition-analyse-multivecteurs/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Procédures Forensiques Multi-Vecteurs
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../reponse-compromission-identifiants-phishing/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Réponse Compromission d'Identifiants
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../investigation-memoire-audit-pilotes/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Investigation Mémoire et Pilotes
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../investigation-intrusion-processus-critiques/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Détection d'Intrusion et Processus Critiques
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../escalade-privileges-services-windows/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Escalade de Privilèges via les Services Windows
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
             
               
                 
@@ -1070,7 +1157,7 @@
   <span class="md-ellipsis">
     
   
-    Architecture et Automatisation GPO
+    Audit IRP & Gestion de Crise Cybersécurité
   
 
     
@@ -1088,7 +1175,7 @@
   <span class="md-ellipsis">
     
   
-    Architecture et Automatisation GPO
+    Audit IRP & Gestion de Crise Cybersécurité
   
 
     
@@ -1114,10 +1201,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-fondations-de-linfrastructure-et-role-dactive-directory" class="md-nav__link">
+  <a href="#1-cadre-general-et-approche-methodologique" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Fondations de l’Infrastructure et Rôle d’Active Directory
+        1. Cadre Général et Approche Méthodologique
       
     </span>
   </a>
@@ -1125,44 +1212,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-architecture-de-deploiement-hierarchie-et-ordre-dapplication-lsdou" class="md-nav__link">
+  <a href="#2-synthese-du-cas-1-audit-du-plan-irp-tyrell-corporation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Architecture de Déploiement : Hiérarchie et Ordre d’Application (LSDOU)
+        2. Synthèse du Cas 1 — Audit du Plan IRP (Tyrell Corporation)
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-optimisation-de-la-configuration-via-les-group-policy-preferences-gpp" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Optimisation de la Configuration via les Group Policy Preferences (GPP)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-securisation-du-parc-et-gouvernance-des-acces-modele-agdlp" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Sécurisation du Parc et Gouvernance des Accès (Modèle AGDLP)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4. Sécurisation du Parc et Gouvernance des Accès (Modèle AGDLP)">
+    <nav class="md-nav" aria-label="2. Synthèse du Cas 1 — Audit du Plan IRP (Tyrell Corporation)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#baseline-de-securite-hardening" class="md-nav__link">
+  <a href="#synthese-des-constats" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Baseline de Sécurité (Hardening)
+        Synthèse des constats
       
     </span>
   </a>
@@ -1170,10 +1235,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#gouvernance-des-acces-le-modele-agdlp" class="md-nav__link">
+  <a href="#commandes-et-actions-de-remediation-formulees" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Gouvernance des Accès : Le Modèle AGDLP
+        Commandes et actions de remédiation formulées
       
     </span>
   </a>
@@ -1186,22 +1251,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-standardisation-et-automatisation-via-powershell" class="md-nav__link">
+  <a href="#3-synthese-du-cas-2-gestion-dincident-majeur-ransomware-ibc-bank" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Standardisation et Automatisation via PowerShell
+        3. Synthèse du Cas 2 — Gestion d'Incident Majeur Ransomware (IBC Bank)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="5. Standardisation et Automatisation via PowerShell">
+    <nav class="md-nav" aria-label="3. Synthèse du Cas 2 — Gestion d&#39;Incident Majeur Ransomware (IBC Bank)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#directives-dautomatisation-et-de-maintenance" class="md-nav__link">
+  <a href="#chronologie-et-triage-de-crise" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Directives d'Automatisation et de Maintenance
+        Chronologie et Triage de Crise
       
     </span>
   </a>
@@ -1209,21 +1274,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#nomenclature-et-hygiene" class="md-nav__link">
+  <a href="#matrice-des-decisions-de-confinement" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Nomenclature et Hygiène
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#conclusion" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Conclusion
+        Matrice des Décisions de Confinement
       
     </span>
   </a>
@@ -1232,6 +1286,17 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-bilan-des-axes-damelioration-strategiques-pir-2025-003" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Bilan des Axes d'Amélioration Stratégiques (PIR-2025-003)
+      
+    </span>
+  </a>
   
 </li>
       
@@ -1244,65 +1309,6 @@
 
               
             
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
-        
-          
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Rapports
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Rapports
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
               
                 
   
@@ -1310,35 +1316,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../rapport-methodologique-audit-irp-gestion-crise/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Audit IRP & Gestion de Crise Cybersécurité
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../rapport-methodologique-audit-conformite-rgpd/" class="md-nav__link">
+      <a href="../rapport-methodologique-audit-conformite-rgpd/" class="md-nav__link">
         
   
   
@@ -1366,7 +1344,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../rapport-awsgoat-pentest/" class="md-nav__link">
+      <a href="../rapport-awsgoat-pentest/" class="md-nav__link">
         
   
   
@@ -1394,7 +1372,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../rapport-iam-vulnerable-localstack/" class="md-nav__link">
+      <a href="../rapport-iam-vulnerable-localstack/" class="md-nav__link">
         
   
   
@@ -1422,7 +1400,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../rapport-awsgoat-module2-deploiement-localstack/" class="md-nav__link">
+      <a href="../rapport-awsgoat-module2-deploiement-localstack/" class="md-nav__link">
         
   
   
@@ -1450,7 +1428,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../rapport-conformite-rgpd-aipd-genomepath/" class="md-nav__link">
+      <a href="../rapport-conformite-rgpd-aipd-genomepath/" class="md-nav__link">
         
   
   
@@ -1478,7 +1456,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../rapport-audit-rgpd-rocicorp-pharma/" class="md-nav__link">
+      <a href="../rapport-audit-rgpd-rocicorp-pharma/" class="md-nav__link">
         
   
   
@@ -1533,10 +1511,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-fondations-de-linfrastructure-et-role-dactive-directory" class="md-nav__link">
+  <a href="#1-cadre-general-et-approche-methodologique" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Fondations de l’Infrastructure et Rôle d’Active Directory
+        1. Cadre Général et Approche Méthodologique
       
     </span>
   </a>
@@ -1544,44 +1522,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-architecture-de-deploiement-hierarchie-et-ordre-dapplication-lsdou" class="md-nav__link">
+  <a href="#2-synthese-du-cas-1-audit-du-plan-irp-tyrell-corporation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Architecture de Déploiement : Hiérarchie et Ordre d’Application (LSDOU)
+        2. Synthèse du Cas 1 — Audit du Plan IRP (Tyrell Corporation)
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-optimisation-de-la-configuration-via-les-group-policy-preferences-gpp" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Optimisation de la Configuration via les Group Policy Preferences (GPP)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-securisation-du-parc-et-gouvernance-des-acces-modele-agdlp" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Sécurisation du Parc et Gouvernance des Accès (Modèle AGDLP)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4. Sécurisation du Parc et Gouvernance des Accès (Modèle AGDLP)">
+    <nav class="md-nav" aria-label="2. Synthèse du Cas 1 — Audit du Plan IRP (Tyrell Corporation)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#baseline-de-securite-hardening" class="md-nav__link">
+  <a href="#synthese-des-constats" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Baseline de Sécurité (Hardening)
+        Synthèse des constats
       
     </span>
   </a>
@@ -1589,10 +1545,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#gouvernance-des-acces-le-modele-agdlp" class="md-nav__link">
+  <a href="#commandes-et-actions-de-remediation-formulees" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Gouvernance des Accès : Le Modèle AGDLP
+        Commandes et actions de remédiation formulées
       
     </span>
   </a>
@@ -1605,22 +1561,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-standardisation-et-automatisation-via-powershell" class="md-nav__link">
+  <a href="#3-synthese-du-cas-2-gestion-dincident-majeur-ransomware-ibc-bank" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Standardisation et Automatisation via PowerShell
+        3. Synthèse du Cas 2 — Gestion d'Incident Majeur Ransomware (IBC Bank)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="5. Standardisation et Automatisation via PowerShell">
+    <nav class="md-nav" aria-label="3. Synthèse du Cas 2 — Gestion d&#39;Incident Majeur Ransomware (IBC Bank)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#directives-dautomatisation-et-de-maintenance" class="md-nav__link">
+  <a href="#chronologie-et-triage-de-crise" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Directives d'Automatisation et de Maintenance
+        Chronologie et Triage de Crise
       
     </span>
   </a>
@@ -1628,21 +1584,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#nomenclature-et-hygiene" class="md-nav__link">
+  <a href="#matrice-des-decisions-de-confinement" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Nomenclature et Hygiène
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#conclusion" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Conclusion
+        Matrice des Décisions de Confinement
       
     </span>
   </a>
@@ -1651,6 +1596,17 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-bilan-des-axes-damelioration-strategiques-pir-2025-003" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Bilan des Axes d'Amélioration Stratégiques (PIR-2025-003)
+      
+    </span>
+  </a>
   
 </li>
       
@@ -1671,66 +1627,97 @@
 
 
 
-<h1 id="referentiel-technique-architecture-et-automatisation-des-group-policy-objects-gpo">Référentiel Technique : Architecture et Automatisation des Group Policy Objects (GPO)<a class="headerlink" href="#referentiel-technique-architecture-et-automatisation-des-group-policy-objects-gpo" title="Permanent link">&para;</a></h1>
-<p>Ce document définit les standards d'architecture et les protocoles de gouvernance pour le déploiement et la gestion des politiques de groupe au sein d'un environnement Active Directory Domain Services (AD DS). Il s'adresse aux ingénieurs systèmes et responsables de la sécurité informatique pour garantir la cohérence technique et la résilience du parc.</p>
-<h4 id="1-fondations-de-linfrastructure-et-role-dactive-directory">1. Fondations de l’Infrastructure et Rôle d’Active Directory<a class="headerlink" href="#1-fondations-de-linfrastructure-et-role-dactive-directory" title="Permanent link">&para;</a></h4>
-<p>Active Directory constitue le « cerveau » du réseau Windows. En tant que système central d'identité et de gestion, il assure l'authentification (Kerberos, NTLM) et le service d'annuaire (LDAP). Une structure logique rigoureuse est la condition  <em>sine qua non</em>  de la stabilité du système : elle permet de définir avec précision l'identité, les droits et l'appartenance de chaque entité.L'architecture AD repose sur des composants hiérarchiques et fonctionnels critiques :</p>
+<h1 id="rapport-methodologique-de-session-audit-irp-gestion-de-crise-cybersecurite">Rapport Méthodologique de Session — Audit IRP &amp; Gestion de Crise Cybersécurité<a class="headerlink" href="#rapport-methodologique-de-session-audit-irp-gestion-de-crise-cybersecurite" title="Permanent link">&para;</a></h1>
+<p><strong>Date :</strong> 30 Juillet 2026</p>
+<p><strong>Document à l'attention de :</strong> Direction de la Sécurité des Systèmes d'Information (DSSI)</p>
+<p><strong>Objet :</strong> Synthèse méthodologique et retours d'expérience sur les audits de plans de réponse aux incidents (Tyrell Corporation) et la résolution de crise de ransomware (IBC Bank).</p>
+<h2 id="1-cadre-general-et-approche-methodologique">1. Cadre Général et Approche Méthodologique<a class="headerlink" href="#1-cadre-general-et-approche-methodologique" title="Permanent link">&para;</a></h2>
+<p>Cette session a suivi un modèle de réflexion logique, séquentiel et étape par étape. Chaque phase d'analyse et de décision a été soumise à validation formelle avant d'engager la suivante.</p>
+<p>L'approche retenue repose sur les principes suivants :</p>
 <ul>
-<li><strong>Structure Logique :</strong>  La  <strong>Forêt</strong>  (frontière de sécurité ultime), les  <strong>Arbres</strong>  (hiérarchies DNS) et les  <strong>Domaines</strong>  (unités de gestion possédant leurs propres politiques).  </li>
-<li><strong>Global Catalog (GC) :</strong>  Élément vital contenant une copie partielle en lecture seule de tous les objets de la forêt, facilitant les recherches globales et l'accélération des processus de logon.  </li>
-<li><strong>Sites et Réplication :</strong>  Les  <strong>Sites</strong>  représentent la topologie physique. Ils optimisent le trafic de réplication (intra-site rapide vs inter-site planifiée) et dirigent le trafic d'authentification vers les contrôleurs de domaine les plus proches.  </li>
-<li><strong>Contrôleurs de Domaine (DC) :</strong>  Serveurs critiques hébergeant le fichier ntds.dit (base d'identité) et le répertoire SYSVOL.<strong>Note d'architecture sur le stockage GPO :</strong>  Un GPO n'est pas un objet unique. Il se compose du  <strong>Group Policy Container (GPC)</strong> , stocké dans la base AD, et du  <strong>Group Policy Template (GPT)</strong> , stocké dans SYSVOL. Une désynchronisation entre ces deux éléments compromet l'application de la politique.L'organisation interne s'appuie sur les  <strong>Unités d'Organisation (OU)</strong> . Elles sont le niveau privilégié pour l'application des GPO et la délégation d'administration.  </li>
-<li><strong>Avertissement de gouvernance :</strong>  Les OU ne constituent pas des frontières de sécurité, mais des outils d'organisation et de délégation.Cette structure logique sert de socle technique à l'application des politiques de groupe.</li>
+<li><strong>Interdiction des actions destructives de preuves :</strong> Primauté de la préservation forensique (maintien sous tension, captures RAM, isolation logique vs extinction brute).</li>
+<li><strong>Alignement réglementaire strict :</strong> Intégration systématique des obligations légales (RGPD Articles 33 et 34, PCI DSS, réglementations bancaires).</li>
+<li><strong>Arbitrage Sécurité vs Métier :</strong> Neutralisation prioritaire des menaces actives avec prise en compte des contraintes opérationnelles (procédures dégradées).</li>
+<li><strong>Communication hors-bande :</strong> Étanchéité absolue des canaux de crise en cas de compromission des identifiants d'administration du domaine.</li>
 </ul>
-<h4 id="2-architecture-de-deploiement-hierarchie-et-ordre-dapplication-lsdou">2. Architecture de Déploiement : Hiérarchie et Ordre d’Application (LSDOU)<a class="headerlink" href="#2-architecture-de-deploiement-hierarchie-et-ordre-dapplication-lsdou" title="Permanent link">&para;</a></h4>
-<p>La prévisibilité du système dépend de la maîtrise de l'ordre de priorité des GPO. Sans une compréhension stricte de la résolution des conflits, la configuration du parc peut devenir instable ou vulnérable.L'ordre d'application suit la séquence  <strong>LSDOU</strong> , où le dernier paramètre appliqué prévaut sur les précédents :</p>
+<h2 id="2-synthese-du-cas-1-audit-du-plan-irp-tyrell-corporation">2. Synthèse du Cas 1 — Audit du Plan IRP (Tyrell Corporation)<a class="headerlink" href="#2-synthese-du-cas-1-audit-du-plan-irp-tyrell-corporation" title="Permanent link">&para;</a></h2>
+<p>L'évaluation de l'Incident Response Plan (v2.1) de Tyrell Corporation a permis d'identifier quatre faiblesses structurelles majeures et de formuler les recommandations associées.</p>
+<h3 id="synthese-des-constats">Synthèse des constats<a class="headerlink" href="#synthese-des-constats" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Gouvernance et Rôles :</strong> Absence du DPO et du service juridique au sein de l'IRT ; cumul de casquettes à risque (Technical Lead = Head of Infrastructure) engendrant des conflits d'intérêts opérationnels.</li>
+<li><strong>Détection :</strong> Dépendance exclusive aux logs réseau et SIEM ; absence de solution EDR et de filtrage dynamique du vecteur e-mail.</li>
+<li><strong>Confinement :</strong> Autorisation d'extinction brute des serveurs (<em>shutdown</em>), détruisant irrémédiablement la mémoire vive (RAM) et les preuves forensiques.</li>
+<li><strong>Notification :</strong> Omission du délai légal de 72h du RGPD (AEPD/CNIL) et absence de procédure de notification des personnes concernées (données génomiques).</li>
+</ul>
+<h3 id="commandes-et-actions-de-remediation-formulees">Commandes et actions de remédiation formulées<a class="headerlink" href="#commandes-et-actions-de-remediation-formulees" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Exemple de configuration d&#39;urgence pour la préservation forensique (Memory Dump avant isolation)</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># Capture mémoire à chaud via WinPmem / LiME avant toute modification d&#39;état</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>winpmem.exe<span class="w"> </span>-o<span class="w"> </span>mem_dump.raw<span class="w"> </span>--volume_shadow_copies
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># Isolation réseau logique au niveau de l&#39;hôte via pare-feu local (remplacement du shutdown)</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>netsh<span class="w"> </span>advfirewall<span class="w"> </span><span class="nb">set</span><span class="w"> </span>allprofiles<span class="w"> </span>state<span class="w"> </span>on
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>netsh<span class="w"> </span>advfirewall<span class="w"> </span>firewall<span class="w"> </span>add<span class="w"> </span>rule<span class="w"> </span><span class="nv">name</span><span class="o">=</span><span class="s2">&quot;IR_Isolation&quot;</span><span class="w"> </span><span class="nv">dir</span><span class="o">=</span>out<span class="w"> </span><span class="nv">action</span><span class="o">=</span>block
+</code></pre></div>
+<h2 id="3-synthese-du-cas-2-gestion-dincident-majeur-ransomware-ibc-bank">3. Synthèse du Cas 2 — Gestion d'Incident Majeur Ransomware (IBC Bank)<a class="headerlink" href="#3-synthese-du-cas-2-gestion-dincident-majeur-ransomware-ibc-bank" title="Permanent link">&para;</a></h2>
+<p>L'incident survenu à l'InterGalactic Banking Clan a fait l'objet d'un traitement opérationnel complet, du triage initial jusqu'à la production du rapport post-incident.</p>
+<h3 id="chronologie-et-triage-de-crise">Chronologie et Triage de Crise<a class="headerlink" href="#chronologie-et-triage-de-crise" title="Permanent link">&para;</a></h3>
 <ol>
-<li><strong>L (Local) :</strong>  Politiques définies sur la machine elle-même.  </li>
-<li><strong>S (Site) :</strong>  Politiques liées à l'emplacement physique (Site AD).  </li>
-<li><strong>D (Domain) :</strong>  Politiques globales appliquées à l'échelle du domaine.  </li>
-<li><strong>OU (Organizational Unit) :</strong>  Politiques les plus granulaires.<strong>Exceptions structurelles :</strong>  L'administrateur peut utiliser l'option  <strong>"Enforced"</strong>  (Forcé) pour empêcher l'écrasement d'une politique par une règle descendante, ou le  <strong>"Block Inheritance"</strong>  (Bloquer l'héritage) pour isoler une OU des politiques parentes.| Caractéristique | Configuration Ordinateur (Computer) | Configuration Utilisateur (User) || ------ | ------ | ------ || <strong>Cible</strong> | Machine (indépendamment de l'utilisateur). | Compte utilisateur (indépendamment du poste). || <strong>Application</strong> | Démarrage / Arrêt du système. | Ouverture / Fermeture de session. || <strong>Impact Registre</strong> | <strong>Registry Tattooing</strong>  (persistance des clés). | <strong>Registry Tattooing</strong>  (persistance des clés). || <strong>Exemples</strong> | Sécurité système, Firewall, Mise à jour. | Bureau, Scripts de session, Préférences IE. |</li>
+<li><strong>Accès Initial :</strong> Phishing ciblé (3 mars, 10h32) via macro <code>.docx</code> exécutant un script PowerShell sur la machine <code>WKS-0347</code> (détection configurée en <em>log-only</em>).</li>
+<li><strong>Élévation de Privilèges :</strong> Exécution de Mimikatz sur le contrôleur de domaine <code>DC-01</code> (absence de protection LSASS/LSA Protection).</li>
+<li><strong>Mouvement Latéral &amp; Exfiltration :</strong> Mouvement RDP non restreint du VLAN Utilisateur vers le VLAN Production ; exfiltration de 4,2 Go de données clients (35 000 dossiers) vers un serveur C2.</li>
+<li><strong>Impact :</strong> Chiffrement par ransomware des serveurs de transaction (<code>TXNSERV-01</code>, <code>TXNSERV-02</code>) et des sauvegardes locales (<code>BKPSRV-01</code>).</li>
 </ol>
-<p>Le "Registry Tattooing" est un risque architectural : si un GPO classique est supprimé, le paramètre reste souvent inscrit dans le registre. Cette rigidité impose une transition vers des mécanismes plus souples.</p>
-<h4 id="3-optimisation-de-la-configuration-via-les-group-policy-preferences-gpp">3. Optimisation de la Configuration via les Group Policy Preferences (GPP)<a class="headerlink" href="#3-optimisation-de-la-configuration-via-les-group-policy-preferences-gpp" title="Permanent link">&para;</a></h4>
-<p>Les  <strong>Group Policy Preferences (GPP)</strong>  représentent une évolution vers une gestion moins coercitive et plus contextuelle. Elles permettent d'affiner l'expérience utilisateur tout en réduisant la complexité des scripts.Les différenciateurs majeurs par rapport aux GPO classiques sont :</p>
-<ul>
-<li><strong>Non-coercition et Réversibilité :</strong>  Contrairement au "tattooing", les GPP offrent l'option technique d'annuler le paramètre dès que l'objet n'est plus dans le champ d'application ( <em>"Remove this item when it is no longer applied"</em> ).  </li>
-<li><strong>Ciblage au niveau de l'élément (Item-level targeting) :</strong>  Une précision chirurgicale basée sur l'OS, l'adresse IP, l'appartenance à un groupe ou même la langue, sans multiplication des GPO.<strong>Capacités opérationnelles des GPP :</strong>  </li>
-<li><strong>Mappage de lecteurs (Drive Maps) :</strong>  Connectivité réseau dynamique.  </li>
-<li><strong>Configuration d'imprimantes :</strong>  Déploiement basé sur l'emplacement physique.  </li>
-<li><strong>Variables d’environnement &amp; Registre :</strong>  Modification granulaire sans scripting complexe.  </li>
-<li><strong>Tâches planifiées et Raccourcis :</strong>  Automatisation des outils métiers.Cette flexibilité permet de réserver les GPO classiques au durcissement pur du système et à la gestion des accès.</li>
-</ul>
-<h4 id="4-securisation-du-parc-et-gouvernance-des-acces-modele-agdlp">4. Sécurisation du Parc et Gouvernance des Accès (Modèle AGDLP)<a class="headerlink" href="#4-securisation-du-parc-et-gouvernance-des-acces-modele-agdlp" title="Permanent link">&para;</a></h4>
-<p>Les GPO sont le bras armé du  <em>Hardening</em>  système. Une  <strong>Baseline de Sécurité</strong>  doit être appliquée pour réduire la surface d'attaque.</p>
-<h5 id="baseline-de-securite-hardening">Baseline de Sécurité (Hardening)<a class="headerlink" href="#baseline-de-securite-hardening" title="Permanent link">&para;</a></h5>
+<h3 id="matrice-des-decisions-de-confinement">Matrice des Décisions de Confinement<a class="headerlink" href="#matrice-des-decisions-de-confinement" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Système</th>
+<th>Action Retenue</th>
+<th>Rationale Technico-Légal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>WKS-0347</code></td>
+<td><strong>Isolation logique</strong></td>
+<td>Patient zéro. Maintien sous tension pour extraction de la RAM.</td>
+</tr>
+<tr>
+<td><code>TXNSERV-01</code></td>
+<td><strong>Isolation logique</strong></td>
+<td>Interruption du flux d'exfiltration HTTPS et du chiffrement, conservation des clés en mémoire.</td>
+</tr>
+<tr>
+<td><code>TXNSERV-02</code></td>
+<td><strong>Isolation logique</strong></td>
+<td>Blocage de la propagation du ransomware sur le second nœud.</td>
+</tr>
+<tr>
+<td><code>BKPSRV-01</code></td>
+<td><strong>Isolation logique</strong></td>
+<td>Protection des sauvegardes encore saines / hors ligne.</td>
+</tr>
+<tr>
+<td><code>WEBFRONT-01</code></td>
+<td><strong>Mise en maintenance</strong></td>
+<td>Dépendance fonctionnelle coupée ; affichage d'une page d'attente client.</td>
+</tr>
+<tr>
+<td><code>DC-01</code></td>
+<td><strong>Révocation / Reset</strong></td>
+<td>Maintien du service d'annuaire ; réinitialisation double du compte <code>krbtgt</code> et des accès Admin Domaine.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-bilan-des-axes-damelioration-strategiques-pir-2025-003">4. Bilan des Axes d'Amélioration Stratégiques (PIR-2025-003)<a class="headerlink" href="#4-bilan-des-axes-damelioration-strategiques-pir-2025-003" title="Permanent link">&para;</a></h2>
+<p>Les causes racines identifiées débouchent sur quatre chantiers prioritaires à intégrer à la feuille de route de sécurité :</p>
 <ol>
-<li><strong>Restrictions d'interface :</strong>  Désactivation de CMD, PowerShell (pour les non-admins), Regedit et du Gestionnaire des tâches.  </li>
-<li><strong>Contrôle des terminaux :</strong>  Blocage des ports USB/médias amovibles et activation forcée de Windows Defender.  </li>
-<li><strong>Contrôle d'accès et Identité :</strong>  Complexité des mots de passe, verrouillage de session automatique, message légal d'avertissement et blocage de l'énumération des comptes.</li>
+<li><strong>Eradication des connexions directes inter-VLAN :</strong> Implémentation d'un modèle Zero Trust exigeant des bastions d'administration (PAW) pour tout accès RDP/SSH vers la production.</li>
+<li><strong>Durcissement des Endpoints et de l'Identité :</strong> Déploiement d'agents EDR en mode bloquant/actif, activation de <em>LSA Protection</em> (<code>RunAsPPL</code>) sur tous les DCs et bascule des règles de détection d'exécutions de macros du mode <em>log-only</em> au mode <em>quarantine</em>.</li>
+<li><strong>Refonte de l'Architecture de Sauvegarde :</strong> Mise en œuvre d'un stockage immuable (WORM / S3 Object Lock) hors du domaine Active Directory principal pour respecter la règle 3-2-1-1-0.</li>
+<li><strong>Automation de la Réponse (SOAR) :</strong> Création de playbooks d'isolation automatique dès la détection de renommages massifs de fichiers ou d'exfiltrations anormales pour réduire le délai d'escalade.</li>
 </ol>
-<h5 id="gouvernance-des-acces-le-modele-agdlp">Gouvernance des Accès : Le Modèle AGDLP<a class="headerlink" href="#gouvernance-des-acces-le-modele-agdlp" title="Permanent link">&para;</a></h5>
-<p>Pour une gestion évolutive et auditable, l'application du modèle AGDLP est impérative :</p>
-<ul>
-<li><strong>A (Accounts) :</strong>  Les comptes utilisateurs sont regroupés dans...  </li>
-<li><strong>G (Global groups) :</strong>  Représentant les  <strong>Rôles Métiers</strong>  (ex: "Service Comptabilité"), imbriqués dans...  </li>
-<li><strong>DL (Domain Local groups) :</strong>  Représentant l' <strong>Accès aux Ressources</strong>  (ex: "Accès Serveur Fichiers Compta"), auxquels sont appliquées les...  </li>
-<li><strong>P (Permissions) :</strong>  Droits NTFS ou droits de partage.Ce modèle sépare la logique métier de la gestion technique des ressources, facilitant grandement la maintenance.</li>
-</ul>
-<h4 id="5-standardisation-et-automatisation-via-powershell">5. Standardisation et Automatisation via PowerShell<a class="headerlink" href="#5-standardisation-et-automatisation-via-powershell" title="Permanent link">&para;</a></h4>
-<p>L'automatisation est le garant de l'intégrité du parc. L'utilisation du module GroupPolicy permet d'industrialiser les cycles de vie des configurations et d'éliminer l'aléa humain.</p>
-<h5 id="directives-dautomatisation-et-de-maintenance">Directives d'Automatisation et de Maintenance<a class="headerlink" href="#directives-dautomatisation-et-de-maintenance" title="Permanent link">&para;</a></h5>
-<ul>
-<li><strong>Version Control &amp; Rollback :</strong>  Utilisation systématique de Backup-GPO avant toute modification majeure. La résilience repose sur une stratégie de sauvegarde et de restauration (Restore-GPO) testée.  </li>
-<li><strong>Audit et Troubleshooting :</strong>  La commande Get-GPResultantSetOfPolicy doit être l'outil de référence pour générer des rapports de conformité et vérifier quels paramètres sont réellement appliqués sur un poste cible.  </li>
-<li><strong>Gestion du cycle de vie :</strong>  </li>
-<li>New-GPO / New-GPLink : Standardisation du provisionnement.  </li>
-<li>Invoke-GPUpdate : Déploiement immédiat des politiques critiques à distance.</li>
-</ul>
-<h5 id="nomenclature-et-hygiene">Nomenclature et Hygiène<a class="headerlink" href="#nomenclature-et-hygiene" title="Permanent link">&para;</a></h5>
-<p>Chaque GPO doit suivre une nomenclature explicite (ex: SEC-W10-Hardening-USB-Block). La documentation des modifications doit être intégrée dans les rapports générés via PowerShell pour garantir une traçabilité totale.</p>
-<h5 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h5>
-<p>Une infrastructure GPO performante repose sur l'équilibre entre la rigueur de la  <strong>structure LSDOU</strong> , la souplesse contextuelle des  <strong>GPP</strong>  et une gouvernance des accès basée sur le  <strong>modèle AGDLP</strong> . L'adoption de PowerShell pour la maintenance transforme la gestion des politiques de groupe d'une tâche manuelle à un processus industriel sécurisé et auditable.  </p>
+<p><em>Fin du rapport méthodologique.</em></p>
 
 
 
@@ -1786,10 +1773,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.highlight", "search.suggest", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.highlight", "search.suggest", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>
