@@ -4,6 +4,7 @@ Base de connaissances personnelle regroupant les méthodologies d'audit, de test
 
 ## Dernières mises à jour
 
+- 2026-07-30 : Nouveau rapport publié - [Audit IRP & Gestion de Crise Cybersécurité (Tyrell Corporation / IBC Bank)](rapport-methodologique-audit-irp-gestion-crise.md).
 - 2026-07-29 : Nouveau rapport publie - [Audit de Conformite RGPD (DocWagon Connect)](rapport-methodologique-audit-conformite-rgpd.md).
 - 2026-07-28 : Nouveau rapport publié - [Conformité RGPD & AIPD (GenomePath)](rapport-conformite-rgpd-aipd-genomepath.md).
 - 2026-07-28 : Nouveau rapport publié - [Audit RGPD Rocicorp Pharma](rapport-audit-rgpd-rocicorp-pharma.md).
@@ -17,6 +18,7 @@ Base de connaissances personnelle regroupant les méthodologies d'audit, de test
 
 ## Rapports
 
+- [Audit IRP & Gestion de Crise Cybersécurité (Tyrell Corporation / IBC Bank)](rapport-methodologique-audit-irp-gestion-crise.md)
 - [Audit de Conformite RGPD (DocWagon Connect)](rapport-methodologique-audit-conformite-rgpd.md)
 - [AWSGoat Pentest](rapport-awsgoat-pentest.md)
 - [IAM Vulnerable LocalStack](rapport-iam-vulnerable-localstack.md)
