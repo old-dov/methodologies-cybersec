@@ -4,6 +4,7 @@ Base de connaissances personnelle regroupant les méthodologies d'audit, de test
 
 ## Dernières mises à jour
 
+- 2026-07-31 : Nouvelle fiche publiée - [Investigation Réseau via Wireshark (Cas BookWorld)](bibliotheque/investigation-reseau-wireshark-bookworld.md).
 - 2026-07-30 : Nouveau rapport publié - [Audit IRP & Gestion de Crise Cybersécurité (Tyrell Corporation / IBC Bank)](rapport-methodologique-audit-irp-gestion-crise.md).
 - 2026-07-29 : Nouveau rapport publie - [Audit de Conformite RGPD (DocWagon Connect)](rapport-methodologique-audit-conformite-rgpd.md).
 - 2026-07-28 : Nouveau rapport publié - [Conformité RGPD & AIPD (GenomePath)](rapport-conformite-rgpd-aipd-genomepath.md).
@@ -58,3 +59,4 @@ Fiches opérationnelles et référentiels techniques transverses.
 - [Protocole d'Investigation Numérique - Détection d'Intrusion et Surveillance des Processus Critiques](bibliotheque/investigation-intrusion-processus-critiques.md)
 - [Protocole d'Audit - Identification et Prévention de l'Escalade de Privilèges via les Services Windows](bibliotheque/escalade-privileges-services-windows.md)
 - [Référentiel Technique - Architecture et Automatisation des Group Policy Objects (GPO)](bibliotheque/gpo-architecture-automatisation.md)
+- [Investigation Réseau via Wireshark (Cas BookWorld)](bibliotheque/investigation-reseau-wireshark-bookworld.md)
