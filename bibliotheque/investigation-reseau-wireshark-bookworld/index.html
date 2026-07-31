@@ -13,10 +13,10 @@
       
       
       
-        <link rel="prev" href="../investigation-memoire-audit-pilotes/">
+        <link rel="prev" href="../gpo-architecture-automatisation/">
       
       
-        <link rel="next" href="../escalade-privileges-services-windows/">
+        <link rel="next" href="../../rapport-methodologique-audit-irp-gestion-crise/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Détection d'Intrusion et Processus Critiques - Wiki Méthodologies Cybersécurité</title>
+        <title>Investigation Réseau via Wireshark (Cas BookWorld) - Wiki Méthodologies Cybersécurité</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#protocole-dinvestigation-numerique-detection-dintrusion-et-surveillance-des-processus-critiques" class="md-skip">
+        <a href="#methodologie-dinvestigation-reseau-analyse-dune-attaque-web-via-wireshark-cas-bookworld" class="md-skip">
           Aller au contenu
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Détection d'Intrusion et Processus Critiques
+              Investigation Réseau via Wireshark (Cas BookWorld)
             
           </span>
         </div>
@@ -995,37 +995,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Détection d'Intrusion et Processus Critiques
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../investigation-intrusion-processus-critiques/" class="md-nav__link">
         
   
   
@@ -1041,260 +1014,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table des matières
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1-fondamentaux-de-larchitecture-de-securite-windows" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Fondamentaux de l'Architecture de Sécurité Windows
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="1. Fondamentaux de l&#39;Architecture de Sécurité Windows">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#fiches-techniques-des-composants-strategiques" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Fiches Techniques des Composants Stratégiques
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#comparatif-technique-primary-vs-impersonation-tokens" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Comparatif Technique : Primary vs. Impersonation Tokens
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-cadre-de-surveillance-exploitation-des-journaux-devenements" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. Cadre de Surveillance : Exploitation des Journaux d'Événements
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. Cadre de Surveillance : Exploitation des Journaux d&#39;Événements">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#categorisation-des-event-ids-critiques" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Catégorisation des Event IDs Critiques
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#analyse-de-la-sequence-dattaque-4624-4672-4688-4697-1102" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Analyse de la Séquence d'Attaque (4624 → 4672 → 4688 → 4697 → 1102)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#protocole-dactivation-de-laudit-avance" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Protocole d'Activation de l'Audit Avancé
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-investigation-dynamique-avec-la-suite-sysinternals" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Investigation Dynamique avec la Suite Sysinternals
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. Investigation Dynamique avec la Suite Sysinternals">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#analyse-comportementale-via-process-monitor-procmon" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Analyse Comportementale via Process Monitor (Procmon)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-analyse-des-tentatives-descalade-de-privileges-et-acces-au-sam" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Analyse des Tentatives d'Escalade de Privilèges et Accès au SAM
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4. Analyse des Tentatives d&#39;Escalade de Privilèges et Accès au SAM">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#mecanismes-dextraction-et-lolbins" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Mécanismes d'Extraction et "LOLBins"
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#checklist-dinvestigation-dump-de-memoire-et-registre" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Checklist d'Investigation : Dump de Mémoire et Registre
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-protocole-de-verification-de-lintegrite-de-winlogon-et-persistance" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Protocole de Vérification de l'Intégrité de Winlogon et Persistance
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5. Protocole de Vérification de l&#39;Intégrité de Winlogon et Persistance">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#points-de-defense-et-de-rupture" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Points de Défense et de Rupture
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#analyse-des-cles-de-registre-de-persistance-chemins-complets" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Analyse des Clés de Registre de Persistance (Chemins Complets)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6-synthese-des-procedures-de-remediation-et-durcissement" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6. Synthèse des Procédures de Remédiation et Durcissement
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="6. Synthèse des Procédures de Remédiation et Durcissement">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#methodologie-operationnelle" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Méthodologie Opérationnelle
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#recommandations-de-durcissement" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Recommandations de Durcissement
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1360,10 +1079,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../investigation-reseau-wireshark-bookworld/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Investigation Réseau via Wireshark (Cas BookWorld)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1379,6 +1125,158 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#0-vue-densemble-du-trafic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0. Vue d'ensemble du trafic
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-identification-de-lip-attaquante" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Identification de l'IP attaquante
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-geolocalisation-de-lip-attaquante" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Géolocalisation de l'IP attaquante
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-identification-du-script-php-vulnerable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Identification du script PHP vulnérable
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-premiere-requete-dinjection-sql-sqli" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Première requête d'injection SQL (SQLi)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-requete-denumeration-des-bases-de-donnees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Requête d'énumération des bases de données
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-identification-de-la-table-contenant-les-donnees-utilisateurs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Identification de la table contenant les données utilisateurs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-repertoire-cache-decouvert" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Répertoire caché découvert
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-identifiants-de-connexion-utilises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Identifiants de connexion utilisés
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-script-malveillant-uploade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Script malveillant uploadé
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#astuce-transverse-colonnes-personnalisees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Astuce transverse : colonnes personnalisées
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes-methodologiques-generales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notes méthodologiques générales
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1673,236 +1571,134 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-fondamentaux-de-larchitecture-de-securite-windows" class="md-nav__link">
+  <a href="#0-vue-densemble-du-trafic" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Fondamentaux de l'Architecture de Sécurité Windows
+        0. Vue d'ensemble du trafic
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="1. Fondamentaux de l&#39;Architecture de Sécurité Windows">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#fiches-techniques-des-composants-strategiques" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Fiches Techniques des Composants Stratégiques
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#comparatif-technique-primary-vs-impersonation-tokens" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Comparatif Technique : Primary vs. Impersonation Tokens
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-cadre-de-surveillance-exploitation-des-journaux-devenements" class="md-nav__link">
+  <a href="#1-identification-de-lip-attaquante" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Cadre de Surveillance : Exploitation des Journaux d'Événements
+        1. Identification de l'IP attaquante
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="2. Cadre de Surveillance : Exploitation des Journaux d&#39;Événements">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#categorisation-des-event-ids-critiques" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Catégorisation des Event IDs Critiques
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#analyse-de-la-sequence-dattaque-4624-4672-4688-4697-1102" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Analyse de la Séquence d'Attaque (4624 → 4672 → 4688 → 4697 → 1102)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#protocole-dactivation-de-laudit-avance" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Protocole d'Activation de l'Audit Avancé
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-investigation-dynamique-avec-la-suite-sysinternals" class="md-nav__link">
+  <a href="#2-geolocalisation-de-lip-attaquante" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Investigation Dynamique avec la Suite Sysinternals
+        2. Géolocalisation de l'IP attaquante
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="3. Investigation Dynamique avec la Suite Sysinternals">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#analyse-comportementale-via-process-monitor-procmon" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Analyse Comportementale via Process Monitor (Procmon)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-analyse-des-tentatives-descalade-de-privileges-et-acces-au-sam" class="md-nav__link">
+  <a href="#3-identification-du-script-php-vulnerable" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Analyse des Tentatives d'Escalade de Privilèges et Accès au SAM
+        3. Identification du script PHP vulnérable
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="4. Analyse des Tentatives d&#39;Escalade de Privilèges et Accès au SAM">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#mecanismes-dextraction-et-lolbins" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Mécanismes d'Extraction et "LOLBins"
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#checklist-dinvestigation-dump-de-memoire-et-registre" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Checklist d'Investigation : Dump de Mémoire et Registre
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-protocole-de-verification-de-lintegrite-de-winlogon-et-persistance" class="md-nav__link">
+  <a href="#4-premiere-requete-dinjection-sql-sqli" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Protocole de Vérification de l'Intégrité de Winlogon et Persistance
+        4. Première requête d'injection SQL (SQLi)
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="5. Protocole de Vérification de l&#39;Intégrité de Winlogon et Persistance">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#points-de-defense-et-de-rupture" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Points de Défense et de Rupture
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#analyse-des-cles-de-registre-de-persistance-chemins-complets" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Analyse des Clés de Registre de Persistance (Chemins Complets)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-synthese-des-procedures-de-remediation-et-durcissement" class="md-nav__link">
+  <a href="#5-requete-denumeration-des-bases-de-donnees" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6. Synthèse des Procédures de Remédiation et Durcissement
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="6. Synthèse des Procédures de Remédiation et Durcissement">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#methodologie-operationnelle" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Méthodologie Opérationnelle
+        5. Requête d'énumération des bases de données
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#recommandations-de-durcissement" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#6-identification-de-la-table-contenant-les-donnees-utilisateurs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Recommandations de Durcissement
+        6. Identification de la table contenant les données utilisateurs
       
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#7-repertoire-cache-decouvert" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Répertoire caché découvert
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-identifiants-de-connexion-utilises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Identifiants de connexion utilisés
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-script-malveillant-uploade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Script malveillant uploadé
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#astuce-transverse-colonnes-personnalisees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Astuce transverse : colonnes personnalisées
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes-methodologiques-generales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notes méthodologiques générales
+      
+    </span>
+  </a>
   
 </li>
       
@@ -1923,94 +1719,92 @@
 
 
 
-<h1 id="protocole-dinvestigation-numerique-detection-dintrusion-et-surveillance-des-processus-critiques">Protocole d'Investigation Numérique : Détection d'Intrusion et Surveillance des Processus Critiques<a class="headerlink" href="#protocole-dinvestigation-numerique-detection-dintrusion-et-surveillance-des-processus-critiques" title="Permanent link">&para;</a></h1>
-<h4 id="1-fondamentaux-de-larchitecture-de-securite-windows">1. Fondamentaux de l'Architecture de Sécurité Windows<a class="headerlink" href="#1-fondamentaux-de-larchitecture-de-securite-windows" title="Permanent link">&para;</a></h4>
-<p>Pour un analyste SOC, la maîtrise des mécanismes internes de Windows est une nécessité stratégique pour transformer des flux de données brutes en renseignements exploitables. La visibilité granulaire constitue le socle de la défense : sans une compréhension rigoureuse des interactions entre les jetons d'accès (Tokens), le sous-système LSASS et le moniteur SRM, un défenseur est incapable de détecter les mouvements latéraux et les escalades de privilèges subtiles.</p>
-<h5 id="fiches-techniques-des-composants-strategiques">Fiches Techniques des Composants Stratégiques<a class="headerlink" href="#fiches-techniques-des-composants-strategiques" title="Permanent link">&para;</a></h5>
+<h1 id="methodologie-dinvestigation-reseau-analyse-dune-attaque-web-via-wireshark-cas-bookworld">Méthodologie d'Investigation Réseau : Analyse d'une Attaque Web via Wireshark (Cas BookWorld)<a class="headerlink" href="#methodologie-dinvestigation-reseau-analyse-dune-attaque-web-via-wireshark-cas-bookworld" title="Permanent link">&para;</a></h1>
+<p>Cette fiche documente la méthodologie d'analyse d'une capture réseau (<code>WebInvestigation.pcap</code>) via Wireshark (interface graphique), dans le cadre de l'investigation d'une attaque web multi-étapes sur un serveur e-commerce : injection SQL, brute-force du panneau d'administration, puis upload d'un webshell.</p>
+<h4 id="0-vue-densemble-du-trafic">0. Vue d'ensemble du trafic<a class="headerlink" href="#0-vue-densemble-du-trafic" title="Permanent link">&para;</a></h4>
+<p><strong>Statistics → Protocol Hierarchy</strong>
+Donne la répartition des protocoles présents dans la capture (volumétrie par protocole/sous-protocole).</p>
+<p><strong>Statistics → Conversations → onglet IPv4</strong>
+Liste les paires d'IP en communication, triable par nombre de paquets/octets (clic sur l'en-tête de colonne "Frames"). Permet d'identifier rapidement l'IP la plus active du trafic.</p>
+<h4 id="1-identification-de-lip-attaquante">1. Identification de l'IP attaquante<a class="headerlink" href="#1-identification-de-lip-attaquante" title="Permanent link">&para;</a></h4>
+<p><strong>Statistics → Conversations → IPv4</strong>, tri décroissant sur la colonne "Frames".</p>
+<p>Filtre de confirmation :
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ip.addr == &lt;IP_CANDIDATE&gt; and http.request
+</code></pre></div></p>
+<h4 id="2-geolocalisation-de-lip-attaquante">2. Géolocalisation de l'IP attaquante<a class="headerlink" href="#2-geolocalisation-de-lip-attaquante" title="Permanent link">&para;</a></h4>
+<p>Wireshark ne fait pas de géolocalisation native. Une fois l'IP identifiée à l'étape précédente, sortir de Wireshark et effectuer une recherche via un service externe de géolocalisation IP (whois, GeoIP lookup).</p>
+<h4 id="3-identification-du-script-php-vulnerable">3. Identification du script PHP vulnérable<a class="headerlink" href="#3-identification-du-script-php-vulnerable" title="Permanent link">&para;</a></h4>
+<p>Filtre :
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>http.request and ip.src == &lt;IP_ATTAQUANT&gt;
+</code></pre></div></p>
+<p>Ajout d'une colonne personnalisée pour visualiser les URI en liste :</p>
 <ul>
-<li><strong>Access Tokens (Jetons d'accès) :</strong>  </li>
-<li><strong>Rôle :</strong>  Structure de données encapsulant l'identité de sécurité d'un processus (SID, groupes, privilèges).  </li>
-<li><strong>Niveaux d'Intégrité (Integrity Levels) :</strong>  Crucial pour la segmentation. Les niveaux (Low, Medium, High, System) déterminent les capacités d'interaction. Un jeton "High" est impératif pour les actions administratives (UAC), même si l'utilisateur possède les droits requis.  </li>
-<li><strong>Impact ("So What?") :</strong>  La compromission ou la manipulation d'un jeton permet l'usurpation d'identité ou l'élévation de droits sans modification de compte.  </li>
-<li><strong>LSASS (Local Security Authority Subsystem Service) :</strong>  </li>
-<li><strong>Rôle :</strong>  Service tournant en mode utilisateur sous SYSTEM, responsable de l'authentification et de la génération des tokens via l'appel NtCreateToken.  </li>
-<li><strong>Impact ("So What?") :</strong>  Cible prioritaire car il contient le matériel d'authentification en mémoire. Sa compromission est le point de passage obligé pour l'extraction de secrets.  </li>
-<li><strong>SRM (Security Reference Monitor) :</strong>  </li>
-<li><strong>Rôle :</strong>  Composant critique du  <strong>noyau (Kernel)</strong> . Il arbitre chaque accès à un objet en comparant le token du processus au DACL de l'objet.  </li>
-<li><strong>Impact ("So What?") :</strong>  Arbitre final du système. Toute faille dans la logique des ACL ou la structure des jetons permet de contourner le SRM pour réaliser une escalade de privilèges.</li>
+<li>Clic droit sur un paquet HTTP → champ <code>Hypertext Transfer Protocol</code> → <code>Request URI</code> → <strong>Apply as Column</strong></li>
 </ul>
-<h5 id="comparatif-technique-primary-vs-impersonation-tokens">Comparatif Technique : Primary vs. Impersonation Tokens<a class="headerlink" href="#comparatif-technique-primary-vs-impersonation-tokens" title="Permanent link">&para;</a></h5>
-<p>Type de Jeton,Description Technique,Vecteur d'Exploitation Type<br />
-Primary Token,Définit les capacités de base d'un processus au lancement (ex: powershell.exe).,Établissement de la base de privilèges d'une session.<br />
-Impersonation Token,Permet à un service d'agir temporairement sous l'identité d'un client.,"Exploitation de  Named Pipes  (ex: lsass, ntsvcs) où un service malveillant usurpe l'identité d'un client privilégié."<br />
-La maîtrise de ces composants est indispensable pour interpréter les logs : chaque événement est la trace d'une interaction entre un jeton, le LSASS et le SRM.</p>
-<h4 id="2-cadre-de-surveillance-exploitation-des-journaux-devenements">2. Cadre de Surveillance : Exploitation des Journaux d'Événements<a class="headerlink" href="#2-cadre-de-surveillance-exploitation-des-journaux-devenements" title="Permanent link">&para;</a></h4>
-<p>Priorisez la corrélation d'événements à l'analyse isolée. Le bruit de fond système masque les signaux faibles ; seule la séquence chronologique permet de lever le doute sur une intention malveillante.</p>
-<h5 id="categorisation-des-event-ids-critiques">Catégorisation des Event IDs Critiques<a class="headerlink" href="#categorisation-des-event-ids-critiques" title="Permanent link">&para;</a></h5>
+<p>Tri chronologique (colonne Time par défaut) et lecture visuelle des URI pour repérer le script ciblé de façon répétée avec des payloads suspects dans ses paramètres.</p>
+<h4 id="4-premiere-requete-dinjection-sql-sqli">4. Première requête d'injection SQL (SQLi)<a class="headerlink" href="#4-premiere-requete-dinjection-sql-sqli" title="Permanent link">&para;</a></h4>
+<p>Filtre pour isoler les requêtes contenant une syntaxe d'injection :
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>http.request.uri contains &quot;search=&quot; and (http.request.uri contains &quot;27&quot; or http.request.uri contains &quot;OR&quot; or http.request.uri contains &quot;AND&quot;)
+</code></pre></div></p>
 <ul>
-<li><strong>Logon &amp; Authentification :</strong>  4624 (Succès), 4625 (Échec), 4648 (Identifiants explicites), 4776 (NTLM).  </li>
-<li><strong>Privilèges &amp; Jetons :</strong>  4672 (Privilèges spéciaux), 4696 (Assignation de token), 4719 (Politique d'audit modifiée).  </li>
-<li><strong>Processus &amp; Services :</strong>  4688 (Création), 4689 (Terminaison), 4697 (Création de service).  </li>
-<li><strong>Accès aux Objets :</strong>  4656/4663 (Tentative d'accès), 4660 (Suppression).  </li>
-<li><strong>Système &amp; Defender :</strong>  1102 (Journal effacé), 1116/1117 (Détection de malware).</li>
+<li>Tri chronologique croissant.</li>
+<li>Repérer la première occurrence contenant une syntaxe SQL structurée (opérateur logique + commentaire SQL).</li>
+<li>Clic droit sur le paquet → <strong>Copy → Value</strong> pour extraire l'URI brute (encodée URL).</li>
+<li>Décodage : coller la valeur extraite dans un outil de décodage URL externe (ex. CyberChef, ou tout décodeur <code>%XX</code> → caractère).</li>
 </ul>
-<h5 id="analyse-de-la-sequence-dattaque-4624-4672-4688-4697-1102">Analyse de la Séquence d'Attaque (4624 → 4672 → 4688 → 4697 → 1102)<a class="headerlink" href="#analyse-de-la-sequence-dattaque-4624-4672-4688-4697-1102" title="Permanent link">&para;</a></h5>
-<ol>
-<li><strong>4624 / 4672 :</strong>  Accès initial suivi de l'obtention de privilèges administratifs.  </li>
-<li><strong>4688 :</strong>  Création de processus.  <strong>Attention :</strong>  Cet événement n'est exploitable que si l'audit de la  <strong>ligne de commande</strong>  est activé via GPO, faute de quoi l'analyste ignore l'action réelle (ex: powershell.exe -enc...).  </li>
-<li><strong>4697 :</strong>  Installation d'un service pour garantir la persistance.  </li>
-<li><strong>1102 :</strong>  Effacement du journal de sécurité. Il s'agit d'une  <strong>tentative active de dissimulation</strong>  post-compromission.</li>
-</ol>
-<h5 id="protocole-dactivation-de-laudit-avance">Protocole d'Activation de l'Audit Avancé<a class="headerlink" href="#protocole-dactivation-de-laudit-avance" title="Permanent link">&para;</a></h5>
-<p>Exécutez ces commandes pour garantir une visibilité exhaustive, incluant les mouvements latéraux et les manipulations de privilèges :<br />
-auditpol /set /category:"Detailed Tracking" /subcategory:"Process Creation" /success:enable<br />
-auditpol /set /category:"Detailed Tracking" /subcategory:"RPC Events" /success:enable<br />
-auditpol /set /category:"Privilege Use" /subcategory:"Token Right Adjusted" /success:enable</p>
-<h4 id="3-investigation-dynamique-avec-la-suite-sysinternals">3. Investigation Dynamique avec la Suite Sysinternals<a class="headerlink" href="#3-investigation-dynamique-avec-la-suite-sysinternals" title="Permanent link">&para;</a></h4>
-<h5 id="analyse-comportementale-via-process-monitor-procmon">Analyse Comportementale via Process Monitor (Procmon)<a class="headerlink" href="#analyse-comportementale-via-process-monitor-procmon" title="Permanent link">&para;</a></h5>
-<p>Procmon est l'outil de référence pour l'analyse en temps réel. Pour isoler l'activité suspecte, filtrez impérativement le bruit de fond des processus légitimes (ex: exclure MsMpEng.exe).</p>
+<h4 id="5-requete-denumeration-des-bases-de-donnees">5. Requête d'énumération des bases de données<a class="headerlink" href="#5-requete-denumeration-des-bases-de-donnees" title="Permanent link">&para;</a></h4>
+<p>Filtre :
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>http.request.uri contains &quot;SCHEMATA&quot; or http.request.uri contains &quot;schema_name&quot;
+</code></pre></div></p>
+<p>Même procédure de copie/décodage que l'étape précédente sur le résultat obtenu.</p>
+<h4 id="6-identification-de-la-table-contenant-les-donnees-utilisateurs">6. Identification de la table contenant les données utilisateurs<a class="headerlink" href="#6-identification-de-la-table-contenant-les-donnees-utilisateurs" title="Permanent link">&para;</a></h4>
+<p>Filtre pour isoler les requêtes d'énumération de structure de base de données :
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>http.request.uri contains &quot;information_schema.tables&quot; or http.request.uri contains &quot;information_schema.columns&quot;
+</code></pre></div></p>
 <ul>
-<li><strong>Intégrité des fichiers :</strong>  Utilisez handle.exe pour identifier les processus verrouillant des fichiers sensibles (ex: bases de données de mots de passe ou ruches de registre).  </li>
-<li><strong>Détection d'injection et DLL Hijacking :</strong>  Surveillez les événements  <strong>"Load Image"</strong>  dans Procmon. Le chargement de DLL non signées ou provenant de répertoires utilisateur par des processus critiques comme svchost.exe est un indicateur fort d'injection de code.</li>
+<li>Suivre la séquence chronologique des requêtes (typique d'un outil d'exploitation automatisé type sqlmap) : énumération des tables, puis énumération des colonnes de la table ciblée.</li>
+<li>Le nom de table apparaît en clair dans les URI des requêtes suivantes qui la ciblent spécifiquement.</li>
 </ul>
-<h4 id="4-analyse-des-tentatives-descalade-de-privileges-et-acces-au-sam">4. Analyse des Tentatives d'Escalade de Privilèges et Accès au SAM<a class="headerlink" href="#4-analyse-des-tentatives-descalade-de-privileges-et-acces-au-sam" title="Permanent link">&para;</a></h4>
-<p>Le SAM (Security Account Manager) et LSASS sont les cibles prioritaires pour l'extraction de secrets locaux.</p>
-<h5 id="mecanismes-dextraction-et-lolbins">Mécanismes d'Extraction et "LOLBins"<a class="headerlink" href="#mecanismes-dextraction-et-lolbins" title="Permanent link">&para;</a></h5>
+<h4 id="7-repertoire-cache-decouvert">7. Répertoire caché découvert<a class="headerlink" href="#7-repertoire-cache-decouvert" title="Permanent link">&para;</a></h4>
+<p>Filtre pour isoler les réponses positives sur les chemins scannés :
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>ip.src == &lt;IP_ATTAQUANT&gt; and http.response.code == 200
+</code></pre></div></p>
+<p>Comparer avec l'ensemble des chemins scannés (nombreux 404) pour identifier lequel retourne un code de succès (200/301/302), signalant l'existence réelle du répertoire côté serveur.</p>
+<h4 id="8-identifiants-de-connexion-utilises">8. Identifiants de connexion utilisés<a class="headerlink" href="#8-identifiants-de-connexion-utilises" title="Permanent link">&para;</a></h4>
+<p>Filtre :
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>http.request.method == &quot;POST&quot; and http.request.uri == &quot;&lt;CHEMIN_LOGIN&gt;&quot;
+</code></pre></div></p>
 <ul>
-<li><strong>Extraction Online :</strong>  Les attaquants privilégient désormais l'usage de commandes natives comme reg save HKLM\SAM et reg save HKLM\SYSTEM. Ces  <strong>LOLBins</strong>  (Living Off the Land Binaries) sont moins susceptibles de déclencher une alerte EDR que Mimikatz.  </li>
-<li><strong>Nécessité du fichier SYSTEM :</strong>  L'extraction du SAM seul est inutile ; le fichier SYSTEM contient la  <strong>SysKey</strong>  indispensable au déchiffrement des hashs NTLM.  </li>
-<li><strong>Privilèges Requis :</strong>  L'accès live nécessite SYSTEM ou l'activation de SeDebugPrivilege.</li>
+<li>Clic droit sur un paquet du résultat → <strong>Follow → HTTP Stream</strong>.</li>
+<li>Wireshark reconstruit l'échange TCP complet en clair (requête + réponse).</li>
+<li>Le corps du POST (paramètres <code>username=</code>/<code>password=</code> ou équivalent) est visible directement en texte lisible.</li>
+<li>Naviguer entre les tentatives successives via le bouton <strong>Next stream</strong> en bas de la fenêtre Follow Stream.</li>
+<li>Identifier la tentative dont la réponse HTTP diffère des autres (code de redirection au lieu d'un réaffichage du formulaire) : c'est la tentative réussie.</li>
 </ul>
-<h5 id="checklist-dinvestigation-dump-de-memoire-et-registre">Checklist d'Investigation : Dump de Mémoire et Registre<a class="headerlink" href="#checklist-dinvestigation-dump-de-memoire-et-registre" title="Permanent link">&para;</a></h5>
+<h4 id="9-script-malveillant-uploade">9. Script malveillant uploadé<a class="headerlink" href="#9-script-malveillant-uploade" title="Permanent link">&para;</a></h4>
+<p>Filtre :
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>http.request.method == &quot;POST&quot; and http.request.uri == &quot;&lt;CHEMIN_ADMIN_PANEL&gt;&quot;
+</code></pre></div></p>
 <ul>
-<li>Présence de fichiers .save, .dump ou .hiv inhabituels.  </li>
-<li>Exécution de procdump.exe ciblant lsass.exe.  </li>
-<li>Événement 4672 confirmant l'usage de SeDebugPrivilege.  </li>
-<li>Existence de  <strong>Named Pipes</strong>  suspects (ex: pipes créés par des processus non-système pour l'impersonation).</li>
+<li><strong>Follow → HTTP Stream</strong> sur le paquet identifié.</li>
+<li>Le corps multipart/form-data est visible en clair, incluant le nom du fichier uploadé (<code>filename="..."</code>) et son contenu.</li>
 </ul>
-<h4 id="5-protocole-de-verification-de-lintegrite-de-winlogon-et-persistance">5. Protocole de Vérification de l'Intégrité de Winlogon et Persistance<a class="headerlink" href="#5-protocole-de-verification-de-lintegrite-de-winlogon-et-persistance" title="Permanent link">&para;</a></h4>
-<p>Winlogon est un processus critique gérant les sessions interactives sous SYSTEM. Sa compromission assure une persistance totale.</p>
-<h5 id="points-de-defense-et-de-rupture">Points de Défense et de Rupture<a class="headerlink" href="#points-de-defense-et-de-rupture" title="Permanent link">&para;</a></h5>
+<h4 id="astuce-transverse-colonnes-personnalisees">Astuce transverse : colonnes personnalisées<a class="headerlink" href="#astuce-transverse-colonnes-personnalisees" title="Permanent link">&para;</a></h4>
+<p>Pour éviter de rouvrir Follow Stream à répétition, ajouter des colonnes personnalisées via clic droit sur les champs suivants dans le panneau de détails du paquet → <strong>Apply as Column</strong> :</p>
 <ul>
-<li><strong>Secure Attention Sequence (SAS) :</strong>  Winlogon gère exclusivement le Ctrl+Alt+Del. Cette séquence matérielle est la protection fondamentale contre les  <strong>"Fake Logon Screens"</strong>  (écrans de connexion factices).  </li>
-<li><strong>Héritage de Token :</strong>  Le flux standard (Winlogon → LSASS → userinit.exe → explorer.exe) peut être détourné. Un malware substituant userinit.exe héritera automatiquement du jeton de sécurité de la session.</li>
+<li><code>http.request.uri</code></li>
+<li><code>http.request.method</code></li>
+<li><code>http.host</code></li>
+<li><code>http.response.code</code></li>
 </ul>
-<h5 id="analyse-des-cles-de-registre-de-persistance-chemins-complets">Analyse des Clés de Registre de Persistance (Chemins Complets)<a class="headerlink" href="#analyse-des-cles-de-registre-de-persistance-chemins-complets" title="Permanent link">&para;</a></h5>
-<p>Vérifiez l'intégrité des valeurs dans :</p>
+<p>Cela transforme la liste de paquets en vue tabulaire navigable, équivalente à une extraction en ligne de commande mais interactive.</p>
+<h4 id="notes-methodologiques-generales">Notes méthodologiques générales<a class="headerlink" href="#notes-methodologiques-generales" title="Permanent link">&para;</a></h4>
 <ul>
-<li>HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\Shell (Défaut : explorer.exe)  </li>
-<li>HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\Userinit (Défaut : C:\Windows\system32\userinit.exe,)<strong>Mise en garde :</strong>  Toute interruption forcée du processus Winlogon provoque un  <strong>BSOD (Blue Screen of Death)</strong>  immédiat.</li>
+<li>Toujours travailler en filtrant d'abord sur l'IP source de l'attaquant une fois identifiée, pour réduire le bruit du trafic légitime.</li>
+<li>Le tri chronologique (ordre naturel des paquets) est essentiel pour reconstituer la timeline d'attaque : reconnaissance → exploitation → post-exploitation.</li>
+<li>Follow HTTP Stream est l'outil central pour lire le contenu applicatif complet (requête + réponse) sans décodage manuel, tant que le trafic est en clair (HTTP, pas HTTPS).</li>
+<li>Pour du texte URL-encodé dans une URI, Wireshark n'effectue pas toujours le décodage automatique dans la liste de paquets : un outil externe de décodage reste nécessaire pour lecture finale.</li>
 </ul>
-<h4 id="6-synthese-des-procedures-de-remediation-et-durcissement">6. Synthèse des Procédures de Remédiation et Durcissement<a class="headerlink" href="#6-synthese-des-procedures-de-remediation-et-durcissement" title="Permanent link">&para;</a></h4>
-<h5 id="methodologie-operationnelle">Méthodologie Opérationnelle<a class="headerlink" href="#methodologie-operationnelle" title="Permanent link">&para;</a></h5>
-<p>Partir de la détection historique par les  <strong>Event IDs</strong> , puis valider les comportements en temps réel via les outils  <strong>Sysinternals</strong> .</p>
-<h5 id="recommandations-de-durcissement">Recommandations de Durcissement<a class="headerlink" href="#recommandations-de-durcissement" title="Permanent link">&para;</a></h5>
-<ol>
-<li><strong>LSA Protection &amp; Credential Guard :</strong>  Activez ces isolations pour rendre la mémoire de LSASS inaccessible aux outils de dump traditionnels.  </li>
-<li><strong>BitLocker :</strong>  Déployez le chiffrement pour interdire l'analyse forensique  <strong>offline</strong>  (ex: montage du disque via un OS tiers comme Linux pour extraire le SAM).  </li>
-<li><strong>Principe de Moindre Privilège :</strong>  Auditez et restreignez drastiquement l'assignation de SeDebugPrivilege.  </li>
-<li><strong>Mise à jour de l'Audit :</strong>  La visibilité doit évoluer avec les techniques d'évasion ; la surveillance des lignes de commande et des événements RPC est désormais le standard minimal pour tout analyste DFIR.</li>
-</ol>
 
 
 
