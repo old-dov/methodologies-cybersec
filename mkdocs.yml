@@ -73,6 +73,7 @@ nav:
     - Escalade de Privilèges via les Services Windows: bibliotheque/escalade-privileges-services-windows.md
     - Architecture et Automatisation GPO: bibliotheque/gpo-architecture-automatisation.md
     - Investigation Réseau via Wireshark (Cas BookWorld): bibliotheque/investigation-reseau-wireshark-bookworld.md
+    - Forensics Mémoire avec Volatility (Cas Weyland-Yutani): bibliotheque/forensics-memoire-volatility-weyland-yutani.md
   - Rapports:
     - Audit IRP & Gestion de Crise Cybersécurité: rapport-methodologique-audit-irp-gestion-crise.md
     - Audit de Conformite RGPD (DocWagon Connect): rapport-methodologique-audit-conformite-rgpd.md
