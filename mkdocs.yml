@@ -75,6 +75,7 @@ nav:
     - Investigation Réseau via Wireshark (Cas BookWorld): bibliotheque/investigation-reseau-wireshark-bookworld.md
     - Forensics Mémoire avec Volatility (Cas Weyland-Yutani): bibliotheque/forensics-memoire-volatility-weyland-yutani.md
     - DFIR Compromission WordPress (Cas Blue Sun Corporation): bibliotheque/dfir-compromission-wordpress-blue-sun.md
+    - Analyse Statique avec Ghidra: bibliotheque/ghidra-analyse-statique.md
   - Rapports:
     - Audit IRP & Gestion de Crise Cybersécurité: rapport-methodologique-audit-irp-gestion-crise.md
     - Audit de Conformite RGPD (DocWagon Connect): rapport-methodologique-audit-conformite-rgpd.md

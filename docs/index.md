@@ -4,6 +4,7 @@ Base de connaissances personnelle regroupant les méthodologies d'audit, de test
 
 ## Dernières mises à jour
 
+- 2026-08-04 : Nouvelle fiche publiée - [Analyse Statique avec Ghidra](bibliotheque/ghidra-analyse-statique.md).
 - 2026-08-03 : Nouvelle fiche publiée - [DFIR Compromission WordPress (Cas Blue Sun Corporation)](bibliotheque/dfir-compromission-wordpress-blue-sun.md).
 - 2026-07-31 : Nouvelle fiche publiée - [Forensics Mémoire avec Volatility (Cas Weyland-Yutani)](bibliotheque/forensics-memoire-volatility-weyland-yutani.md).
 - 2026-07-31 : Nouvelle fiche publiée - [Investigation Réseau via Wireshark (Cas BookWorld)](bibliotheque/investigation-reseau-wireshark-bookworld.md).
@@ -64,3 +65,4 @@ Fiches opérationnelles et référentiels techniques transverses.
 - [Investigation Réseau via Wireshark (Cas BookWorld)](bibliotheque/investigation-reseau-wireshark-bookworld.md)
 - [Forensics Mémoire avec Volatility (Cas Weyland-Yutani)](bibliotheque/forensics-memoire-volatility-weyland-yutani.md)
 - [DFIR Compromission WordPress (Cas Blue Sun Corporation)](bibliotheque/dfir-compromission-wordpress-blue-sun.md)
+- [Analyse Statique avec Ghidra](bibliotheque/ghidra-analyse-statique.md)
