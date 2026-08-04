@@ -5,20 +5,22 @@ Base de connaissances personnelle regroupant les méthodologies d'audit, de test
 ## Dernières mises à jour
 
 - 2026-08-04 : Nouvelle fiche publiée - [Analyse Statique avec Ghidra](bibliotheque/ghidra-analyse-statique.md).
-- 2026-08-03 : Nouvelle fiche publiée - [DFIR Compromission WordPress (Cas Blue Sun Corporation)](bibliotheque/dfir-compromission-wordpress-blue-sun.md).
-- 2026-07-31 : Nouvelle fiche publiée - [Forensics Mémoire avec Volatility (Cas Weyland-Yutani)](bibliotheque/forensics-memoire-volatility-weyland-yutani.md).
-- 2026-07-31 : Nouvelle fiche publiée - [Investigation Réseau via Wireshark (Cas BookWorld)](bibliotheque/investigation-reseau-wireshark-bookworld.md).
-- 2026-07-30 : Nouveau rapport publié - [Audit IRP & Gestion de Crise Cybersécurité (Tyrell Corporation / IBC Bank)](rapport-methodologique-audit-irp-gestion-crise.md).
-- 2026-07-29 : Nouveau rapport publie - [Audit de Conformite RGPD (DocWagon Connect)](rapport-methodologique-audit-conformite-rgpd.md).
-- 2026-07-28 : Nouveau rapport publié - [Conformité RGPD & AIPD (GenomePath)](rapport-conformite-rgpd-aipd-genomepath.md).
-- 2026-07-28 : Nouveau rapport publié - [Audit RGPD Rocicorp Pharma](rapport-audit-rgpd-rocicorp-pharma.md).
-- 2026-07-24 : Nouveau rapport publié - [AWSGoat Module 2 – Déploiement LocalStack](rapport-awsgoat-module2-deploiement-localstack.md).
-- 2026-07-23 : Nouveau rapport publié - [IAM Vulnerable LocalStack](rapport-iam-vulnerable-localstack.md).
-- 2026-07-22 : Nouveau rapport publié - [AWSGoat Pentest](rapport-awsgoat-pentest.md).
-- 2026-07-20 : Ajout de la méthodologie Pentest Grey Box API REST IBC-News.
-- 2026-07-17 : Ajout du protocole d'audit sur l'escalade de privilèges via les services Windows.
-- 2026-07-17 : Ajout de la méthodologie Lab Decima / Samaritan OS (Contrôle d'accès multi-vecteurs).
-- 2026-07-17 : Publication de 10 nouvelles fiches dans la bibliothèque.
+
+??? note "Historique complet des mises à jour"
+    - 2026-08-03 : Nouvelle fiche publiée - [DFIR Compromission WordPress (Cas Blue Sun Corporation)](bibliotheque/dfir-compromission-wordpress-blue-sun.md).
+    - 2026-07-31 : Nouvelle fiche publiée - [Forensics Mémoire avec Volatility (Cas Weyland-Yutani)](bibliotheque/forensics-memoire-volatility-weyland-yutani.md).
+    - 2026-07-31 : Nouvelle fiche publiée - [Investigation Réseau via Wireshark (Cas BookWorld)](bibliotheque/investigation-reseau-wireshark-bookworld.md).
+    - 2026-07-30 : Nouveau rapport publié - [Audit IRP & Gestion de Crise Cybersécurité (Tyrell Corporation / IBC Bank)](rapport-methodologique-audit-irp-gestion-crise.md).
+    - 2026-07-29 : Nouveau rapport publie - [Audit de Conformite RGPD (DocWagon Connect)](rapport-methodologique-audit-conformite-rgpd.md).
+    - 2026-07-28 : Nouveau rapport publié - [Conformité RGPD & AIPD (GenomePath)](rapport-conformite-rgpd-aipd-genomepath.md).
+    - 2026-07-28 : Nouveau rapport publié - [Audit RGPD Rocicorp Pharma](rapport-audit-rgpd-rocicorp-pharma.md).
+    - 2026-07-24 : Nouveau rapport publié - [AWSGoat Module 2 – Déploiement LocalStack](rapport-awsgoat-module2-deploiement-localstack.md).
+    - 2026-07-23 : Nouveau rapport publié - [IAM Vulnerable LocalStack](rapport-iam-vulnerable-localstack.md).
+    - 2026-07-22 : Nouveau rapport publié - [AWSGoat Pentest](rapport-awsgoat-pentest.md).
+    - 2026-07-20 : Ajout de la méthodologie Pentest Grey Box API REST IBC-News.
+    - 2026-07-17 : Ajout du protocole d'audit sur l'escalade de privilèges via les services Windows.
+    - 2026-07-17 : Ajout de la méthodologie Lab Decima / Samaritan OS (Contrôle d'accès multi-vecteurs).
+    - 2026-07-17 : Publication de 10 nouvelles fiches dans la bibliothèque.
 
 ## Rapports
 
