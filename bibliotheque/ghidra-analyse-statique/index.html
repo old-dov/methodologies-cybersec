@@ -13,10 +13,10 @@
       
       
       
-        <link rel="prev" href="../investigation-reseau-wireshark-bookworld/">
+        <link rel="prev" href="../dfir-compromission-wordpress-blue-sun/">
       
       
-        <link rel="next" href="../dfir-compromission-wordpress-blue-sun/">
+        <link rel="next" href="../../rapport-methodologique-audit-irp-gestion-crise/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Forensics Mémoire avec Volatility (Cas Weyland-Yutani) - Wiki Méthodologies Cybersécurité</title>
+        <title>Analyse Statique avec Ghidra - Wiki Méthodologies Cybersécurité</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#forensics-memoire-avec-volatility-26-analyse-dun-dump-ram-cas-weyland-yutani" class="md-skip">
+        <a href="#analyse-statique-avec-ghidra" class="md-skip">
           Aller au contenu
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Forensics Mémoire avec Volatility (Cas Weyland-Yutani)
+              Analyse Statique avec Ghidra
             
           </span>
         </div>
@@ -1107,37 +1107,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Forensics Mémoire avec Volatility (Cas Weyland-Yutani)
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../forensics-memoire-volatility-weyland-yutani/" class="md-nav__link">
         
   
   
@@ -1153,281 +1126,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table des matières
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#contexte-outillage" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Contexte outillage
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#partie-1-reconnaissance-systeme" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Partie 1 — Reconnaissance système
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Partie 1 — Reconnaissance système">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#identification-du-profil" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Identification du profil
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#liste-des-processus-vue-plate" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Liste des processus (vue plate)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#arborescence-des-processus-vue-hierarchique" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Arborescence des processus (vue hiérarchique)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#partie-2-activite-de-lattaquant" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Partie 2 — Activité de l'attaquant
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Partie 2 — Activité de l&#39;attaquant">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#recuperation-de-lhistorique-des-commandes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Récupération de l'historique des commandes
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#identification-du-compte-associe-a-un-processus-sid" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Identification du compte associé à un processus (SID)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#partie-3-analyse-approfondie-et-synthese" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Partie 3 — Analyse approfondie et synthèse
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Partie 3 — Analyse approfondie et synthèse">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#dump-memoire-dun-processus-specifique" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Dump mémoire d'un processus spécifique
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#extraction-des-chaines-lisibles-alternative-powershell-a-strings" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Extraction des chaînes lisibles (alternative PowerShell à strings)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#recherche-de-motifs-dans-les-chaines-extraites" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Recherche de motifs dans les chaînes extraites
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#scan-des-fichiers-en-memoire" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Scan des fichiers en mémoire
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#filtrage-du-filescan-repertoire-web-extensions-sensibles" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Filtrage du filescan (répertoire web + extensions sensibles)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#methodologie-de-raisonnement-reutilisable" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Méthodologie de raisonnement (réutilisable)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#bonus-correlation-avec-limage-disque-ftk-imager" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Bonus — Corrélation avec l'image disque (FTK Imager)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Bonus — Corrélation avec l&#39;image disque (FTK Imager)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#installation-ftk-imager-exterro" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Installation FTK Imager (Exterro)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ouverture-de-limage-disque" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Ouverture de l'image disque
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#export-dun-fichier-pour-analyse-texte-hors-ftk-imager" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Export d'un fichier pour analyse texte hors FTK Imager
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#methodologie-de-correlation-memoire-disque" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Méthodologie de corrélation mémoire ↔ disque
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#points-de-vigilance-techniques" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Points de vigilance techniques
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1465,10 +1163,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../ghidra-analyse-statique/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analyse Statique avec Ghidra
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1484,6 +1209,236 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-installation-de-lenvironnement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Installation de l'environnement
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Installation de l&#39;environnement">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prerequis-java" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prérequis Java
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lancement-de-ghidra" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lancement de Ghidra
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-methodologie-danalyse-statique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Méthodologie d'analyse statique
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Méthodologie d&#39;analyse statique">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mise-en-place-du-projet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mise en place du projet
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#localisation-du-point-dentree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Localisation du point d'entrée
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recherche-de-chaines-en-clair" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recherche de chaînes en clair
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cross-references-xrefs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cross-références (XREFs)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reconstruction-de-chaines-fragmentees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reconstruction de chaînes fragmentées
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resolution-dequations-mathematiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Résolution d'équations mathématiques
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#patch-binaire-bypass-de-conditions-figees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Patch binaire (bypass de conditions figées)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dechiffrement-xor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Déchiffrement XOR
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reconstruction-de-structures-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reconstruction de structures C
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contournement-anti-debug-ptrace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contournement anti-debug (ptrace)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#identification-dalgorithmes-sur-binaire-stripped" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Identification d'algorithmes sur binaire stripped
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cassage-de-hash-non-cryptographique-djb2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cassage de hash non cryptographique (DJB2)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-environnement-dexecution-des-binaires" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Environnement d'exécution des binaires
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-synthese-des-techniques-couvertes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Synthèse des techniques couvertes
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1778,33 +1733,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#contexte-outillage" class="md-nav__link">
+  <a href="#1-installation-de-lenvironnement" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Contexte outillage
+        1. Installation de l'environnement
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#partie-1-reconnaissance-systeme" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Partie 1 — Reconnaissance système
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Partie 1 — Reconnaissance système">
+    <nav class="md-nav" aria-label="1. Installation de l&#39;environnement">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#identification-du-profil" class="md-nav__link">
+  <a href="#prerequis-java" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Identification du profil
+        Prérequis Java
       
     </span>
   </a>
@@ -1812,21 +1756,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#liste-des-processus-vue-plate" class="md-nav__link">
+  <a href="#lancement-de-ghidra" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Liste des processus (vue plate)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#arborescence-des-processus-vue-hierarchique" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Arborescence des processus (vue hiérarchique)
+        Lancement de Ghidra
       
     </span>
   </a>
@@ -1839,22 +1772,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#partie-2-activite-de-lattaquant" class="md-nav__link">
+  <a href="#2-methodologie-danalyse-statique" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Partie 2 — Activité de l'attaquant
+        2. Méthodologie d'analyse statique
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Partie 2 — Activité de l&#39;attaquant">
+    <nav class="md-nav" aria-label="2. Méthodologie d&#39;analyse statique">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#recuperation-de-lhistorique-des-commandes" class="md-nav__link">
+  <a href="#mise-en-place-du-projet" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Récupération de l'historique des commandes
+        Mise en place du projet
       
     </span>
   </a>
@@ -1862,10 +1795,120 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#identification-du-compte-associe-a-un-processus-sid" class="md-nav__link">
+  <a href="#localisation-du-point-dentree" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Identification du compte associé à un processus (SID)
+        Localisation du point d'entrée
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recherche-de-chaines-en-clair" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recherche de chaînes en clair
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cross-references-xrefs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cross-références (XREFs)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reconstruction-de-chaines-fragmentees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reconstruction de chaînes fragmentées
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resolution-dequations-mathematiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Résolution d'équations mathématiques
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#patch-binaire-bypass-de-conditions-figees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Patch binaire (bypass de conditions figées)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dechiffrement-xor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Déchiffrement XOR
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reconstruction-de-structures-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reconstruction de structures C
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contournement-anti-debug-ptrace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contournement anti-debug (ptrace)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#identification-dalgorithmes-sur-binaire-stripped" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Identification d'algorithmes sur binaire stripped
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cassage-de-hash-non-cryptographique-djb2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cassage de hash non cryptographique (DJB2)
       
     </span>
   </a>
@@ -1878,82 +1921,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#partie-3-analyse-approfondie-et-synthese" class="md-nav__link">
+  <a href="#3-environnement-dexecution-des-binaires" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Partie 3 — Analyse approfondie et synthèse
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Partie 3 — Analyse approfondie et synthèse">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#dump-memoire-dun-processus-specifique" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Dump mémoire d'un processus spécifique
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#extraction-des-chaines-lisibles-alternative-powershell-a-strings" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Extraction des chaînes lisibles (alternative PowerShell à strings)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#recherche-de-motifs-dans-les-chaines-extraites" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Recherche de motifs dans les chaînes extraites
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#scan-des-fichiers-en-memoire" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Scan des fichiers en mémoire
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#filtrage-du-filescan-repertoire-web-extensions-sensibles" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Filtrage du filescan (répertoire web + extensions sensibles)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#methodologie-de-raisonnement-reutilisable" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Méthodologie de raisonnement (réutilisable)
+        3. Environnement d'exécution des binaires
       
     </span>
   </a>
@@ -1961,71 +1932,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#bonus-correlation-avec-limage-disque-ftk-imager" class="md-nav__link">
+  <a href="#4-synthese-des-techniques-couvertes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Bonus — Corrélation avec l'image disque (FTK Imager)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Bonus — Corrélation avec l&#39;image disque (FTK Imager)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#installation-ftk-imager-exterro" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Installation FTK Imager (Exterro)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ouverture-de-limage-disque" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Ouverture de l'image disque
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#export-dun-fichier-pour-analyse-texte-hors-ftk-imager" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Export d'un fichier pour analyse texte hors FTK Imager
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#methodologie-de-correlation-memoire-disque" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Méthodologie de corrélation mémoire ↔ disque
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#points-de-vigilance-techniques" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Points de vigilance techniques
+        4. Synthèse des techniques couvertes
       
     </span>
   </a>
@@ -2049,124 +1959,148 @@
 
 
 
-<h1 id="forensics-memoire-avec-volatility-26-analyse-dun-dump-ram-cas-weyland-yutani">Forensics Mémoire avec Volatility 2.6 : Analyse d'un Dump RAM (Cas Weyland-Yutani)<a class="headerlink" href="#forensics-memoire-avec-volatility-26-analyse-dun-dump-ram-cas-weyland-yutani" title="Permanent link">&para;</a></h1>
-<p>Cette fiche documente la méthodologie d'analyse d'un dump mémoire (<code>memdump.mem</code>) via Volatility Framework 2.6 (standalone Windows), dans le cadre d'un lab DFIR : reconstitution de l'activité d'un attaquant ayant compromis un serveur web, puis corrélation optionnelle avec une image disque via FTK Imager.</p>
-<h2 id="contexte-outillage">Contexte outillage<a class="headerlink" href="#contexte-outillage" title="Permanent link">&para;</a></h2>
-<p>Volatility installé en version standalone Windows (<code>.exe</code>), non ajouté au PATH.
-Appel systématique via chemin complet, avec <code>&amp;</code> en PowerShell pour gérer les
-espaces dans le chemin.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nv">$VOL</span> <span class="p">=</span> <span class="s2">&quot;C:\Users\muzee\Downloads\volatility_2.6_win64_standalone\volatility_2.6_win64_standalone\volatility_2.6_win64_standalone.exe&quot;</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nv">$MEM</span> <span class="p">=</span> <span class="s2">&quot;D:\Jedha Bootcamp Cyber Lead\5.Incident Management\Weyland-Yutani\dfir-case1\memdump\memdump.mem&quot;</span>
+<h1 id="analyse-statique-avec-ghidra">Analyse Statique avec Ghidra<a class="headerlink" href="#analyse-statique-avec-ghidra" title="Permanent link">&para;</a></h1>
+<p>Cette fiche documente la méthodologie d'analyse statique de binaires avec Ghidra, dans le cadre d'un module Incident Management / Reverse Engineering : installation de l'environnement, navigation dans le CodeBrowser, techniques de reconstruction (chaînes fragmentées, structures C, équations de validation), patch binaire, déchiffrement XOR et cassage de hash non cryptographique sur binaires stripped.</p>
+<h2 id="1-installation-de-lenvironnement">1. Installation de l'environnement<a class="headerlink" href="#1-installation-de-lenvironnement" title="Permanent link">&para;</a></h2>
+<h3 id="prerequis-java">Prérequis Java<a class="headerlink" href="#prerequis-java" title="Permanent link">&para;</a></h3>
+<p>Ghidra 12.x nécessite <strong>JDK 21 minimum</strong>. Vérification de la version active :</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">java</span> <span class="n">-version</span>
 </code></pre></div>
-<h2 id="partie-1-reconnaissance-systeme">Partie 1 — Reconnaissance système<a class="headerlink" href="#partie-1-reconnaissance-systeme" title="Permanent link">&para;</a></h2>
-<h3 id="identification-du-profil">Identification du profil<a class="headerlink" href="#identification-du-profil" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">&amp;</span> <span class="nv">$VOL</span> <span class="o">-f</span> <span class="nv">$MEM</span> <span class="n">imageinfo</span>
+<p>Installation via winget si nécessaire :</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">winget</span> <span class="n">install</span> <span class="n">Microsoft</span><span class="p">.</span><span class="n">OpenJDK</span><span class="p">.</span><span class="n">21</span>
 </code></pre></div>
-<h3 id="liste-des-processus-vue-plate">Liste des processus (vue plate)<a class="headerlink" href="#liste-des-processus-vue-plate" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">&amp;</span> <span class="nv">$VOL</span> <span class="o">-f</span> <span class="nv">$MEM</span> <span class="p">-</span><span class="n">-profile</span><span class="p">=</span><span class="n">Win2008SP1x86</span> <span class="n">pslist</span>
+<blockquote>
+<p>Après installation, redémarrer le terminal pour recharger le PATH.</p>
+</blockquote>
+<h3 id="lancement-de-ghidra">Lancement de Ghidra<a class="headerlink" href="#lancement-de-ghidra" title="Permanent link">&para;</a></h3>
+<p>Depuis l'archive <strong>release précompilée</strong> (pas le code source GitHub, qui nécessite une compilation Gradle) :</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">.\</span><span class="n">ghidraRun</span><span class="p">.</span><span class="n">bat</span>
 </code></pre></div>
-<h3 id="arborescence-des-processus-vue-hierarchique">Arborescence des processus (vue hiérarchique)<a class="headerlink" href="#arborescence-des-processus-vue-hierarchique" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">&amp;</span> <span class="nv">$VOL</span> <span class="o">-f</span> <span class="nv">$MEM</span> <span class="p">-</span><span class="n">-profile</span><span class="p">=</span><span class="n">Win2008SP1x86</span> <span class="n">pstree</span>
-</code></pre></div>
-<h2 id="partie-2-activite-de-lattaquant">Partie 2 — Activité de l'attaquant<a class="headerlink" href="#partie-2-activite-de-lattaquant" title="Permanent link">&para;</a></h2>
-<h3 id="recuperation-de-lhistorique-des-commandes">Récupération de l'historique des commandes<a class="headerlink" href="#recuperation-de-lhistorique-des-commandes" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">&amp;</span> <span class="nv">$VOL</span> <span class="o">-f</span> <span class="nv">$MEM</span> <span class="p">-</span><span class="n">-profile</span><span class="p">=</span><span class="n">Win2008SP1x86</span> <span class="n">cmdscan</span>
-</code></pre></div>
-<h3 id="identification-du-compte-associe-a-un-processus-sid">Identification du compte associé à un processus (SID)<a class="headerlink" href="#identification-du-compte-associe-a-un-processus-sid" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">&amp;</span> <span class="nv">$VOL</span> <span class="o">-f</span> <span class="nv">$MEM</span> <span class="p">-</span><span class="n">-profile</span><span class="p">=</span><span class="n">Win2008SP1x86</span> <span class="n">getsids</span> <span class="n">-p</span> <span class="n">1972</span>
-</code></pre></div>
-<h2 id="partie-3-analyse-approfondie-et-synthese">Partie 3 — Analyse approfondie et synthèse<a class="headerlink" href="#partie-3-analyse-approfondie-et-synthese" title="Permanent link">&para;</a></h2>
-<h3 id="dump-memoire-dun-processus-specifique">Dump mémoire d'un processus spécifique<a class="headerlink" href="#dump-memoire-dun-processus-specifique" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p">&amp;</span> <span class="nv">$VOL</span> <span class="o">-f</span> <span class="nv">$MEM</span> <span class="p">-</span><span class="n">-profile</span><span class="p">=</span><span class="n">Win2008SP1x86</span> <span class="n">memdump</span> <span class="n">-p</span> <span class="n">2880</span> <span class="p">-</span><span class="n">-dump-dir</span> <span class="p">.</span>
-</code></pre></div>
-<h3 id="extraction-des-chaines-lisibles-alternative-powershell-a-strings">Extraction des chaînes lisibles (alternative PowerShell à <code>strings</code>)<a class="headerlink" href="#extraction-des-chaines-lisibles-alternative-powershell-a-strings" title="Permanent link">&para;</a></h3>
-<p><code>strings</code> (Sysinternals) non disponible sur le poste. Extraction via lecture
-binaire brute et regex sur les octets imprimables, encodage ISO-8859-1 pour
-préserver l'alignement octet-à-octet :</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nv">$bytes</span> <span class="p">=</span> <span class="no">[System.IO.File]</span><span class="p">::</span><span class="n">ReadAllBytes</span><span class="p">(</span><span class="s2">&quot;2880.dmp&quot;</span><span class="p">)</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nv">$text</span> <span class="p">=</span> <span class="no">[System.Text.Encoding]</span><span class="p">::</span><span class="n">GetEncoding</span><span class="p">(</span><span class="s2">&quot;ISO-8859-1&quot;</span><span class="p">).</span><span class="n">GetString</span><span class="p">(</span><span class="nv">$bytes</span><span class="p">)</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="nv">$text</span> <span class="p">|</span> <span class="nb">Select-String</span> <span class="n">-Pattern</span> <span class="s2">&quot;[\x20-\x7E]{4,}&quot;</span> <span class="n">-AllMatches</span> <span class="p">|</span> <span class="k">ForEach</span><span class="n">-Object</span> <span class="p">{</span> <span class="nv">$_</span><span class="p">.</span><span class="n">Matches</span><span class="p">.</span><span class="n">Value</span> <span class="p">}</span> <span class="p">|</span> <span class="nb">Out-File</span> <span class="n">-Encoding</span> <span class="n">UTF8</span> <span class="s2">&quot;2880_strings.txt&quot;</span>
-</code></pre></div>
-<h3 id="recherche-de-motifs-dans-les-chaines-extraites">Recherche de motifs dans les chaînes extraites<a class="headerlink" href="#recherche-de-motifs-dans-les-chaines-extraites" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nb">Select-String</span> <span class="n">-Path</span> <span class="s2">&quot;2880_strings.txt&quot;</span> <span class="n">-Pattern</span> <span class="s2">&quot;net.user&quot;</span> <span class="n">-SimpleMatch</span><span class="p">:</span><span class="nv">$false</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="nb">Select-String</span> <span class="n">-Path</span> <span class="s2">&quot;2880_strings.txt&quot;</span> <span class="n">-Pattern</span> <span class="s2">&quot;%26%26&quot;</span>
-</code></pre></div>
-<h3 id="scan-des-fichiers-en-memoire">Scan des fichiers en mémoire<a class="headerlink" href="#scan-des-fichiers-en-memoire" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="p">&amp;</span> <span class="nv">$VOL</span> <span class="o">-f</span> <span class="nv">$MEM</span> <span class="p">-</span><span class="n">-profile</span><span class="p">=</span><span class="n">Win2008SP1x86</span> <span class="n">filescan</span> <span class="p">&gt;</span> <span class="n">filescan_full</span><span class="p">.</span><span class="n">txt</span>
-</code></pre></div>
-<h3 id="filtrage-du-filescan-repertoire-web-extensions-sensibles">Filtrage du filescan (répertoire web + extensions sensibles)<a class="headerlink" href="#filtrage-du-filescan-repertoire-web-extensions-sensibles" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nb">Select-String</span> <span class="n">-Path</span> <span class="s2">&quot;filescan_full.txt&quot;</span> <span class="n">-Pattern</span> <span class="s2">&quot;htdocs&quot;</span> <span class="p">|</span> <span class="nb">Select-String</span> <span class="n">-Pattern</span> <span class="s2">&quot;\.zip|\.rar|\.7z|\.php|\.exe|\.jsp|\.asp&quot;</span>
-</code></pre></div>
-<h2 id="methodologie-de-raisonnement-reutilisable">Méthodologie de raisonnement (réutilisable)<a class="headerlink" href="#methodologie-de-raisonnement-reutilisable" title="Permanent link">&para;</a></h2>
-<ol>
-<li><strong>imageinfo</strong> → déterminer le profil avant tout autre plugin.</li>
-<li><strong>pslist + pstree</strong> → repérer les processus hors fenêtre de setup initiale
-   et analyser leur lignée (parent = explorer.exe → session interactive ;
-   parent = service web → exécution via l'application).</li>
-<li><strong>cmdscan</strong> → historique des commandes tapées en interactif ; filtrer les
-   blocs de mémoire résiduelle (CommandCount incohérent, fragments).</li>
-<li><strong>getsids -p <PID></strong> → le SID se terminant par <code>-500</code> désigne toujours le
-   compte Administrateur intégré, quel que soit le nom du domaine/machine.</li>
-<li><strong>memdump -p <PID> + extraction de strings</strong> → pour retrouver l'activité
-   d'un attaquant passée par une application (web) plutôt que par une
-   console interactive ; penser à l'encodage URL des caractères spéciaux
-   (<code>%26%26</code> = <code>&amp;&amp;</code>) dans les paramètres de formulaire.</li>
-<li><strong>filescan</strong> → toujours rediriger vers un fichier (sortie volumineuse) puis
-   filtrer par répertoire applicatif connu et extensions à risque.</li>
-</ol>
-<h2 id="bonus-correlation-avec-limage-disque-ftk-imager">Bonus — Corrélation avec l'image disque (FTK Imager)<a class="headerlink" href="#bonus-correlation-avec-limage-disque-ftk-imager" title="Permanent link">&para;</a></h2>
-<p>Complément optionnel du lab : croiser les preuves mémoire avec l'image disque
-complète (<code>Case1-Webserver.E01</code>), pour accéder aux logs Apache, aux
-métadonnées de fichiers et à d'éventuels artefacts absents de la RAM.</p>
-<h3 id="installation-ftk-imager-exterro">Installation FTK Imager (Exterro)<a class="headerlink" href="#installation-ftk-imager-exterro" title="Permanent link">&para;</a></h3>
-<p>Le formulaire de téléchargement officiel filtre les domaines de webmail grand
-public (Orange, MSN...) et n'accepte que des adresses à caractère
-professionnel/institutionnel. Une adresse sur domaine personnel
-(<code>@tech-etc.fr</code>) passe le filtre là où les FAI grand public sont rejetés.</p>
-<p>Distribution reçue sous forme d'ISO — montage natif Windows avant
-installation :</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nv">$mount</span> <span class="p">=</span> <span class="nb">Mount-DiskImage</span> <span class="n">-ImagePath</span> <span class="s2">&quot;C:\chemin\vers\FTKImager.iso&quot;</span> <span class="n">-PassThru</span>
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="nv">$driveLetter</span> <span class="p">=</span> <span class="p">(</span><span class="nv">$mount</span> <span class="p">|</span> <span class="nb">Get-Volume</span><span class="p">).</span><span class="n">DriveLetter</span>
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="nb">Get-ChildItem</span> <span class="s2">&quot;${driveLetter}:\&quot;</span> <span class="n">-Recurse</span>
-</code></pre></div>
-<h3 id="ouverture-de-limage-disque">Ouverture de l'image disque<a class="headerlink" href="#ouverture-de-limage-disque" title="Permanent link">&para;</a></h3>
-<p>Dans FTK Imager : <strong>File &gt; Add Evidence Item &gt; Image File</strong>, puis sélection du
-fichier <code>Case1-Webserver.E01</code> (format EWF reconnu nativement, pas de
-conversion nécessaire). Les segments <code>.E02</code>, <code>.E03</code>... doivent rester dans le
-même dossier que le <code>.E01</code> pour un rechargement automatique en séquence.</p>
-<h3 id="export-dun-fichier-pour-analyse-texte-hors-ftk-imager">Export d'un fichier pour analyse texte hors FTK Imager<a class="headerlink" href="#export-dun-fichier-pour-analyse-texte-hors-ftk-imager" title="Permanent link">&para;</a></h3>
-<p>Clic droit sur le fichier ciblé dans le panneau <strong>File List</strong> → <strong>Export
-Files...</strong>, puis recherche dans le fichier exporté :</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nb">Select-String</span> <span class="n">-Path</span> <span class="s2">&quot;access.log&quot;</span> <span class="n">-Pattern</span> <span class="s2">&quot;exec&quot;</span>
-</code></pre></div>
-<h3 id="methodologie-de-correlation-memoire-disque">Méthodologie de corrélation mémoire ↔ disque<a class="headerlink" href="#methodologie-de-correlation-memoire-disque" title="Permanent link">&para;</a></h3>
-<ol>
-<li><strong>Métadonnées de fichiers</strong> (<code>Date Created</code> / <code>Date Modified</code> / <code>Date
-   Accessed</code> dans le panneau File List de FTK Imager) pour situer un artefact
-   retrouvé en mémoire (ex. webshell) dans une chronologie précise —
-   information que Volatility seul ne fournit pas aussi finement.</li>
-<li><strong>Logs applicatifs</strong> (<code>xampp\apache\logs\access.log</code>) pour confirmer et
-   enrichir une séquence d'attaque déduite de la mémoire (ex. corrélation
-   entre le nombre de tentatives <code>POST</code> observées côté web et le nombre de
-   commandes reconstruites via strings sur <code>httpd.exe</code>).</li>
-<li><strong>Repérage par user-agent atypique</strong> dans les logs (ex. <code>sqlmap/1.0-dev</code>)
-   pour détecter des outils d'exploitation automatisés qui n'auraient laissé
-   aucune trace en mémoire au moment du dump (fichiers webshell temporaires
-   déjà supprimés par l'attaquant après usage).</li>
-<li><strong>Dossier <code>[orphan]</code></strong> dans l'arborescence FTK Imager : pointe vers des
-   entrées MFT dont le chemin parent est cassé, piste à explorer pour
-   retrouver des fichiers supprimés récemment (non exploré dans cette
-   session).</li>
-</ol>
-<h2 id="points-de-vigilance-techniques">Points de vigilance techniques<a class="headerlink" href="#points-de-vigilance-techniques" title="Permanent link">&para;</a></h2>
+<h2 id="2-methodologie-danalyse-statique">2. Méthodologie d'analyse statique<a class="headerlink" href="#2-methodologie-danalyse-statique" title="Permanent link">&para;</a></h2>
+<h3 id="mise-en-place-du-projet">Mise en place du projet<a class="headerlink" href="#mise-en-place-du-projet" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Sous PowerShell, les chemins avec espaces nécessitent l'opérateur <code>&amp;</code>
-  (call operator) pour l'exécution d'un exécutable.</li>
-<li><code>Get-Content -Encoding Latin1</code> n'existe pas nativement en PowerShell 5.1 ;
-  passer par <code>[System.Text.Encoding]::GetEncoding("ISO-8859-1")</code> en .NET direct.</li>
-<li>Un dump mémoire de ~200 Mo se traite en quelques dizaines de secondes à
-  quelques minutes avec une regex PowerShell — acceptable sans script externe.</li>
+<li><code>File → New Project → Non-Shared Project</code></li>
+<li><code>File → Import File</code> (sélection du binaire cible)</li>
+<li>Double-clic sur le binaire importé → ouverture du CodeBrowser</li>
+<li>Accepter l'<strong>Auto Analysis</strong> à l'ouverture</li>
 </ul>
+<h3 id="localisation-du-point-dentree">Localisation du point d'entrée<a class="headerlink" href="#localisation-du-point-dentree" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Symbol Tree → dossier <strong>Functions</strong> → recherche de <code>entry</code> ou <code>_start</code></li>
+<li>Alternative : <code>Window → Entry Points</code> (table dédiée des points d'entrée)</li>
+<li>Pour les binaires MSVC (PE) : pas de nom <code>main</code> automatique — suivre la chaîne d'appels depuis <code>entry</code> jusqu'à la fonction runtime (<code>FUN_xxxxxxxx</code>), puis repérer l'appel final correspondant à <code>main(argc, argv, envp)</code></li>
+</ul>
+<h3 id="recherche-de-chaines-en-clair">Recherche de chaînes en clair<a class="headerlink" href="#recherche-de-chaines-en-clair" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>Window → Defined Strings</code> pour lister toutes les chaînes lisibles du binaire</li>
+<li>Filtrer/scroller pour distinguer les métadonnées ELF/PE des chaînes applicatives (messages, mots de passe en dur)</li>
+</ul>
+<h3 id="cross-references-xrefs">Cross-références (XREFs)<a class="headerlink" href="#cross-references-xrefs" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Clic droit sur une chaîne ou un symbole → <strong>References → Show References To Address</strong></li>
+<li>Double-clic sur la référence pour naviguer directement vers la fonction appelante</li>
+<li>Renommage des variables génériques (<code>local_x</code>, <code>iVarX</code>) via la touche <strong>L</strong> pour clarifier le code décompilé</li>
+</ul>
+<h3 id="reconstruction-de-chaines-fragmentees">Reconstruction de chaînes fragmentées<a class="headerlink" href="#reconstruction-de-chaines-fragmentees" title="Permanent link">&para;</a></h3>
+<p>Lorsque des comparaisons caractère par caractère sont effectuées dans un ordre non séquentiel (offsets <code>local_XX</code> dispersés), mapper chaque variable à sa position réelle dans le buffer pour reconstituer la chaîne complète.</p>
+<h3 id="resolution-dequations-mathematiques">Résolution d'équations mathématiques<a class="headerlink" href="#resolution-dequations-mathematiques" title="Permanent link">&para;</a></h3>
+<p>Pour les boucles de calcul (multiplication/addition répétées), extraire l'équation depuis le code décompilé et la résoudre manuellement (algèbre simple) pour retrouver la valeur d'entrée attendue.</p>
+<h3 id="patch-binaire-bypass-de-conditions-figees">Patch binaire (bypass de conditions figées)<a class="headerlink" href="#patch-binaire-bypass-de-conditions-figees" title="Permanent link">&para;</a></h3>
+<p>Pour contourner une condition qui n'est jamais atteinte dans le flux normal d'exécution :</p>
+<ul>
+<li>Repérer l'instruction de saut conditionnel bloquante dans le Listing</li>
+<li>Clic droit sur l'instruction → <strong>Patch Instruction</strong></li>
+<li>Privilégier l'<strong>inversion de la condition de saut</strong> (ex. <code>JNZ</code> → <code>JZ</code>) plutôt que le <code>NOP</code>, car remplacer une instruction par une instruction de taille différente en octets peut être rejeté par Ghidra</li>
+<li>Exporter le binaire patché : <code>File → Export Program</code> (format <em>Original File</em>)</li>
+<li>Rendre le binaire exécutable et le lancer :</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>chmod<span class="w"> </span>+x<span class="w"> </span>&lt;binaire_patché&gt;
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>./&lt;binaire_patché&gt;
+</code></pre></div>
+<h3 id="dechiffrement-xor">Déchiffrement XOR<a class="headerlink" href="#dechiffrement-xor" title="Permanent link">&para;</a></h3>
+<p>Pour des chaînes obfusquées par XOR à clé fixe (un octet), extraction du tableau d'octets chiffrés et de la clé depuis le code décompilé, puis déchiffrement via script :</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">decoded</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">([</span><span class="n">b</span> <span class="o">^</span> <span class="n">key</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">encrypted_bytes</span><span class="p">])</span>
+</code></pre></div>
+<h3 id="reconstruction-de-structures-c">Reconstruction de structures C<a class="headerlink" href="#reconstruction-de-structures-c" title="Permanent link">&para;</a></h3>
+<p>Lorsque le code décompilé manipule des offsets de pointeurs bruts (<code>*(undefined8 *)(ptr + 0x18)</code>), reconstituer manuellement les valeurs en assemblant les écritures mémoire successives (attention aux chevauchements d'offsets) pour obtenir la chaîne finale.</p>
+<h3 id="contournement-anti-debug-ptrace">Contournement anti-debug (ptrace)<a class="headerlink" href="#contournement-anti-debug-ptrace" title="Permanent link">&para;</a></h3>
+<p>Pattern classique : <code>ptrace(PTRACE_TRACEME, 0, 1, 0)</code> suivi d'un test de la valeur de retour. Une exécution normale (hors debugger) renvoie une valeur positive/nulle et emprunte le chemin légitime — aucun patch nécessaire dans ce cas, contrairement à un contournement en présence d'un debugger actif.</p>
+<h3 id="identification-dalgorithmes-sur-binaire-stripped">Identification d'algorithmes sur binaire stripped<a class="headerlink" href="#identification-dalgorithmes-sur-binaire-stripped" title="Permanent link">&para;</a></h3>
+<p>Sans noms de fonctions, repérer les <strong>constantes magiques</strong> caractéristiques d'algorithmes connus (ex. <code>5381</code> et multiplication par <code>33</code> → DJB2 hash). Une fois l'algorithme identifié, extraire le hash cible depuis la condition de comparaison.</p>
+<h3 id="cassage-de-hash-non-cryptographique-djb2">Cassage de hash non cryptographique (DJB2)<a class="headerlink" href="#cassage-de-hash-non-cryptographique-djb2" title="Permanent link">&para;</a></h3>
+<p>DJB2 n'étant pas résistant aux collisions, une recherche par force brute (script C compilé en <code>-O3</code> pour la vitesse) sur un espace de caractères alphanumériques permet de retrouver une préimage valide :</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>gcc<span class="w"> </span>-O3<span class="w"> </span>-o<span class="w"> </span>crack<span class="w"> </span>crack.c<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>./crack
+</code></pre></div>
+<blockquote>
+<p>Note : une collision valide suffit à satisfaire la condition <code>hash == target</code>, mais si le flag final est lui-même chiffré avec une clé dérivée du premier caractère du mot de passe <em>attendu par le développeur</em>, une collision avec un premier caractère différent produira un flag illisible.</p>
+</blockquote>
+<p><strong>Contournement :</strong> si le schéma de chiffrement du flag final utilise une clé XOR à un seul octet, il est possible de bypasser entièrement la recherche du mot de passe en brute-forçant directement les 256 valeurs de clé possibles sur les octets chiffrés, à la recherche d'un texte clair cohérent (ex. préfixe <code>AEGIS{</code>) :</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">256</span><span class="p">):</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    <span class="n">decoded</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">([</span><span class="n">b</span> <span class="o">^</span> <span class="n">key</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">encrypted_data</span><span class="p">])</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    <span class="k">if</span> <span class="n">decoded</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;PREFIX_ATTENDU&#39;</span><span class="p">):</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>        <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">decoded</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="3-environnement-dexecution-des-binaires">3. Environnement d'exécution des binaires<a class="headerlink" href="#3-environnement-dexecution-des-binaires" title="Permanent link">&para;</a></h2>
+<p>Les binaires ELF (Linux) ne peuvent pas s'exécuter nativement sous Windows — utilisation de <strong>WSL</strong> :</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nb">cd</span><span class="w"> </span>/mnt/d/chemin/vers/le/binaire
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>chmod<span class="w"> </span>+x<span class="w"> </span>&lt;binaire&gt;
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>./&lt;binaire&gt;
+</code></pre></div>
+<h2 id="4-synthese-des-techniques-couvertes">4. Synthèse des techniques couvertes<a class="headerlink" href="#4-synthese-des-techniques-couvertes" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Technique</th>
+<th>Outil / méthode Ghidra</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Extraction de secrets en clair</td>
+<td>Defined Strings</td>
+</tr>
+<tr>
+<td>Localisation du point d'entrée réel</td>
+<td>Symbol Tree / Entry Points / suivi de XREFs</td>
+</tr>
+<tr>
+<td>Découverte de fonctions via message d'erreur</td>
+<td>XREFs (Show References To)</td>
+</tr>
+<tr>
+<td>Reconstruction de mot de passe fragmenté</td>
+<td>Lecture décompilée + mapping d'offsets</td>
+</tr>
+<tr>
+<td>Résolution d'équation de validation</td>
+<td>Analyse du Decompiler + calcul manuel</td>
+</tr>
+<tr>
+<td>Bypass de chemin d'exécution mort</td>
+<td>Patch Instruction + export binaire</td>
+</tr>
+<tr>
+<td>Déchiffrement XOR à clé fixe</td>
+<td>Extraction d'octets + script Python</td>
+</tr>
+<tr>
+<td>Lecture de structures C complexes</td>
+<td>Analyse manuelle des offsets pointeurs</td>
+</tr>
+<tr>
+<td>Contournement anti-debug (ptrace)</td>
+<td>Exécution en environnement non tracé</td>
+</tr>
+<tr>
+<td>Identification d'algo sur binaire stripped</td>
+<td>Repérage de constantes magiques</td>
+</tr>
+<tr>
+<td>Cassage de hash non cryptographique</td>
+<td>Brute force compilé (C) + bypass par clé XOR</td>
+</tr>
+</tbody>
+</table>
 
 
 
