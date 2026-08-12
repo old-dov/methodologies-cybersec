@@ -71,6 +71,13 @@ nav:
     - Post-Incident Ransomware (Cas IBC Bank): dfir/post-incident-ransomware-ibc-bank.md
     - Structurer un Plan de Réponse à Incident (Cas Tyrell): dfir/plan-reponse-incident-tyrell.md
     - Exfiltration DNS (Cas BrewByte Tech): dfir/exfiltration-dns-brewbyte.md
+  - Réseau & Infrastructure:
+    - ARP Spoofing (Man-in-the-Middle): reseau/arp-spoofing-mitm.md
+    - Routage Dynamique OSPF: reseau/ospf-routage-dynamique.md
+    - VLAN, Trunking et STP: reseau/vlan-trunking-stp.md
+    - SNMP - Exposition v2c et Durcissement v3: reseau/snmp-exposition-durcissement.md
+    - pfSense - Pare-feu et VPN Site-à-Site (WireGuard): reseau/pfsense-firewall-vpn-siteasite.md
+    - Analyse Wireshark - Traceroute & Session BGP: reseau/analyse-protocoles-wireshark-traceroute-bgp.md
   - Bibliothèque:
     - Infrastructure Logs Wazuh: bibliotheque/wazuh-logs-infrastructure.md
     - Flux de Travail Metasploit: bibliotheque/metasploit-workflow.md
