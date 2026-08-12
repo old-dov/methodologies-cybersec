@@ -4,6 +4,7 @@ Base de connaissances personnelle regroupant les méthodologies d'audit, de test
 
 ## Dernières mises à jour
 
+- 2026-08-12 : Nouvelle catégorie **Forensics & Réponse à Incident** - [Analyse Mémoire (Cas SkyLink Designs)](dfir/memoire-skylink-designs.md), [Post-Incident Ransomware (Cas IBC Bank)](dfir/post-incident-ransomware-ibc-bank.md), [Structurer un Plan de Réponse à Incident (Cas Tyrell)](dfir/plan-reponse-incident-tyrell.md), [Exfiltration DNS (Cas BrewByte Tech)](dfir/exfiltration-dns-brewbyte.md).
 - 2026-08-12 : Nouvelle catégorie **Active Directory** - [Kerberoasting](active-directory/kerberoasting.md), [Empoisonnement LLMNR & Relais NTLM](active-directory/llmnr-ntlm-relay.md), [Pass-the-Hash (PtH)](active-directory/pass-the-hash.md).
 - 2026-08-12 : Nouvelle catégorie **Pentest** - [Audit Combiné Red/Blue Team (Cas Cylentra Robotics)](pentest/cylentra-red-blue-team.md).
 
@@ -63,6 +64,14 @@ Attaques et durcissement de l'annuaire Windows.
 - [Kerberoasting](active-directory/kerberoasting.md)
 - [Empoisonnement LLMNR & Relais NTLM](active-directory/llmnr-ntlm-relay.md)
 - [Pass-the-Hash (PtH)](active-directory/pass-the-hash.md)
+
+### 🧬 Forensics & Réponse à Incident
+Analyse post-mortem, investigation mémoire/réseau et gouvernance de la réponse à incident.
+
+- [Analyse Mémoire (Cas SkyLink Designs)](dfir/memoire-skylink-designs.md)
+- [Post-Incident Ransomware (Cas IBC Bank)](dfir/post-incident-ransomware-ibc-bank.md)
+- [Structurer un Plan de Réponse à Incident (Cas Tyrell)](dfir/plan-reponse-incident-tyrell.md)
+- [Exfiltration DNS (Cas BrewByte Tech)](dfir/exfiltration-dns-brewbyte.md)
 
 ### 📚 Bibliothèque
 Fiches opérationnelles et référentiels techniques transverses.

@@ -66,6 +66,11 @@ nav:
     - Kerberoasting: active-directory/kerberoasting.md
     - Empoisonnement LLMNR & Relais NTLM: active-directory/llmnr-ntlm-relay.md
     - Pass-the-Hash (PtH): active-directory/pass-the-hash.md
+  - Forensics & Réponse à Incident:
+    - Analyse Mémoire (Cas SkyLink Designs): dfir/memoire-skylink-designs.md
+    - Post-Incident Ransomware (Cas IBC Bank): dfir/post-incident-ransomware-ibc-bank.md
+    - Structurer un Plan de Réponse à Incident (Cas Tyrell): dfir/plan-reponse-incident-tyrell.md
+    - Exfiltration DNS (Cas BrewByte Tech): dfir/exfiltration-dns-brewbyte.md
   - Bibliothèque:
     - Infrastructure Logs Wazuh: bibliotheque/wazuh-logs-infrastructure.md
     - Flux de Travail Metasploit: bibliotheque/metasploit-workflow.md
