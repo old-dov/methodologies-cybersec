@@ -60,6 +60,12 @@ nav:
   - SIEM & SOC:
     - Agent Wazuh – Multi-OS: siem-soc/agent-wazuh.md
     - Analyse de Risques Cyber: siem-soc/analyse-risques.md
+  - Pentest:
+    - Audit Combiné Red/Blue Team (Cas Cylentra Robotics): pentest/cylentra-red-blue-team.md
+  - Active Directory:
+    - Kerberoasting: active-directory/kerberoasting.md
+    - Empoisonnement LLMNR & Relais NTLM: active-directory/llmnr-ntlm-relay.md
+    - Pass-the-Hash (PtH): active-directory/pass-the-hash.md
   - Bibliothèque:
     - Infrastructure Logs Wazuh: bibliotheque/wazuh-logs-infrastructure.md
     - Flux de Travail Metasploit: bibliotheque/metasploit-workflow.md

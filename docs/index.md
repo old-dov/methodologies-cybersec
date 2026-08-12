@@ -4,9 +4,11 @@ Base de connaissances personnelle regroupant les méthodologies d'audit, de test
 
 ## Dernières mises à jour
 
-- 2026-08-04 : Nouvelle fiche publiée - [Analyse Statique avec Ghidra](bibliotheque/ghidra-analyse-statique.md).
+- 2026-08-12 : Nouvelle catégorie **Active Directory** - [Kerberoasting](active-directory/kerberoasting.md), [Empoisonnement LLMNR & Relais NTLM](active-directory/llmnr-ntlm-relay.md), [Pass-the-Hash (PtH)](active-directory/pass-the-hash.md).
+- 2026-08-12 : Nouvelle catégorie **Pentest** - [Audit Combiné Red/Blue Team (Cas Cylentra Robotics)](pentest/cylentra-red-blue-team.md).
 
 ??? note "Historique complet des mises à jour"
+    - 2026-08-04 : Nouvelle fiche publiée - [Analyse Statique avec Ghidra](bibliotheque/ghidra-analyse-statique.md).
     - 2026-08-03 : Nouvelle fiche publiée - [DFIR Compromission WordPress (Cas Blue Sun Corporation)](bibliotheque/dfir-compromission-wordpress-blue-sun.md).
     - 2026-07-31 : Nouvelle fiche publiée - [Forensics Mémoire avec Volatility (Cas Weyland-Yutani)](bibliotheque/forensics-memoire-volatility-weyland-yutani.md).
     - 2026-07-31 : Nouvelle fiche publiée - [Investigation Réseau via Wireshark (Cas BookWorld)](bibliotheque/investigation-reseau-wireshark-bookworld.md).
@@ -49,6 +51,18 @@ Architecture, déploiement et gestion d'infrastructure de supervision.
 
 - [Agent Wazuh – Déploiement multi-OS](siem-soc/agent-wazuh.md)
 - [Analyse de Risques Cyber](siem-soc/analyse-risques.md)
+
+### 🎯 Pentest
+Méthodologies d'audit offensif de bout en bout, sur des cas réels.
+
+- [Audit Combiné Red/Blue Team (Cas Cylentra Robotics)](pentest/cylentra-red-blue-team.md)
+
+### 🗝️ Active Directory
+Attaques et durcissement de l'annuaire Windows.
+
+- [Kerberoasting](active-directory/kerberoasting.md)
+- [Empoisonnement LLMNR & Relais NTLM](active-directory/llmnr-ntlm-relay.md)
+- [Pass-the-Hash (PtH)](active-directory/pass-the-hash.md)
 
 ### 📚 Bibliothèque
 Fiches opérationnelles et référentiels techniques transverses.
