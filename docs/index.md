@@ -4,6 +4,7 @@ Base de connaissances personnelle regroupant les méthodologies d'audit, de test
 
 ## Dernières mises à jour
 
+- 2026-08-12 : Nouvelle catégorie **GRC & Conformité** - [Corporate Risk Assessment (Cas Colisée Express)](grc/risk-assessment-colisee-express.md), [BIA et Feuille de Route de Reprise (Cas Colisée Express)](grc/bia-colisee-express.md), [Méthode d'Entretien BIA et Priorisation (Cas NovaShop)](grc/methode-entretien-bia-novashop.md), [Stratégies de Traitement du Risque et Discours Comité (Cas TechnoPlast)](grc/strategies-traitement-risque-technoplast.md).
 - 2026-08-12 : Nouvelle catégorie **Réseau & Infrastructure** - [ARP Spoofing (MitM)](reseau/arp-spoofing-mitm.md), [Routage Dynamique OSPF](reseau/ospf-routage-dynamique.md), [VLAN, Trunking et STP](reseau/vlan-trunking-stp.md), [SNMP - Exposition v2c et Durcissement v3](reseau/snmp-exposition-durcissement.md), [pfSense - Pare-feu et VPN Site-à-Site](reseau/pfsense-firewall-vpn-siteasite.md), [Analyse Wireshark - Traceroute & Session BGP](reseau/analyse-protocoles-wireshark-traceroute-bgp.md).
 - 2026-08-12 : Nouvelle catégorie **Forensics & Réponse à Incident** - [Analyse Mémoire (Cas SkyLink Designs)](dfir/memoire-skylink-designs.md), [Post-Incident Ransomware (Cas IBC Bank)](dfir/post-incident-ransomware-ibc-bank.md), [Structurer un Plan de Réponse à Incident (Cas Tyrell)](dfir/plan-reponse-incident-tyrell.md), [Exfiltration DNS (Cas BrewByte Tech)](dfir/exfiltration-dns-brewbyte.md).
 - 2026-08-12 : Nouvelle catégorie **Active Directory** - [Kerberoasting](active-directory/kerberoasting.md), [Empoisonnement LLMNR & Relais NTLM](active-directory/llmnr-ntlm-relay.md), [Pass-the-Hash (PtH)](active-directory/pass-the-hash.md).
@@ -83,6 +84,14 @@ Attaques, protocoles de routage/commutation et déploiement d'infrastructure ré
 - [SNMP - Exposition v2c et Durcissement v3](reseau/snmp-exposition-durcissement.md)
 - [pfSense - Pare-feu et VPN Site-à-Site (WireGuard)](reseau/pfsense-firewall-vpn-siteasite.md)
 - [Analyse Wireshark - Traceroute & Session BGP](reseau/analyse-protocoles-wireshark-traceroute-bgp.md)
+
+### ⚖️ GRC & Conformité
+Gestion des risques, analyse d'impact métier (BIA) et gouvernance de la continuité d'activité.
+
+- [Corporate Risk Assessment (Cas Colisée Express)](grc/risk-assessment-colisee-express.md)
+- [BIA et Feuille de Route de Reprise (Cas Colisée Express)](grc/bia-colisee-express.md)
+- [Méthode d'Entretien BIA et Priorisation (Cas NovaShop)](grc/methode-entretien-bia-novashop.md)
+- [Stratégies de Traitement du Risque et Discours Comité (Cas TechnoPlast)](grc/strategies-traitement-risque-technoplast.md)
 
 ### 📚 Bibliothèque
 Fiches opérationnelles et référentiels techniques transverses.

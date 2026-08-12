@@ -78,6 +78,11 @@ nav:
     - SNMP - Exposition v2c et Durcissement v3: reseau/snmp-exposition-durcissement.md
     - pfSense - Pare-feu et VPN Site-à-Site (WireGuard): reseau/pfsense-firewall-vpn-siteasite.md
     - Analyse Wireshark - Traceroute & Session BGP: reseau/analyse-protocoles-wireshark-traceroute-bgp.md
+  - GRC & Conformité:
+    - Corporate Risk Assessment (Cas Colisée Express): grc/risk-assessment-colisee-express.md
+    - BIA et Feuille de Route de Reprise (Cas Colisée Express): grc/bia-colisee-express.md
+    - Méthode d'Entretien BIA et Priorisation (Cas NovaShop): grc/methode-entretien-bia-novashop.md
+    - Stratégies de Traitement du Risque et Discours Comité (Cas TechnoPlast): grc/strategies-traitement-risque-technoplast.md
   - Bibliothèque:
     - Infrastructure Logs Wazuh: bibliotheque/wazuh-logs-infrastructure.md
     - Flux de Travail Metasploit: bibliotheque/metasploit-workflow.md
