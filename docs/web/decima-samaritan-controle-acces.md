@@ -1,4 +1,4 @@
-# Méthodologie — Lab Decima Technologies / Samaritan OS (IDOR & Contrôle d'Accès)
+# Méthodologie — Lab Decima Technologies / Samaritan OS (Contrôle d'Accès Multi-Vecteurs)
 
 **Type d'engagement :** Grey Box Penetration Test
 **Cible :** Samaritan Core Interface (mesh network, nodes opérationnels)
