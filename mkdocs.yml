@@ -108,4 +108,4 @@ nav:
     - AWSGoat Module 2 – IDOR & SQLi (Account Takeover): rapport-awsgoat-m2-idor-sqli.md
     - Conformité RGPD & AIPD (GenomePath): rapport-conformite-rgpd-aipd-genomepath.md
     - Audit RGPD Rocicorp Pharma: rapport-audit-rgpd-rocicorp-pharma.md
-    - CTF Wonderland (cicd-goat) – Partie 1: rapport-ctf-wonderland-partie1.md
+    - CTF Wonderland (cicd-goat): rapport-ctf-wonderland.md

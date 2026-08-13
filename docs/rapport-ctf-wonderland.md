@@ -1,4 +1,4 @@
-# Rapport méthodologique — CTF Wonderland (cicd-goat) — Partie 1
+# Rapport méthodologique — CTF Wonderland (cicd-goat)
 **Session du 21/07/2026 — Challenges 1 à 4**
 
 Environnement : Gitea (`localhost:3000`), Jenkins (`localhost:8080`), GitLab (`localhost:4000`), CTFd (`localhost:8000`). Compte principal : `alice` / `thealice`.

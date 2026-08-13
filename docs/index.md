@@ -4,7 +4,7 @@ Base de connaissances personnelle regroupant les méthodologies d'audit, de test
 
 ## Dernières mises à jour
 
-- 2026-08-13 : Nouveau rapport publié - [AWSGoat Module 2 – IDOR & SQLi (Account Takeover)](rapport-awsgoat-m2-idor-sqli.md), [CTF Wonderland (cicd-goat) – Partie 1](rapport-ctf-wonderland-partie1.md).
+- 2026-08-13 : Nouveau rapport publié - [AWSGoat Module 2 – IDOR & SQLi (Account Takeover)](rapport-awsgoat-m2-idor-sqli.md), [CTF Wonderland (cicd-goat)](rapport-ctf-wonderland.md).
 - 2026-08-12 : Nouvelle catégorie **GRC & Conformité** - [Corporate Risk Assessment (Cas Colisée Express)](grc/risk-assessment-colisee-express.md), [BIA et Feuille de Route de Reprise (Cas Colisée Express)](grc/bia-colisee-express.md), [Méthode d'Entretien BIA et Priorisation (Cas NovaShop)](grc/methode-entretien-bia-novashop.md), [Stratégies de Traitement du Risque et Discours Comité (Cas TechnoPlast)](grc/strategies-traitement-risque-technoplast.md).
 - 2026-08-12 : Nouvelle catégorie **Réseau & Infrastructure** - [ARP Spoofing (MitM)](reseau/arp-spoofing-mitm.md), [Routage Dynamique OSPF](reseau/ospf-routage-dynamique.md), [VLAN, Trunking et STP](reseau/vlan-trunking-stp.md), [SNMP - Exposition v2c et Durcissement v3](reseau/snmp-exposition-durcissement.md), [pfSense - Pare-feu et VPN Site-à-Site](reseau/pfsense-firewall-vpn-siteasite.md), [Analyse Wireshark - Traceroute & Session BGP](reseau/analyse-protocoles-wireshark-traceroute-bgp.md).
 - 2026-08-12 : Nouvelle catégorie **Forensics & Réponse à Incident** - [Analyse Mémoire (Cas SkyLink Designs)](dfir/memoire-skylink-designs.md), [Post-Incident Ransomware (Cas IBC Bank)](dfir/post-incident-ransomware-ibc-bank.md), [Structurer un Plan de Réponse à Incident (Cas Tyrell)](dfir/plan-reponse-incident-tyrell.md), [Exfiltration DNS (Cas BrewByte Tech)](dfir/exfiltration-dns-brewbyte.md).
@@ -38,7 +38,7 @@ Base de connaissances personnelle regroupant les méthodologies d'audit, de test
 - [Conformité RGPD & AIPD (GenomePath)](rapport-conformite-rgpd-aipd-genomepath.md)
 - [Audit RGPD Rocicorp Pharma](rapport-audit-rgpd-rocicorp-pharma.md)
 - [AWSGoat Module 2 – IDOR & SQLi (Account Takeover)](rapport-awsgoat-m2-idor-sqli.md)
-- [CTF Wonderland (cicd-goat) – Partie 1](rapport-ctf-wonderland-partie1.md)
+- [CTF Wonderland (cicd-goat)](rapport-ctf-wonderland.md)
 
 ## Catégories
 
