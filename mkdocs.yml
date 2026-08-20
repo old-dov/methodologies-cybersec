@@ -100,6 +100,7 @@ nav:
     - DFIR Compromission WordPress (Cas Blue Sun Corporation): bibliotheque/dfir-compromission-wordpress-blue-sun.md
     - Analyse Statique avec Ghidra: bibliotheque/ghidra-analyse-statique.md
   - Rapports:
+    - Instance Oracle Cloud (EDR-ML): rapport-methodologique-instance-oracle-edrml.md
     - Audit IRP & Gestion de Crise Cybersécurité: rapport-methodologique-audit-irp-gestion-crise.md
     - Audit de Conformite RGPD (DocWagon Connect): rapport-methodologique-audit-conformite-rgpd.md
     - AWSGoat Pentest: rapport-awsgoat-pentest.md
